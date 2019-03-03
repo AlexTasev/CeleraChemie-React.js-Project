@@ -35,17 +35,3 @@ let productSchema = new mongoose.Schema({
 let Product = mongoose.model('Product', productSchema)
 
 module.exports = Product
-
-module.exports.seedProducts = () => {
-  Product.find({}).then(products => {
-    if (products.length > 0) return
-
-    // TODO: Check the create method with the Front End
-    const productSeed = [];
-
-    Product
-      .create(productSeed)
-      .then(() => console.log('Seeded products successfully.'))
-      .catch((error) => console.log(error))
-  })
-}
