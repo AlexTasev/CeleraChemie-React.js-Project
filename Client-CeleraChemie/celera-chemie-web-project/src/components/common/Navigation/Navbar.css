@@ -16,7 +16,7 @@ nav {
 }
 
 .nav-link-right {
-    float: inline-end;
+    float: right;
     margin-top: 21px;
     margin-left: 20px;
     margin-right: 30px;
