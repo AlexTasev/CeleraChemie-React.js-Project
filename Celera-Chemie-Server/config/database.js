@@ -16,7 +16,6 @@ module.exports = (settings) => {
     console.log('MongoDB ready!')
 
     User.seedAdminUser()
-    Product.seedProducts()
   })
 
   db.on('error', err => console.log(`Database error: ${err}`))
