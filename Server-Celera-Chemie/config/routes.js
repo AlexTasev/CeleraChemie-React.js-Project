@@ -9,4 +9,4 @@ module.exports = (app) => {
   app.use('/product', productRoutes)
 }
 
-// TODO Check the routs
+// TODO: Add aditional routes
