@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
 import toastr from "toastr";
 
-import Navbar from './components/common/Navigation/Navbar'
+import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
 import "./App.css";
+import HomePage from "./components/homePage/Hpme";
 
 class App extends Component {
   constructor(props) {
@@ -45,8 +47,18 @@ class App extends Component {
     const isAdmin = Auth.isUserAdmin();
 
     return (
-      <Navbar/>
-      
+      <Fragment>
+        <Navbar
+          loggedIn={this.state.loggedIn}
+          isAdmin={isAdmin}
+          logout={this.logout}
+        />
+        <main>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+          </Switch>
+        </main>
+      </Fragment>
     );
   }
 }

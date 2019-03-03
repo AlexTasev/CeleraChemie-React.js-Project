@@ -1,27 +1,31 @@
 .logo {
-    height: 55px;
+    height: 50px;
     width: auto;
-    float: left;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: 10px;
+    background: black;
 }
 
 nav {
-    float: right;
-    margin-top: 14px;
-    margin-left: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 2px rgb(0, 101, 126);
+    z-index: 9999;
 }
 
-.nav-link {
-    display: inline-block;
-    text-align: right;
+.nav-link-right {
+    float: inline-end;
+    margin-top: 21px;
+    margin-left: 20px;
     margin-right: 30px;
 }
 
-.nav-link:link,
-.nav-link:visited {
-    padding: 2px 0;
-    color: rgb(0, 101, 125);
+.nav-link-right:link,
+.nav-link-right:visited {
+    padding: 1px 0;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 88%;
@@ -31,7 +35,7 @@ nav {
 
 }
 
-.nav-link:hover,
-.nav-link:active {
-    border-bottom: 2px solid rgb(0, 101, 125);
+.nav-link-right:hover,
+.nav-link-right:active {
+    border-bottom: 2px solid rgb(0, 101, 126);
 }
