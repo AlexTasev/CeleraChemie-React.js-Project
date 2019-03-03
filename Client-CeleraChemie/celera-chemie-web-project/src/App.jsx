@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import toastr from "toastr";
 
+import Navbar from './components/common/Navigation/Navbar'
 import Auth from "./utils/auth";
 import "./App.css";
 
@@ -44,9 +45,8 @@ class App extends Component {
     const isAdmin = Auth.isUserAdmin();
 
     return (
-      <div className="App">
-        <h1>Hello world!</h1>
-      </div>
+      <Navbar/>
+      
     );
   }
 }

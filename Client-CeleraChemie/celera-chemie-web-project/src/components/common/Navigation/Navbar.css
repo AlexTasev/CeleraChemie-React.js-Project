@@ -1,0 +1,37 @@
+.logo {
+    height: 55px;
+    width: auto;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+nav {
+    float: right;
+    margin-top: 14px;
+    margin-left: 10px;
+}
+
+.nav-link {
+    display: inline-block;
+    text-align: right;
+    margin-right: 30px;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    padding: 2px 0;
+    color: rgb(0, 101, 125);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 88%;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+
+}
+
+.nav-link:hover,
+.nav-link:active {
+    border-bottom: 2px solid rgb(0, 101, 125);
+}
