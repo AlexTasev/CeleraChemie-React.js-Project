@@ -31,7 +31,7 @@ const Footer = props => {
         </div>
       </section>
       <section className="author">
-        <p>Copyright (c) 2019 Aleksandar Tasev</p>
+        <p>&copy; 2019 Aleksandar Tasev</p>
       </section>
     </footer>
   );

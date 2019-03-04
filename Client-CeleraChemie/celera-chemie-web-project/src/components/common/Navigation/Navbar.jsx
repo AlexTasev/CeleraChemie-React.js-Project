@@ -3,22 +3,24 @@ import logo from "../../../Resources/images/Celera-logo.png";
 import { NavLink } from "react-router-dom";
 import "../Navigation/Navbar.css";
 
-const Navbar = (props) => {
+const Navbar = props => {
   const { loggedIn, isAdmin, logout, users, products } = props;
 
   return (
     <header className="web-site-header">
       <nav>
-        <NavLink className='nav-link-left' to="/"><img src={logo} className="logo" alt="Celera-Chemie" /></NavLink>
-        <NavLink className="nav-link-right" to="/about">
-          About Us
-        </NavLink>
-        <NavLink className="nav-link-right" to="/contacts">
-          Contacts
+        <NavLink className="nav-link-left" to="/">
+          <img src={logo} className="logo" alt="Celera-Chemie" />
         </NavLink>
         <NavLink className="nav-link-right" to="/products">
           Products
         </NavLink>
+        <NavLink className="nav-link-right" to="/contacts">
+          Contacts
+        </NavLink>
+        <NavLink className="nav-link-right" to="/about">
+          About Us
+        </NavLink>  
         <NavLink className="nav-link-right" to="/certificates">
           Certificates
         </NavLink>
@@ -38,7 +40,11 @@ const Navbar = (props) => {
           </NavLink>
         )}
         {loggedIn && (
-          <a className="nav-link-right" href="javascript:void(0)" onClick={logout}>
+          <a
+            className="nav-link-right"
+            href="javascript:void(0)"
+            onClick={logout}
+          >
             Logout
           </a>
         )}

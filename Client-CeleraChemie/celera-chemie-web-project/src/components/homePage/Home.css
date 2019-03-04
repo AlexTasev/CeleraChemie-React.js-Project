@@ -1,8 +1,32 @@
 .banner-image {
     background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../../Resources/images/GVS/70.jpg);
+        url(../../Resources/images/GVS/70.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
     background-attachment: fixed;
+}
+
+.commercial-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    background: transparent;
+}
+.commercial-text-box img {
+    background: transparent;
+    border-bottom: solid rgb(0, 101, 126)
+}
+
+.commercial-text-box h4,
+.commercial-text-box h6 {
+    background: transparent;
+    color: rgba(194, 194, 194, 0.616);
+    line-height: 1.6;
+    word-spacing: 5px;
 }

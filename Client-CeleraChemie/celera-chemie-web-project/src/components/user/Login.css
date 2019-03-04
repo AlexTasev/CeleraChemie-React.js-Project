@@ -1,0 +1,44 @@
+.Login {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Login h1 {
+    text-align: center;
+}
+
+.Login form {
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Login form input[type="text"],
+.Login form input[type="password"] {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+}
+
+.Login form input[type="submit"] {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background: rgb(0, 101, 126);
+    color: white;
+    font-size: 18px;
+}
+
+.Login form input[type="submit"]:hover {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #455859;
+    background: rgb(0, 101, 126);
+    color: white;
+}
