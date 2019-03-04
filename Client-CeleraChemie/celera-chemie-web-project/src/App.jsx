@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import toastr from "toastr";
 
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
 import "./App.css";
 import HomePage from "./components/homePage/Hpme";
+import Footer from "./components/common/Footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
           </Switch>
         </main>
+        <Footer/>
       </Fragment>
     );
   }

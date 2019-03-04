@@ -1,0 +1,29 @@
+footer, section{
+    background-color: black;
+}
+
+.contacts {
+    display: inline-block;
+    padding-top: 3%;
+    width: 20%;
+    margin-left: 10%;
+    background-color: black;
+}
+
+.contacts p{
+    font-size: 60%;
+    background-color: black;
+    line-height: 1.1;
+}
+
+.contacts p u {
+    background-color: black;
+    text-align: center;
+    font-size: 120%;
+}
+.author p {
+    padding-top: 1%;
+    text-align: center;
+    background-color: black;
+    font-size: 80%;
+}
