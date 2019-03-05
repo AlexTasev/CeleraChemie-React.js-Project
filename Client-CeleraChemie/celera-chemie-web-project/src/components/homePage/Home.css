@@ -1,5 +1,5 @@
 .banner-image {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    background-image: -webkit-linear-gradient(rgba(0,0,0,1), rgba(0, 101, 126, 0.3)),
         url(../../Resources/images/GVS/70.jpg);
     background-size: cover;
     background-position: center;
