@@ -57,7 +57,8 @@ class App extends Component {
       .then(responce => responce.json())
       .then(res => {
         if (res.errors) {
-          toastr.error(res.errors.email)
+          console.log(res)
+          toastr.error(res.errors.messsage)
         } else {
           localStorage.setItem("username", res.username);
           localStorage.setItem("userId", res.userId);
