@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../../Resources/images/Celera-logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../Navigation/Navbar.css";
 
 const Navbar = props => {
@@ -40,9 +40,8 @@ const Navbar = props => {
           </NavLink>
         )}
         {loggedIn && (
-          <a
+          <a href='/'
             className="nav-link-right"
-            href="javascript:void(0)"
             onClick={logout}
           >
             Logout
