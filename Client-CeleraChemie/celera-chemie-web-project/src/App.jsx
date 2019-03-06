@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
@@ -35,7 +35,7 @@ class App extends Component {
       .then(responce => responce.json())
       .then(body => {
         if (body.errors) {
-          toast.error('Incalid credentials');
+          toast.error("Incalid credentials");
         } else {
           localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
@@ -58,12 +58,21 @@ class App extends Component {
       .then(responce => responce.json())
       .then(res => {
         if (res.errors) {
-          toast.error('Login failed')
+          toast.error("Login failed");
         } else {
           localStorage.setItem("username", res.username);
           localStorage.setItem("userId", res.userId);
+          localStorage.setItem("authToken", res.token);
+          if (res.user.roles && res.user.roles.length > 0) {
+            this.setState({
+              isAdmin: true
+            });
+          }
+          console.log(res.user.roles);
+          
           this.setState({
-            user: res.username
+            user: res.username,
+            loggedIn: true
           });
           toast.success("Login successful!");
         }
@@ -106,28 +115,14 @@ class App extends Component {
       });
   }
 
-  // if (Auth.isUserAuthenticated()) {
-  //   this.setState({
-  //     loggedIn: true
-  //   });
-  // }
-
-  // if (nextProps.loginSuccess) {
-  //   this.setState({
-  //     loggedIn: true
-  //   });
-  // }
-
   render() {
-    const isAdmin = Auth.isUserAdmin();
-
     return (
       <Fragment>
         <ToastContainer />
         <nav>
           <Navbar
             loggedIn={this.state.loggedIn}
-            isAdmin={isAdmin}
+            isAdmin={this.state.isAdmin}
             logout={this.logout}
           />
         </nav>
