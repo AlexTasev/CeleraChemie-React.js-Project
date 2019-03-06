@@ -9,6 +9,7 @@ import "./App.css";
 import HomePage from "./components/homePage/Home";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
+import About from "./components/about/About"
 
 const host = "http://localhost:5000/";
 
@@ -22,6 +23,7 @@ class App extends Component {
 
     this.logout = this.logout.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    this.registerUser = this.registerUser.bind(this);
   }
 
   registerUser(user) {
@@ -44,7 +46,9 @@ class App extends Component {
           });
           toast.success("User successfuly registered!");
         }
-      });
+      }).catch((err) => {
+        console.log(err);
+      }) 
   }
 
   loginUser(user) {
@@ -58,7 +62,7 @@ class App extends Component {
       .then(responce => responce.json())
       .then(res => {
         if (res.errors) {
-          toast.error("Login failed");
+          toast.error(res.message);
         } else {
           localStorage.setItem("username", res.username);
           localStorage.setItem("userId", res.userId);
@@ -68,14 +72,15 @@ class App extends Component {
               isAdmin: true
             });
           }
-          console.log(res.user.roles);
-          
+
           this.setState({
             user: res.username,
             loggedIn: true
           });
-          toast.success("Login successful!");
+          toast.success(res.message);
         }
+      }).catch((err) => {
+        console.log(err);
       });
   }
 
@@ -133,6 +138,7 @@ class App extends Component {
               path="/login"
               render={() => <LogInForm loginUser={this.loginUser} />}
             />
+            <Route path="/about" component={About} />
           </Switch>
         </main>
         <Footer />

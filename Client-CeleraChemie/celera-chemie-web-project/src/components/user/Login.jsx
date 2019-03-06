@@ -25,7 +25,6 @@ class LogInForm extends React.Component {
       return;
     } 
     this.props.loginUser(this.state)
-    console.log(this.state)
   }
 
   render() {

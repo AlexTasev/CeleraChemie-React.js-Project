@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import "../Navigation/Navbar.css";
 
 const Navbar = props => {
-  const { loggedIn, isAdmin, logout, users, products } = props;
+  const { loggedIn, isAdmin, logout } = props;
 
   return (
     <header className="web-site-header">
