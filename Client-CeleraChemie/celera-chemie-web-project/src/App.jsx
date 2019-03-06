@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Route } from "react-router-dom";
-import toastr from "toastr";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'
 
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
@@ -34,14 +35,14 @@ class App extends Component {
       .then(responce => responce.json())
       .then(body => {
         if (body.errors) {
-          toastr.error(body.error);
+          toast.error(body.error);
         } else {
           localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
           this.setState({
             user: body.username
           });
-          toastr.success("User successfuly registered!");
+          toast.success("User successfuly registered!");
         }
       });
   }
@@ -57,15 +58,14 @@ class App extends Component {
       .then(responce => responce.json())
       .then(res => {
         if (res.errors) {
-          console.log(res)
-          toastr.error(res.errors.messsage)
+          toast.error('Login failed')
         } else {
           localStorage.setItem("username", res.username);
           localStorage.setItem("userId", res.userId);
           this.setState({
             user: res.username
           });
-          toastr.success("Login successful!");
+          toast.success("Login successful!");
         }
       });
   }
@@ -98,9 +98,9 @@ class App extends Component {
       .then(responce => responce.json())
       .then(body => {
         if (body.error) {
-          toastr.error(body.error);
+          toast.error(body.error);
         } else {
-          toastr.success("Product creted!");
+          toast.success("Product creted!");
           // Redirect
         }
       });
@@ -123,6 +123,7 @@ class App extends Component {
 
     return (
       <Fragment>
+        <ToastContainer />
         <nav>
           <Navbar
             loggedIn={this.state.loggedIn}
@@ -145,4 +146,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
