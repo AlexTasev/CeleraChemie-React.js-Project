@@ -35,7 +35,7 @@ class App extends Component {
       .then(responce => responce.json())
       .then(body => {
         if (body.errors) {
-          toast.error(body.error);
+          toast.error('Incalid credentials');
         } else {
           localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
