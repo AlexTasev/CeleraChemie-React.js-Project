@@ -44,11 +44,6 @@ function validateProductCreateForm(payload) {
     errors.description = 'Catalogue URL must be valid link!'
   }
 
-  if (!payload || typeof payload.brandWebSite !== 'string' ||
-    !payload.brandWebSite.startsWith('http')) {
-    isFormValid = false
-    errors.description = 'Brand web site must be valid URL!'
-  }
 
   return {
     success: isFormValid,
