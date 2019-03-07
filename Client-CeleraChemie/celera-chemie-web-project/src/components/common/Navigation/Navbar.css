@@ -6,13 +6,13 @@
 }
 
 nav {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     width: 100%;
     background-color: black;
     box-shadow: 0 2px 2px rgb(0, 101, 126);
-    /* z-index: 9999; */
+    z-index: 9999;
 }
 
 .nav-link-left {

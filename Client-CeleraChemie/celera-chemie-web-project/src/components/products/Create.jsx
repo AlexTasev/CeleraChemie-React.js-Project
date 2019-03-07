@@ -52,14 +52,14 @@ class CreatePage extends Component {
   }
 
   render() {
-    let validObj = createProductValidationFunc(
-      this.state.name,
-      this.state.ingredients,
-      this.state.description,
-      this.state.image,
-      this.state.weight,
-      this.state.price
-    );
+    // let validObj = createProductValidationFunc(
+    //   this.state.name,
+    //   this.state.ingredients,
+    //   this.state.description,
+    //   this.state.image,
+    //   this.state.weight,
+    //   this.state.price
+    // );
 
     return (
       <div>CreateForm</div>

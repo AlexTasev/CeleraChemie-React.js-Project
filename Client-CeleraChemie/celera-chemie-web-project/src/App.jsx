@@ -1,15 +1,19 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Route, withRouter, PrivateRoute } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.min.css";
+import "./App.css";
 
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
-import "./App.css";
+
 import HomePage from "./components/homePage/Home";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
+import AdminRoute from "./components/common/AdminRoute";
+// import CreatePage from "./components/products/Create";
 
 const host = "http://localhost:5000/";
 
@@ -142,10 +146,7 @@ class App extends Component {
               render={() => <LogInForm loginUser={this.loginUser} />}
             />
             <Route path="/about" component={About} />
-            <PrivateRoute
-              path="/admin/create"
-              render={() => <LogInForm loginUser={this.loginUser} />}
-            />
+            {/* <AdminRoute path="/admin/create" component={CreatePage} /> */}
           </Switch>
         </main>
         <Footer />
