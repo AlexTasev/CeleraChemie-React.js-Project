@@ -128,6 +128,16 @@ const createProductValidationFunc = (
     }
     return false;
   })();
+
+  return {
+    validManufacturer,
+    validDescription,
+    validCategory,
+    validLogoUrl,
+    validBrandUrl,
+    validLanguage,
+    validCatalogueUrl
+  }
 };
 
 export { registerValidationFunc, loginValidationFunc, createProductValidationFunc };

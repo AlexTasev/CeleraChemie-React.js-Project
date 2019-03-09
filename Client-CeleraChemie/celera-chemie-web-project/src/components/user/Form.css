@@ -1,29 +1,29 @@
-.Login {
+.Form {
     width: 50%;
     margin: 0 auto;
-    padding-top: 10%;
+    /* padding-top: 5%; */
     padding-bottom: 5%;
 }
 
-.Login h1 {
+.Form h1 {
     text-align: center;
 }
 
-.Login form {
+.Form form {
     display: grid;
     width: 50%;
     margin: 0 auto;
 }
 
-.Login form input[type="text"],
-.Login form input[type="password"] {
+.Form form input[type="text"],
+.Form form input[type="password"] {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid wheat;
     color:white;
 }
 
-.Login form input[type="submit"] {
+.Form form input[type="submit"] {
     width: 100%;
     margin: 0 auto;
     margin-top: 10px;
@@ -35,7 +35,7 @@
     font-size: 18px;
 }
 
-.Login form input[type="submit"]:hover {
+.Form form input[type="submit"]:hover {
     width: 100%;
     margin: 0 auto;
     margin-top: 10px;

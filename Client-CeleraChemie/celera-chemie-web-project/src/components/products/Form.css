@@ -1,0 +1,69 @@
+.Form {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+}
+
+.Form h1 {
+    text-align: center;
+}
+
+.Form form {
+    display: grid;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Form form input[type="text"],
+.Form form input[type="password"] {
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background-color: aliceblue;
+    color: black;
+}
+.Form form Input[type="text"],
+.Form form Input[type="password"] {
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background-color: aliceblue;
+    color: black;
+}
+.Form form textarea[type="text"]{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background-color: aliceblue;
+    color: black;
+    margin-bottom: 5%;
+}
+
+.Form form input[type="submit"] {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(1, 40, 59);
+    background: rgb(1, 40, 59);
+    color: white;
+    font-size: 18px;
+}
+
+.Form form input[type="submit"]:hover {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background: rgb(0, 101, 126);
+    color: white;
+}
+
+select {
+    background-color: aliceblue;
+    width: 60%;
+    color: black;
+    margin: 5%;
+    border-radius: 10px;
+}

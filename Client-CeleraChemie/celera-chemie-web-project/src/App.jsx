@@ -13,7 +13,7 @@ import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
 import AdminRoute from "./components/common/AdminRoute";
-// import CreatePage from "./components/products/Create";
+import CreatePage from "./components/products/CreatePage";
 
 const host = "http://localhost:5000/";
 
@@ -146,7 +146,7 @@ class App extends Component {
               render={() => <LogInForm loginUser={this.loginUser} />}
             />
             <Route path="/about" component={About} />
-            {/* <AdminRoute path="/admin/create" component={CreatePage} /> */}
+            <Route path="/admin/create" component={CreatePage} />
           </Switch>
         </main>
         <Footer />

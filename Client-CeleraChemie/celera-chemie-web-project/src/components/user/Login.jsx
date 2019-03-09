@@ -1,6 +1,7 @@
 import React from "react";
 import loginValidator from "../../utils/loginValidator";
-import "./Login.css";
+import "./Form.css";
+import Input from '../common/Input'
 
 class LogInForm extends React.Component {
   constructor(props) {
@@ -29,20 +30,20 @@ class LogInForm extends React.Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Form">
         <h1>Login</h1>
         <form onSubmit={this.onSubmit}>
-          <label>e-mail</label>
-          <input
+          <Input
             type="text"
             onChange={this.handleChange}
+            label='e-mail'
             name="email"
             id="emailLogin"
           />
-          <label>Password</label>
-          <input
+          <Input
             type="password"
             onChange={this.handleChange}
+            label= 'Password'
             name="password"
             id="passwordLogin"
           />
