@@ -1,63 +1,48 @@
-// const createProductValidator = (
-//     manufacturer,
-//     description,
-//     category,
-//     logoUrl,
-//     language,
-//     catalogueUrl,
-//     brandWebSite
-// ) => {
-//     let validManufacturer = (() => {
-//         if (manufacturer.length > 2 && manufacturer !== "") {
-//             return true;
-//         }
-//         return false;
-//     })();
+import { toast } from "react-toastify";
 
-//     let validDescription = () => {
-//         if (description.length > 10 && manufacturer !== "") {
-//             return true;
-//         }
-//         return false;
-//     };
+const createProductValidator = (
+  manufacturer,
+  description,
+  category,
+  logoUrl,
+  language,
+  catalogueUrl,
+  brandWebSite
+) => {
+  if (manufacturer.length <= 2 && manufacturer === "") {
+    toast.error("Manufacturer must be at least 3 characters long");
+    return false;
+  }
 
-//     let validCategory = (() => {
-//         if (category !== "") {
-//             return true;
-//         }
-//         return false;
-//     })();
+  if (description.length < 10 && description === "") {
+    toast.error("Description must be at last 10 chars long");
+    return false;
+  }
 
-//     let validLogoUrl = (() => {
-//         if (
-//             (logoUrl.startsWith("https://") || logoUrl.startsWith("http://")) &&
-//             logoUrl.length >= 14
-//         ) {
-//             return true;
-//         }
-//         return false;
-//     })();
+  if (category === "") {
+    toast.error("Category must be valid string");
+    return false;
+  }
 
-//     let validBrandUrl = (() => {
-//         if (brandWebSite.startsWith("http://")) {
-//             return true;
-//         }
-//         return false;
-//     })();
+  if (!logoUrl.startsWith("http") && !logoUrl.length <= 14) {
+    toast.error("Logo URL must be a valid url");
+    return false;
+  }
 
-//     let validLanguage = (() => {
-//         if (language.length === 2 && manufacturer !== "") {
-//             return true;
-//         }
-//         return false;
-//     })();
+  if (!brandWebSite.startsWith("http://")) {
+    toast.error("Brand web site must be a valid url");
+    return false;
+  }
 
-//     let validCatalogueUrl = (() => {
-//         if (catalogueUrl.startsWith("http://")) {
-//             return true;
-//         }
-//         return false;
-//     })();
-// };
+  if (language.length !== 2 && language === "") {
+    toast.error("Language nust be 2 chars, example: EN, BG");
+    return false;
+  }
 
-// export default createProductValidator;
+  if (!catalogueUrl.startsWith("http")) {
+    toast.error("catalogue link must be a valid url");
+    return false;
+  }
+};
+
+export default createProductValidator;

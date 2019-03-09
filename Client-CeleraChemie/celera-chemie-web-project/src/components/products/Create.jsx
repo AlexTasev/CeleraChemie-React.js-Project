@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
-import toast from 'react-toastify;'
+import { toast } from "react-toastify";
 
-import createProductValidator from '../../utils/createProductValidator'
+import createProductValidationFunc from '../../utils/formValidator';
+import createProductValidator from '../../utils/createProductValidator;'
 import "./Products.css";
 
 class CreatePage extends Component {
@@ -52,14 +53,14 @@ class CreatePage extends Component {
   }
 
   render() {
-    // let validObj = createProductValidationFunc(
-    //   this.state.name,
-    //   this.state.ingredients,
-    //   this.state.description,
-    //   this.state.image,
-    //   this.state.weight,
-    //   this.state.price
-    // );
+    let validObj = createProductValidationFunc(
+      this.state.name,
+      this.state.ingredients,
+      this.state.description,
+      this.state.image,
+      this.state.weight,
+      this.state.price
+    );
 
     return (
       <div>CreateForm</div>
