@@ -109,15 +109,16 @@ class App extends Component {
   }
 
   createProduct(data) {
+    console.log(data);
     fetch(host + "product/create", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'bearer ' + Auth.getToken()
+        "Content-Type": "application/json",
+        Authorization: "bearer " + Auth.getToken()
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(responce => responce.json())
       .then(res => {
         if (res.error) {
           toast.error(res.error);

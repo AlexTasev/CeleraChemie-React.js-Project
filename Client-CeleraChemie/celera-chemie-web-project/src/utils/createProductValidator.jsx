@@ -9,7 +9,6 @@ const createProductValidator = (
   catalogueUrl,
   brandWebSite
 ) => {
-  debugger
   if (manufacturer.length <= 2 && manufacturer === "") {
     toast.error("Manufacturer must be at least 3 characters long");
     return false;

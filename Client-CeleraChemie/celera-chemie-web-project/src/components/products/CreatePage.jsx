@@ -42,15 +42,15 @@ class CreatePage extends Component {
     ) {
       return;
     }
-    this.props.createProduct(
-      this.state.manufacturer,
-      this.state.description,
-      this.state.category,
-      this.state.logoUrl,
-      this.state.language,
-      this.state.catalogueUrl,
-      this.state.brandWebSite
-    );
+    this.props.createProduct({
+      manufacturer: this.state.manufacturer,
+      description: this.state.description,
+      category: this.state.category,
+      logoUrl: this.state.logoUrl,
+      language: this.state.language,
+      catalogueUrl: this.state.catalogueUrl,
+      brandWebSite: this.state.brandWebSite
+    });
   }
 
   render() {
