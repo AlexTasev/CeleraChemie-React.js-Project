@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import Redirect from "react-dom";
 
 import { createProductValidationFunc } from "../../utils/formValidator";
 import createProductValidator from "../../utils/createProductValidator";
@@ -28,7 +29,6 @@ class CreatePage extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     if (
       !createProductValidator(
         this.state.manufacturer,

@@ -25,7 +25,7 @@ const Navbar = props => {
           Certificates
         </NavLink>
         {isAdmin && (
-          <NavLink className="nav-link-right" to="/admin/create">
+          <NavLink className="nav-link-right" to="/product/create">
             Create New Product
           </NavLink>
         )}

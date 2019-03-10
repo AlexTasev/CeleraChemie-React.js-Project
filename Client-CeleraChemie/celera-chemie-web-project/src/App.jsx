@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
@@ -28,6 +28,7 @@ class App extends Component {
     this.logout = this.logout.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.registerUser = this.registerUser.bind(this);
+    this.createProduct = this.createProduct.bind(this);
   }
 
   registerUser(user) {
@@ -83,7 +84,6 @@ class App extends Component {
             loggedIn: true
           });
           toast.success(res.message);
-          //Redirect
         }
       })
       .catch(err => {
@@ -99,7 +99,7 @@ class App extends Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const localUserName = localStorage.getItem("username");
     if (localUserName) {
       this.setState({
@@ -112,17 +112,18 @@ class App extends Component {
     fetch(host + "product/create", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
+        'Authorization': 'bearer ' + Auth.getToken()
       },
       body: JSON.stringify(data)
     })
-      .then(responce => responce.json())
-      .then(body => {
-        if (body.error) {
-          toast.error(body.error);
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          toast.error(res.error);
         } else {
           toast.success("Product creted!");
-          // Redirect
+          return <Redirect to="/" />;
         }
       });
   }
@@ -143,10 +144,18 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route
               path="/login"
-              render={() => <LogInForm loginUser={this.loginUser} />}
+              render={() => (
+                <LogInForm
+                  loginUser={this.loginUser}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
             />
             <Route path="/about" component={About} />
-            <Route path="/admin/create" component={CreatePage} />
+            <Route
+              path="/product/create"
+              render={() => <CreatePage createProduct={this.createProduct} />}
+            />
           </Switch>
         </main>
         <Footer />

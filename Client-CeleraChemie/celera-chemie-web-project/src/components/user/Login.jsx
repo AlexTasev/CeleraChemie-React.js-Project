@@ -1,4 +1,6 @@
 import React from "react";
+import { Redirect } from 'react-router-dom';
+
 import loginValidator from "../../utils/loginValidator";
 import "./Form.css";
 import Input from '../common/Input'
@@ -29,6 +31,10 @@ class LogInForm extends React.Component {
   }
 
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="Form">
         <h1>Login</h1>

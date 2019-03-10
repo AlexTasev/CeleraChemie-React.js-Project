@@ -21,7 +21,7 @@ function validateProductCreateForm(payload) {
   }
 
   if (!payload || typeof payload.logoUrl !== 'string' ||
-    !payload.logoUrl.startsWith('http') || 
+    !payload.logoUrl.startsWith('http') ||
     !payload.logoUrl.endsWith('jpg') || !payload.logoUrl.endsWith('png')) {
     isFormValid = false
     errors.description = 'Image URL must be a valid URL.'
@@ -53,7 +53,7 @@ function validateProductCreateForm(payload) {
 }
 
 router.post('/create', authCheck, (req, res) => {
-  const productObj = req.body
+  const productObj = req.body;
   if (req.user.roles.indexOf('Admin') > -1) {
     const validationResult = validateProductCreateForm(productObj)
     if (!validationResult.success) {
@@ -85,7 +85,7 @@ router.post('/create', authCheck, (req, res) => {
         })
       })
   } else {
-    return res.status(200).json({
+    return res.status(401).json({
       success: false,
       message: 'Invalid credentials!'
     })
