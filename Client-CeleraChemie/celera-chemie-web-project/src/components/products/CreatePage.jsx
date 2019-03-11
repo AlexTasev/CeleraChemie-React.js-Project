@@ -4,7 +4,7 @@ import Redirect from "react-dom";
 import { createProductValidationFunc } from "../../utils/formValidator";
 import createProductValidator from "../../utils/createProductValidator";
 import Input from "../common/Input";
-import "./Form.css";
+import "../user/Form.css";
 
 class CreatePage extends Component {
   constructor(props) {

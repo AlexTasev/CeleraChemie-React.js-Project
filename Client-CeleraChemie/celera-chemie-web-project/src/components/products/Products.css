@@ -1,7 +1,8 @@
 .product-selector {
-    width: 15%;
+    width: 200px;
     display: inline-block;
     background: transparent;
+    margin-top: 3%;
 }
 
 .product-selector li{
@@ -10,7 +11,7 @@
     margin-bottom: 20px;
     padding: 10px;
     text-transform: uppercase;
-    color: rgba(236, 236, 236, 0.7);
     background-color: rgba(0, 101, 126, 0.7);
-
+    text-align: left;
+    padding-left: 20px;
 }

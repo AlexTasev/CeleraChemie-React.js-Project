@@ -14,16 +14,19 @@ footer, section{
     font-size: 60%;
     background-color: black;
     line-height: 1.1;
+    color: rgb(0, 101, 126);
 }
 
 .contacts p u {
     background-color: black;
     text-align: center;
     font-size: 120%;
+    color: rgb(0, 101, 126);
 }
 .author p {
     padding-top: 1%;
     text-align: center;
     background-color: black;
     font-size: 80%;
+    color: rgb(0, 101, 126);
 }

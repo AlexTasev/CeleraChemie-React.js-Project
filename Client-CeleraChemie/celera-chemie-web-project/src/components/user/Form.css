@@ -1,16 +1,18 @@
 .Form {
-    
+    width: 100%;
     padding-bottom: 5%;
     background-color: black;
 }
 
 .Form h1 {
     text-align: center;
+    color: rgb(0, 101, 126);
+    text-transform: uppercase;
 }
 
 .Form form {
     display: grid;
-    width: 100%;
+    width: 480px;
     margin: 0 auto;
 }
 
@@ -19,7 +21,16 @@
     padding: 10px;
     border-radius: 10px;
     border: 1px solid wheat;
-    color:white;
+    color:black;
+}
+
+.Form form textarea {
+    padding: 10px;
+    height: 260px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    color: black;
+    font-size: 80%;
 }
 
 .Form form input[type="submit"] {
@@ -40,7 +51,8 @@
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid #455859;
-    background: rgb(0, 101, 126);
+    border: 1px solid #455859;
+    background: rgb(0, 101, 0);
     color: white;
+    text-transform: uppercase;
 }
