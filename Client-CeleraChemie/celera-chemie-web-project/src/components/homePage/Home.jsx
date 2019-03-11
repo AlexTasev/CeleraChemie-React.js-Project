@@ -5,6 +5,7 @@ import logo from "../../Resources/images/Celera-logo.png";
 
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import ProductSelector from "../products/ProductSelector";
 
 class HomePage extends Component {
   render() {
@@ -16,10 +17,11 @@ class HomePage extends Component {
           <h6>
             Your trusted parthner for laboratory<br/>
           </h6>
-          <h4>Chemicals</h4>
+          <ProductSelector/>
+          {/* <h4>Chemicals</h4>
           <h4>Consumables</h4>
           <h4>Instruments</h4>
-          <h4>Filters</h4>
+          <h4>Filters</h4> */}
         </div>
       </section>
     );

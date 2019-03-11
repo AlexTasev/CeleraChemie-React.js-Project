@@ -100,7 +100,7 @@ const createProductValidationFunc = (
 
   let validLogoUrl = (() => {
     if (
-      (logoUrl.startsWith("https://") || logoUrl.startsWith("http://")) &&
+      (logoUrl.startsWith("http")) &&
       logoUrl.length >= 14
     ) {
       return true;
@@ -109,7 +109,7 @@ const createProductValidationFunc = (
   })();
 
   let validBrandUrl = (() => {
-    if (brandWebSite.startsWith("http://")) {
+    if (brandWebSite.startsWith("http")) {
       return true;
     }
     return false;
@@ -123,7 +123,7 @@ const createProductValidationFunc = (
   })();
 
   let validCatalogueUrl = (() => {
-    if (catalogueUrl.startsWith("http://")) {
+    if (catalogueUrl.startsWith("http")) {
       return true;
     }
     return false;

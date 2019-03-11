@@ -20,12 +20,11 @@ function validateProductCreateForm(payload) {
     errors.description = 'Description must be at least 10 symbols.'
   }
 
-  // if (!payload || typeof payload.logoUrl !== 'string' ||
-  //   !payload.logoUrl.startsWith('http') ||
-  //   !payload.logoUrl.endsWith('jpg') || !payload.logoUrl.endsWith('png')) {
-  //   isFormValid = false
-  //   errors.description = 'Image URL must be a valid URL.'
-  // }
+  if (!payload || typeof payload.logoUrl !== 'string' ||
+    !payload.logoUrl.startsWith('http')) {
+    isFormValid = false
+    errors.description = 'Image URL must be a valid URL.'
+  }
 
   if (!payload || typeof payload.brandWebSite !== 'string' ||
     !payload.brandWebSite.startsWith('http')) {
@@ -39,7 +38,7 @@ function validateProductCreateForm(payload) {
   }
 
   if (!payload || typeof payload.catalogueUrl !== 'string' ||
-    !payload.catalogueUrl.startsWith('http') || !payload.catalogueUrl.endsWith('pdf')) {
+    !payload.catalogueUrl.startsWith('http')) {
     isFormValid = false
     errors.description = 'Catalogue URL must be valid link!'
   }

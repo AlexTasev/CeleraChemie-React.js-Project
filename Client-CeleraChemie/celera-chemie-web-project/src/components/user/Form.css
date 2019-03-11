@@ -1,8 +1,7 @@
 .Form {
-    width: 50%;
-    margin: 0 auto;
-    /* padding-top: 5%; */
+    
     padding-bottom: 5%;
+    background-color: black;
 }
 
 .Form h1 {
@@ -11,7 +10,7 @@
 
 .Form form {
     display: grid;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 

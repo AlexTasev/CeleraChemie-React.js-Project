@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 
+import ProductSelector from './ProductSelector';
 import './Products.css'
 
 class Products extends Component {
@@ -9,6 +10,15 @@ class Products extends Component {
         this.state = {
             // category, language
         };
+    }
+
+    render(){
+        return (
+            <section>
+                <ProductSelector />
+            </section>
+            
+        )
     }
 
     

@@ -29,7 +29,7 @@ const createProductValidator = (
     return false;
   }
 
-  if (!brandWebSite.startsWith("http://")) {
+  if (!brandWebSite.startsWith("http")) {
     toast.error("Brand web site must be a valid url");
     return false;
   }
@@ -40,7 +40,7 @@ const createProductValidator = (
   }
 
   if (!catalogueUrl.startsWith("http")) {
-    toast.error("catalogue link must be a valid url");
+    toast.error("Catalogue link must be a valid url");
     return false;
   }
 

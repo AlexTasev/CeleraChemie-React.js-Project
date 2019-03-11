@@ -1,0 +1,16 @@
+.product-selector {
+    width: 15%;
+    display: inline-block;
+    background: transparent;
+}
+
+.product-selector li{
+    color: aliceblue;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: rgba(236, 236, 236, 0.7);
+    background-color: rgba(0, 101, 126, 0.7);
+
+}

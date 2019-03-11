@@ -32,7 +32,6 @@ nav {
     color: rgba(236, 236, 236, 0.7);
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 80%;
     border-bottom: 2px solid transparent;
     -webkit-transition: border-bottom 0.2s;
     transition: border-bottom 0.2s;

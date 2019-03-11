@@ -14,6 +14,7 @@ import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
 import AdminRoute from "./components/common/AdminRoute";
 import CreatePage from "./components/products/CreatePage";
+import Products from "./components/products/Products";
 
 const host = "http://localhost:5000/";
 
@@ -141,7 +142,6 @@ class App extends Component {
             logout={this.logout}
           />
         </nav>
-        <main>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route
@@ -156,10 +156,13 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route
               path="/product/create"
-              render={() => <CreatePage createProduct={this.createProduct} />}
+              render={() => (
+                <CreatePage createProduct={this.createProduct} />
+              )}
             />
+            <Route path="/products" component={Products} />
+            )} />
           </Switch>
-        </main>
         <Footer />
       </Fragment>
     );
