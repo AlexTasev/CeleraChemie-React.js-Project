@@ -26,7 +26,7 @@ const Navbar = props => {
         </NavLink>
         {isAdmin && (
           <NavLink className="nav-link-right" to="/product/create">
-            Create New Product
+            New Product
           </NavLink>
         )}
         {!loggedIn && (

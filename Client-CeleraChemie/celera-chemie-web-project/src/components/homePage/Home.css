@@ -24,10 +24,11 @@
     border-bottom: solid rgb(0, 101, 126)
 }
 
-.commercial-text-box h4,
 .commercial-text-box h6 {
     background: transparent;
     color: rgba(194, 194, 194, 0.616);
     line-height: 1.6;
     word-spacing: 5px;
+    text-align: left;
+    padding-left: 20px;
 }
