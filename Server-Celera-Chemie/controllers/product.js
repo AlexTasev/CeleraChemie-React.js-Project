@@ -57,11 +57,11 @@ router.post('/create', authCheck, (req, res) => {
   if (req.user.roles.indexOf('Admin') > -1) {
     const validationResult = validateProductCreateForm(productObj)
     if (!validationResult.success) {
-      return res.status(200).json({
+      return res.status(401).json({
         success: false,
         message: validationResult.message,
         errors: validationResult.errors
-      })
+      });
     }
 
     Product
@@ -79,7 +79,7 @@ router.post('/create', authCheck, (req, res) => {
         if (err.code === 11000) {
           message = 'Product with the given name already exists.'
         }
-        return res.status(200).json({
+        return res.status(401).json({
           success: false,
           message: message
         })

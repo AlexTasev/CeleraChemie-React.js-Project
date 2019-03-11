@@ -114,12 +114,13 @@ class App extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
+        "Authorization": "bearer " + Auth.getToken()
       },
       body: JSON.stringify(data)
     })
-      .then(responce => responce.json())
+      .then(res => res.json())
       .then(res => {
+        console.log(res);
         if (res.error) {
           toast.error(res.error);
         } else {
