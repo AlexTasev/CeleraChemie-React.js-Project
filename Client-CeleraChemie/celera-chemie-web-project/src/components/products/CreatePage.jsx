@@ -53,6 +53,12 @@ class CreatePage extends Component {
     });
   }
 
+  componentDidMount() {
+    if (!Auth.isUserAdmin()) {
+      this.props.history.push("/");
+    }
+  }
+
   render() {
     let validObj = createProductValidationFunc(
       this.state.manufacturer,
