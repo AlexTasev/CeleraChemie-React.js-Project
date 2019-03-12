@@ -160,6 +160,16 @@ router.get('/all', (req, res) => {
     })
 })
 
+router.get('/filters', (req, res) => {
+  Product
+    .find({
+      category: 'filters'
+    })
+    .then(products => {
+      res.status(200).json(products)
+    })
+})
+
 router.delete('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id
   if (req.user.roles.indexOf('Admin') > -1) {

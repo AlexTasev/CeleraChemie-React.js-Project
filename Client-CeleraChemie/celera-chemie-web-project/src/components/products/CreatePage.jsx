@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Redirect from "react-dom";
 
+import Auth from '../../utils/auth'
 import { createProductValidationFunc } from "../../utils/formValidator";
 import createProductValidator from "../../utils/createProductValidator";
 import Input from "../common/Input";

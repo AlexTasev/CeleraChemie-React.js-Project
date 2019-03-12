@@ -7,12 +7,10 @@ import "./App.css";
 
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
-
 import HomePage from "./components/homePage/Home";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
-import AdminRoute from "./components/common/AdminRoute";
 import CreatePage from "./components/products/CreatePage";
 import Products from "./components/products/Products";
 
@@ -78,6 +76,7 @@ class App extends Component {
             this.setState({
               isAdmin: true
             });
+            window.localStorage.setItem('roles', res.user.roles)
           }
 
           this.setState({
@@ -115,7 +114,7 @@ class App extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "bearer " + Auth.getToken()
+        Authorization: "bearer " + Auth.getToken()
       },
       body: JSON.stringify(data)
     })
@@ -142,27 +141,29 @@ class App extends Component {
             logout={this.logout}
           />
         </nav>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route
-              path="/login"
-              render={() => (
-                <LogInForm
-                  loginUser={this.loginUser}
-                  loggedIn={this.state.loggedIn}
-                />
-              )}
-            />
-            <Route path="/about" component={About} />
-            <Route
-              path="/product/create"
-              render={() => (
-                <CreatePage createProduct={this.createProduct} />
-              )}
-            />
-            <Route path="/products" component={Products} />
-            )} />
-          </Switch>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route
+            path="/login"
+            render={() => (
+              <LogInForm
+                loginUser={this.loginUser}
+                loggedIn={this.state.loggedIn}
+              />
+            )}
+          />
+          <Route path="/about" component={About} />
+          <Route
+            path="/product/create"
+            render={() => (
+              <CreatePage
+                createProduct={this.createProduct}
+              />
+            )}
+          />
+          <Route path="/products" component={Products} />
+          )} />
+        </Switch>
         <Footer />
       </Fragment>
     );
