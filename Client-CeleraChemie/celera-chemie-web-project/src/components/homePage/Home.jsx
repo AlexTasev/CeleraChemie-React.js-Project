@@ -1,12 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import SwiftSlider from "react-swift-slider";
 
 import "../homePage/Home.css";
 import logo from "../../Resources/images/Celera-logo.png";
-
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
-import ProductSelector from "../products/ProductSelector";
 
 const data = [
   {
@@ -36,22 +32,21 @@ const data = [
   }
 ];
 
-class HomePage extends Component {
-  render() {
-    return (
-      <section className="banner-image">
-        <SwiftSlider data={data} showDots={false} />
-        <div className="commercial-text-box">
+const HomePage = (props) => {
+  return (
+    <section className="banner-image">
+      <SwiftSlider data={data} showDots={false} />
+      <div className="commercial-text-box">
+        <br />
+        <img src={logo} alt="Celera-Chemie" />
+        <h6>
+          Your trusted parthner for laboratory chemicals, consumables,
+          instruments, glassware and filters
           <br />
-          <img src={logo} alt="Celera-Chemie" />
-          <h6>
-            Your trusted parthner for laboratory chemicals, consumables, instruments, glassware and filters
-            <br />
-          </h6>
-        </div>
-      </section>
-    );
-  }
-}
+        </h6>
+      </div>
+    </section>
+  );
+};
 
 export default HomePage;

@@ -13,6 +13,7 @@ import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
 import CreatePage from "./components/products/CreatePage";
 import Products from "./components/products/Products";
+import Language from "./components/common/Language/Language";
 
 const host = "http://localhost:5000/";
 
@@ -158,6 +159,7 @@ class App extends Component {
           <Route path="/products" component={Products} />
           )} />
         </Switch>
+        <Language/>
         <Footer />
       </Fragment>
     );

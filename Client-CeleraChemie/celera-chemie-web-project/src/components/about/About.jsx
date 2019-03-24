@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from 'react';
 
-const About = props => {
-    const { lang } = props;
-
-    return (<div>About page</div>);
-
+const About = (props) => {
+    return ( 
+        <h1>About page</h1>
+     );
 }
-
+ 
 export default About;

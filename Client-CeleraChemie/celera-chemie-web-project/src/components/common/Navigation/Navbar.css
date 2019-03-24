@@ -42,6 +42,5 @@ nav {
 .nav-link-right:hover,
 .nav-link-right:active {
     border-bottom: 2px solid rgb(0, 101, 126);
-    width: 180px;
     text-align: center;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Products.css";
 
-const ProductSelector = props => {
+const ProductSelector = (props) => {
   return (
     <section className="product-selector">
       <ul>
