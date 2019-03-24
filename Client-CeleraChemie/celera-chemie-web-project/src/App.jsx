@@ -76,7 +76,7 @@ class App extends Component {
             this.setState({
               isAdmin: true
             });
-            window.localStorage.setItem('roles', res.user.roles)
+            window.localStorage.setItem("roles", res.user.roles);
           }
 
           this.setState({
@@ -134,13 +134,11 @@ class App extends Component {
     return (
       <Fragment>
         <ToastContainer />
-        <nav>
-          <Navbar
-            loggedIn={this.state.loggedIn}
-            isAdmin={this.state.isAdmin}
-            logout={this.logout}
-          />
-        </nav>
+        <Navbar
+          loggedIn={this.state.loggedIn}
+          isAdmin={this.state.isAdmin}
+          logout={this.logout}
+        />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -155,11 +153,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route
             path="/product/create"
-            render={() => (
-              <CreatePage
-                createProduct={this.createProduct}
-              />
-            )}
+            render={() => <CreatePage createProduct={this.createProduct} />}
           />
           <Route path="/products" component={Products} />
           )} />

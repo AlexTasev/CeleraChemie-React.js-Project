@@ -5,12 +5,6 @@ import "./Products.css";
 const ProductSelector = props => {
   return (
     <section className="product-selector">
-      {/* <Link className='li' to="/chemicals">Chemicals</Link>
-      <Link className='li' to="/consumables">Consumables</Link>
-      <Link className='li' to="/instruments">Instruments</Link>
-      <Link className='li' to="/glassware">Glassware</Link>
-      <Link className='li' to="/filters">Filters</Link> */}
-
       <ul>
         <li>
           <Link to="product/chemicals">Chemicals</Link>

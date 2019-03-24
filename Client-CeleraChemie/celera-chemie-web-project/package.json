@@ -8,6 +8,7 @@
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-swift-slider": "^5.0.0",
     "react-switch-lang": "^1.0.2",
     "react-toastify": "^4.5.2",
     "toastr": "^2.1.4"

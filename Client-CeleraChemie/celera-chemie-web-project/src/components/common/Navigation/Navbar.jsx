@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../../Resources/images/Celera-logo.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../Navigation/Navbar.css";
 
 const Navbar = props => {
