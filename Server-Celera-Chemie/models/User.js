@@ -13,7 +13,7 @@ let userSchema = new mongoose.Schema({
     type: String,
     required: REQUIRED_VALIDATION_MESSAGE
   },
-  name: {
+  nameOfUser: {
     type: String
   },
   phone: {

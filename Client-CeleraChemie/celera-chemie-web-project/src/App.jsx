@@ -8,9 +8,11 @@ import "./App.css";
 import Navbar from "./components/common/Navigation/Navbar";
 import Auth from "./utils/auth";
 import HomePage from "./components/homePage/Home";
+import RegisterForm from "./components/user/Register";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
+import Contacts from "./components/contacts/Contacts";
 import CreatePage from "./components/products/CreatePage";
 import Products from "./components/products/Products";
 import Language from "./components/common/Language/Language";
@@ -22,7 +24,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      isAdmin: false
     };
 
     this.logout = this.logout.bind(this);
@@ -32,6 +35,7 @@ class App extends Component {
   }
 
   registerUser(user) {
+    debugger;
     fetch(host + "auth/signup", {
       method: "POST",
       headers: {
@@ -42,12 +46,13 @@ class App extends Component {
       .then(responce => responce.json())
       .then(body => {
         if (body.errors) {
-          toast.error("Incalid credentials");
+          toast.error("Invalid credentials");
         } else {
           localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
           this.setState({
-            user: body.username
+            user: body.username,
+            loggedIn: true
           });
           toast.success("User successfuly registered!");
         }
@@ -151,6 +156,16 @@ class App extends Component {
               />
             )}
           />
+          <Route
+            path="/register"
+            render={() => (
+              <RegisterForm
+                registerUser={this.registerUser}
+                loggedIn={this.state.loggedIn}
+              />
+            )}
+          />
+          <Route path="/contacts" component={Contacts} />
           <Route path="/about" component={About} />
           <Route
             path="/product/create"
@@ -159,7 +174,7 @@ class App extends Component {
           <Route path="/products" component={Products} />
           )} />
         </Switch>
-        <Language/>
+        <Language />
         <Footer />
       </Fragment>
     );

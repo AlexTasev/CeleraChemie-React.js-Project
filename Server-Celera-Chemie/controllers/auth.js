@@ -16,7 +16,7 @@ function validateSignupForm(payload) {
 
   if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
     isFormValid = false
-    errors.email = 'Please provide your email address.'
+    errors.email = 'Please provide your Organisation.'
   }
 
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {

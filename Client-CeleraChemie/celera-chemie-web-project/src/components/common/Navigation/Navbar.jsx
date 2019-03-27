@@ -12,9 +12,11 @@ const Navbar = props => {
         <NavLink className="nav-link-left" to="/">
           <img src={logo} className="logo" alt="Celera-Chemie" />
         </NavLink>
-        <NavLink className="nav-link-right" to="/products">
-          Products
+        {loggedIn && (
+          <NavLink className="nav-link-right" to="/products">
+            Products
         </NavLink>
+        )}
         <NavLink className="nav-link-right" to="/contacts">
           Contacts
         </NavLink>
