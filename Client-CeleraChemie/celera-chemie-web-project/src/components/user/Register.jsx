@@ -17,8 +17,11 @@ class RegisterForm extends React.Component {
   }
 
   handleChange(event) {
+    let name = event.target.name;
+    let value = event.target.value;
+
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
 
@@ -34,7 +37,6 @@ class RegisterForm extends React.Component {
     ) {
       return;
     }
-    debugger;
     this.props.registerUser(this.state);
   }
 

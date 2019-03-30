@@ -17,7 +17,9 @@ module.exports = new PassportLocalStrategy({
   }
 
   User
-    .find({email: email})
+    .find({
+      email: email
+    })
     .then(users => {
       if (users.length > 0) {
         return done('E-mail already exists!')
@@ -26,7 +28,7 @@ module.exports = new PassportLocalStrategy({
       user.salt = encryption.generateSalt()
       user.password = encryption.generateHashedPassword(user.salt, user.password)
       user.roles = []
-      debugger;
+
       User
         .create(user)
         .then(() => {

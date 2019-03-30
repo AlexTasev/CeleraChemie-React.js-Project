@@ -47,11 +47,7 @@ class App extends Component {
         if (body.errors) {
           toast.error("Invalid credentials");
         } else {
-          localStorage.setItem("username", body.username);
-          localStorage.setItem("userId", body.userId);
-          localStorage.setItem("authToken", body.token);
           this.setState({
-            user: body.username,
             loggedIn: true
           });
           toast.success("User successfuly registered!");

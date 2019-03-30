@@ -159,6 +159,44 @@ router.get('/all', (req, res) => {
       res.status(200).json(products)
     })
 })
+router.get('/chemicals', (req, res) => {
+  Product
+    .find({
+      category: 'chemicals'
+    })
+    .then(products => {
+      res.status(200).json(products)
+    })
+})
+router.get('/consumables', (req, res) => {
+  Product
+    .find({
+      category: 'consumables'
+    })
+    .then(products => {
+      res.status(200).json(products)
+    })
+})
+
+router.get('/instruments', (req, res) => {
+  Product
+    .find({
+      category: 'instruments'
+    })
+    .then(products => {
+      res.status(200).json(products)
+    })
+})
+
+router.get('/glassware', (req, res) => {
+  Product
+    .find({
+      category: 'glassware'
+    })
+    .then(products => {
+      res.status(200).json(products)
+    })
+})
 
 router.get('/filters', (req, res) => {
   Product

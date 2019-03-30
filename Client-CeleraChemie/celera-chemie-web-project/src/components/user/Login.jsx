@@ -1,9 +1,9 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 import loginValidator from "../../utils/loginValidator";
 import "./Form.css";
-import Input from '../common/Input'
+import Input from "../common/Input";
 
 class LogInForm extends React.Component {
   constructor(props) {
@@ -17,8 +17,11 @@ class LogInForm extends React.Component {
   }
 
   handleChange(event) {
+    let name = event.target.name;
+    let value = event.target.value;
+
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
 
@@ -26,8 +29,8 @@ class LogInForm extends React.Component {
     event.preventDefault();
     if (!loginValidator(this.state.email, this.state.password)) {
       return;
-    } 
-    this.props.loginUser(this.state)
+    }
+    this.props.loginUser(this.state);
   }
 
   render() {
@@ -42,14 +45,14 @@ class LogInForm extends React.Component {
           <Input
             type="text"
             onChange={this.handleChange}
-            label='e-mail'
+            label="e-mail"
             name="email"
             id="emailLogin"
           />
           <Input
             type="password"
             onChange={this.handleChange}
-            label= 'Password'
+            label="Password"
             name="password"
             id="passwordLogin"
           />
