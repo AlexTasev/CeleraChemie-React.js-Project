@@ -35,7 +35,6 @@ class App extends Component {
   }
 
   registerUser(user) {
-    debugger;
     fetch(host + "auth/signup", {
       method: "POST",
       headers: {
@@ -50,6 +49,7 @@ class App extends Component {
         } else {
           localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
+          localStorage.setItem("authToken", body.token);
           this.setState({
             user: body.username,
             loggedIn: true

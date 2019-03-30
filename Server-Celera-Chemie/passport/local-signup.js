@@ -10,11 +10,10 @@ module.exports = new PassportLocalStrategy({
 }, (req, email, password, done) => {
   const user = {
     email: email.trim(),
-    organisation: req.organisation.trim(),
-    nameOfUser: req.nameOfUser.trim(),
-    phone: req.phone.trim(),
-    password: password.trim(),
-    username: req.body.username.trim()
+    nameOfUser: req.body.nameOfUser.trim(),
+    organisation: req.body.organisation.trim(),
+    phone: req.body.phoneNumber.trim(),
+    password: password.trim()
   }
 
   User
@@ -27,7 +26,7 @@ module.exports = new PassportLocalStrategy({
       user.salt = encryption.generateSalt()
       user.password = encryption.generateHashedPassword(user.salt, user.password)
       user.roles = []
-
+      debugger;
       User
         .create(user)
         .then(() => {

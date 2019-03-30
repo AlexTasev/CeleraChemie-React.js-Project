@@ -10,8 +10,7 @@
     "react-scripts": "2.1.5",
     "react-swift-slider": "^5.0.0",
     "react-switch-lang": "^1.0.2",
-    "react-toastify": "^4.5.2",
-    "toastr": "^2.1.4"
+    "react-toastify": "^4.5.2"
   },
   "scripts": {
     "start": "react-scripts start",

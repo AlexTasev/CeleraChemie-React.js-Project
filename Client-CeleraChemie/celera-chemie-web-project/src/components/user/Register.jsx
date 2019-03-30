@@ -27,9 +27,9 @@ class RegisterForm extends React.Component {
     if (
       !registerValidator(
         this.state.email,
+        this.state.organisation,
         this.state.password,
-        this.state.repeatPassword,
-        this.state.organisation
+        this.state.repeatPassword
       )
     ) {
       return;

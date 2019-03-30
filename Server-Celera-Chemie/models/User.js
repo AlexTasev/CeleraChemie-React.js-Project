@@ -16,7 +16,7 @@ let userSchema = new mongoose.Schema({
   nameOfUser: {
     type: String
   },
-  phone: {
+  phoneNumber: {
     type: String
   },
   salt: String,
