@@ -55,7 +55,7 @@
     margin-bottom: 20px;
 }
 
-.buttonUser {
+.button-user {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.623);
     background-color: rgba(0, 101, 126, 0.6);
@@ -66,7 +66,30 @@
     font-size: 70%;
 }
 
-.buttonUser:hover {
+.button-user:hover {
     background-color: rgba(0, 101, 126);
     color: white;
+    text-transform: bold;
+}
+
+#edit-btn {
+    color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(255, 232, 101, 0.5);
+}
+
+#edit-btn:hover {
+    color: rgb(5, 0, 0);
+    background-color: rgba(255, 232, 101);
+}
+
+#delete-btn {
+    color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(255, 37, 37, 0.5);
+    border: 0;
+}
+
+#delete-btn:hover {
+    color: rgba(255, 255, 255);
+    background-color: rgba(255, 37, 37);
+    border: 0;
 }

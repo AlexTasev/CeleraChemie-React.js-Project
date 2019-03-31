@@ -148,8 +148,10 @@ class App extends Component {
             path="/product/create"
             render={() => <CreatePage isAdmin={this.state.isAdmin} />}
           />
-          <Route path="/products" component={Products} />
-          )} />
+          <Route
+            path="/products"
+            render={() => <Products isAdmin={this.state.isAdmin} />}
+          />
         </Switch>
         <Language />
         <Footer />

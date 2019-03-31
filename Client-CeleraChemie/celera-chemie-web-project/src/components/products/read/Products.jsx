@@ -86,11 +86,14 @@ class Products extends Component {
         )}
         {this.state.products.map(product => (
           <Product
+            key={product._id}
             logoUrl={product.logoUrl}
             manufacturer={product.manufacturer}
             description={product.description}
             catalogueUrl={product.catalogueUrl}
             brandWebSite={product.brandWebSite}
+            id={product._id}
+            isAdmin={this.props.isAdmin}
           />
         ))}
       </section>
