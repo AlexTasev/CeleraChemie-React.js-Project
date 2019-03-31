@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 
-import Auth from '../../utils/auth'
-import { createProductValidationFunc } from "../../utils/formValidator";
-import createProductValidator from "../../utils/createProductValidator";
-import Input from "../common/Input";
-import "../user/Form.css";
+import Auth from "../../../utils/auth";
+import { createProductValidationFunc } from "../../../utils/formValidator";
+import createProductValidator from "../../../utils/createProductValidator";
+import Input from "../../common/Input";
+import "../../user/Form.css";
 
 class CreatePage extends Component {
   constructor(props) {
@@ -24,42 +26,74 @@ class CreatePage extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    let targetName = e.target.name;
+    let targetValue = e.target.value;
+    this.setState({
+      [targetName]: targetValue
+    });
   }
 
   onSubmit(e) {
     e.preventDefault();
+    let {
+      manufacturer,
+      description,
+      category,
+      logoUrl,
+      language,
+      catalogueUrl,
+      brandWebSite
+    } = this.state;
     if (
       !createProductValidator(
-        this.state.manufacturer,
-        this.state.description,
-        this.state.category,
-        this.state.logoUrl,
-        this.state.language,
-        this.state.catalogueUrl,
-        this.state.brandWebSite
+        manufacturer,
+        description,
+        category,
+        logoUrl,
+        language,
+        catalogueUrl,
+        brandWebSite
       )
     ) {
       return;
     }
-    this.props.createProduct({
-      manufacturer: this.state.manufacturer,
-      description: this.state.description,
-      category: this.state.category,
-      logoUrl: this.state.logoUrl,
-      language: this.state.language,
-      catalogueUrl: this.state.catalogueUrl,
-      brandWebSite: this.state.brandWebSite
-    });
-  }
 
-  componentDidMount() {
-    if (!Auth.isUserAdmin()) {
-      this.props.history.push("/");
+    if (!this.props.isAdmin) {
+      return <Redirect to='/login'/>
     }
+
+    fetch("http://localhost:5000/product/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "bearer " + Auth.getToken()
+      },
+      body: JSON.stringify({
+        manufacturer: this.state.manufacturer,
+        description: this.state.description,
+        category: this.state.category,
+        logoUrl: this.state.logoUrl,
+        language: this.state.language,
+        catalogueUrl: this.state.catalogueUrl,
+        brandWebSite: this.state.brandWebSite
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          toast.success("Product creted!");
+          return <Redirect to="/" />;
+        }
+      });
   }
 
   render() {
+    if (!this.props.isAdmin) {
+      return <Redirect to="/login" />;
+    }
+
     let validObj = createProductValidationFunc(
       this.state.manufacturer,
       this.state.description,

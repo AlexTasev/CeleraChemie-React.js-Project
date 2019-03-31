@@ -1,0 +1,72 @@
+/* -------------MAIN PART------------ */
+
+.products-section {
+    background-color: black;
+}
+
+/* ---PRODUCT CATEGORIES SELECTOR---- */
+
+.product-selector {
+    display: inline-block;
+    background: black;
+    margin-top: 3%;
+    width: 20%;
+    position: ;
+}
+
+.product-selector li button{
+    width: 200px;
+    color: rgb(197, 204, 211);
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: rgba(0, 101, 126, 0.5);
+    text-align: left;
+    padding-left: 20px;
+    border:none;
+}
+
+.product-selector li button:hover,
+.product-selector li button:active {
+    background-color: rgba(0, 101, 126);
+    color: white;
+    border-color: white;
+}
+
+/* --------EMPTY PRODUCS------ */
+
+.brands-logos {
+    display: inline-block;
+    width: 75%;
+    height: 100%;
+}
+
+/* --------DISPLAY PRODUCTS----------- */
+
+.products-display {
+    display: inline-block;
+    background: black;
+    margin-top: 3%;
+    width: 70%;
+}
+
+.description{
+    margin-bottom: 20px;
+}
+
+.buttonUser {
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(0, 101, 126, 0.6);
+    word-spacing: 5px;
+    border-radius: 200px;
+    margin: 20px;
+    padding:20px;
+    font-size: 70%;
+}
+
+.buttonUser:hover {
+    background-color: rgba(0, 101, 126);
+    color: white;
+}

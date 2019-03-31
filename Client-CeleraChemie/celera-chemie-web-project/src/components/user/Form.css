@@ -24,6 +24,19 @@
     color:black;
 }
 
+.Form form select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.Form form select option {
+    color: black;
+}
+
+
 .Form form textarea {
     padding: 10px;
     height: 260px;
@@ -31,6 +44,7 @@
     border: 1px solid wheat;
     color: black;
     font-size: 80%;
+    margin-bottom: 10px;
 }
 
 .Form form input[type="submit"] {

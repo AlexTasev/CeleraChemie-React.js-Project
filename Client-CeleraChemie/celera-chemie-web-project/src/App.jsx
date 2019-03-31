@@ -1,20 +1,20 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Route, withRouter, Redirect } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import "./App.css";
 
 import Navbar from "./components/common/Navigation/Navbar";
-import Auth from "./utils/auth";
 import HomePage from "./components/homePage/Home";
 import RegisterForm from "./components/user/Register";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
+import CertificatesPage from "./components/certificates/CertificatesPage";
 import Contacts from "./components/contacts/Contacts";
-import CreatePage from "./components/products/CreatePage";
-import Products from "./components/products/Products";
+import CreatePage from "./components/products/create/CreatePage";
+import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
 
 const host = "http://localhost:5000/";
@@ -31,7 +31,6 @@ class App extends Component {
     this.logout = this.logout.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.registerUser = this.registerUser.bind(this);
-    this.createProduct = this.createProduct.bind(this);
   }
 
   registerUser(user) {
@@ -50,11 +49,14 @@ class App extends Component {
           this.setState({
             loggedIn: true
           });
+          localStorage.setItem("username", body.username);
+          localStorage.setItem("userId", body.userId);
+          localStorage.setItem("authToken", body.token);
           toast.success("User successfuly registered!");
         }
       })
       .catch(err => {
-        console.log(err);
+        toast.error("Invalid credentials");
       });
   }
 
@@ -78,7 +80,7 @@ class App extends Component {
             this.setState({
               isAdmin: true
             });
-            window.localStorage.setItem("roles", res.user.roles);
+            localStorage.setItem("roles", res.user.roles);
           }
 
           this.setState({
@@ -89,7 +91,7 @@ class App extends Component {
         }
       })
       .catch(err => {
-        console.log(err);
+        toast.error("Invalid credentials");
       });
   }
 
@@ -108,28 +110,6 @@ class App extends Component {
         user: localUserName
       });
     }
-  }
-
-  createProduct(data) {
-    console.log(data);
-    fetch(host + "product/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        if (res.error) {
-          toast.error(res.error);
-        } else {
-          toast.success("Product creted!");
-          return <Redirect to="/" />;
-        }
-      });
   }
 
   render() {
@@ -163,9 +143,10 @@ class App extends Component {
           />
           <Route path="/contacts" component={Contacts} />
           <Route path="/about" component={About} />
+          <Route path="/certificates" component={CertificatesPage} />
           <Route
             path="/product/create"
-            render={() => <CreatePage createProduct={this.createProduct} />}
+            render={() => <CreatePage isAdmin={this.state.isAdmin} />}
           />
           <Route path="/products" component={Products} />
           )} />
