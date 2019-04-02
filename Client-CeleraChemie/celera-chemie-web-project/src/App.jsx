@@ -16,6 +16,7 @@ import Contacts from "./components/contacts/Contacts";
 import CreatePage from "./components/products/create/CreatePage";
 import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
+import EditProduct from "./components/products/update/EditProduct";
 
 const host = "http://localhost:5000/";
 
@@ -151,6 +152,10 @@ class App extends Component {
           <Route
             path="/products"
             render={() => <Products isAdmin={this.state.isAdmin} />}
+          />
+          <Route
+            path="/product/edit/:id"
+            render={() => <EditProduct isAdmin={this.state.isAdmin} />}
           />
         </Switch>
         <Language />

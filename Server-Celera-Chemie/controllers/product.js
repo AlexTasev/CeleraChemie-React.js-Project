@@ -159,6 +159,7 @@ router.get('/all', (req, res) => {
       res.status(200).json(products)
     })
 })
+
 router.get('/chemicals', (req, res) => {
   Product
     .find({
@@ -168,6 +169,17 @@ router.get('/chemicals', (req, res) => {
       res.status(200).json(products)
     })
 })
+
+router.get('/:id', (req, res) => {
+  Product
+    .find({
+      id: req.params._id
+    })
+    .then(product => {
+      res.status(200).json(product)
+    })
+})
+
 router.get('/consumables', (req, res) => {
   Product
     .find({

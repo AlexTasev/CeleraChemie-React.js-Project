@@ -56,7 +56,11 @@ class Product extends Component {
         </a>
         {this.props.isAdmin && (
           <Fragment>
-            <Link className="button-user" id="edit-btn" to="/edit">
+            <Link
+              className="button-user"
+              id="edit-btn"
+              to={`/product/edit/${this.props.id}`}
+            >
               Edit Product
             </Link>
             <button
