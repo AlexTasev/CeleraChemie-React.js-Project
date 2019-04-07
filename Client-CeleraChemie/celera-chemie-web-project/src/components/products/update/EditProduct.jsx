@@ -36,6 +36,7 @@ class EditProduct extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const productId = this.props.match.params.id;
     let {
       manufacturer,
       description,
@@ -59,7 +60,7 @@ class EditProduct extends Component {
       return;
     }
 
-    fetch("http://localhost:5000/product/edit/:id", {
+    fetch(`http://localhost:5000/product/edit/${productId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +81,7 @@ class EditProduct extends Component {
         if (res.error) {
           toast.error(res.error);
         } else {
-          toast.success("Product creted!");
+          toast.success("Product edited successfuly!");
           return <Redirect to="/" />;
         }
       });
@@ -92,6 +93,7 @@ class EditProduct extends Component {
       .then(rawData => rawData.json())
       .then(product =>
         this.setState({
+          _id: productId,
           manufacturer: product.manufacturer,
           description: product.description,
           category: product.category,
