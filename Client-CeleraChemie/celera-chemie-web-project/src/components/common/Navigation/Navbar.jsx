@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import "../Navigation/Navbar.css";
 
 const Navbar = props => {
-  const { loggedIn, isAdmin, logout } = props;
+  const { loggedIn, isAdmin, logout,  } = props;
+  const userId = localStorage.getItem("userId");
 
   return (
     <header className="web-site-header">
@@ -15,6 +16,11 @@ const Navbar = props => {
         {loggedIn && (
           <NavLink className="nav-link-right" to="/products">
             Products
+          </NavLink>
+        )}
+        {loggedIn && !isAdmin && (
+          <NavLink className="nav-link-right" to={`/user/profile/${userId}`}>
+            User Profile
           </NavLink>
         )}
         <NavLink className="nav-link-right" to="/contacts">

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import registerValidator from "../../utils/registerValidator";
-import Input from "../../common/Input";
-import Auth from "../../../utils/auth";
-import "../../user/Form.css";
+import Input from "../common/Input";
+import Auth from "../../utils/auth";
+import "./Form.css";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    const userId = this.props.match.params.id;
+    const userId = localStorage.getItem("userId");
     fetch(`http://localhost:5000/users/edit/${userId}`, {
       method: "GET",
       headers: {
@@ -31,7 +31,6 @@ class UserProfile extends Component {
       .then(rawData => rawData.json())
       .then(user =>
         this.setState({
-          _id: userId,
           email: user.email,
           organisation: user.organisation,
           nameOfUser: user.nameOfUser,
@@ -63,7 +62,7 @@ class UserProfile extends Component {
       return;
     }
     let userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/${userId}`, {
+    fetch(`http://localhost:5000/users/edit/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,6 +93,7 @@ class UserProfile extends Component {
             onChange={this.handleChange}
             label="e-mail"
             name="email"
+            value={this.state.email}
             id="emailLogin"
           />
           <Input
@@ -101,6 +101,7 @@ class UserProfile extends Component {
             onChange={this.handleChange}
             label="Organisation"
             name="organisation"
+            value={this.state.organisation}
             id="organisationRegister"
           />
           <Input
@@ -108,6 +109,7 @@ class UserProfile extends Component {
             onChange={this.handleChange}
             label="Name"
             name="nameOfUser"
+            value={this.state.nameOfUser}
             id="nameRegister"
           />
           <Input
@@ -115,6 +117,7 @@ class UserProfile extends Component {
             onChange={this.handleChange}
             label="Phone Number"
             name="phoneNumber"
+            value={this.state.phoneNumber}
             id="phoneNumberRegister"
           />
           <Input

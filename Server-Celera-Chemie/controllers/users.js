@@ -1,8 +1,41 @@
 const express = require('express')
+const passport = require('passport')
+const validator = require('validator')
 const authCheck = require('../config/auth-check')
 const User = require('../models/User')
 
 const router = new express.Router()
+
+function validateEditForm(payload) {
+  const errors = {}
+  let isFormValid = true
+  let message = ''
+
+  if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
+    isFormValid = false
+    errors.email = 'Please provide a correct email address'
+  }
+
+  if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
+    isFormValid = false
+    errors.email = 'Please provide your Organisation.'
+  }
+
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
+    isFormValid = false
+    errors.password = 'Password must be at least 8 characters long'
+  }
+
+  if (!isFormValid) {
+    message = 'Check the form for errors.'
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  }
+}
 
 router.get('/all', authCheck, (req, res) => {
   User
@@ -30,10 +63,9 @@ router.get('/edit/:id', authCheck, (req, res) => {
 })
 
 router.post('/edit/:id', authCheck, (req, res) => {
-  if (req.user.roles.indexOf('Admin') > -1) {
     const userId = req.params.id
     const userObj = req.body
-    const validationResult = validateuserCreateForm(userObj)
+    const validationResult = validateEditForm(userObj)
     if (!validationResult.success) {
       return res.status(200).json({
         success: false,
@@ -80,13 +112,8 @@ router.post('/edit/:id', authCheck, (req, res) => {
           message: message
         })
       })
-  } else {
-    return res.status(200).json({
-      success: false,
-      message: 'Invalid credentials!'
-    })
-  }
-})
+  } 
+)
 
 router.delete('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id

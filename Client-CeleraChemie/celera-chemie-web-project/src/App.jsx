@@ -18,6 +18,7 @@ import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
 import EditProduct from "./components/products/update/EditProduct";
 import AllUsers from "./components/user/AllUsers";
+import UserProfile from "./components/user/UserProfile";
 
 const host = "http://localhost:5000/";
 
@@ -75,7 +76,7 @@ class App extends Component {
         if (!res.success) {
           toast.error(res.message);
         } else {
-          localStorage.setItem("userId", res.userId);
+          localStorage.setItem("userId", res.user.userId);
           localStorage.setItem("authToken", res.token);
           if (res.user.roles && res.user.roles.length > 0) {
             this.setState({
@@ -109,9 +110,11 @@ class App extends Component {
       <Fragment>
         <ToastContainer />
         <Navbar
+          {...this.props}
           loggedIn={this.state.loggedIn}
           isAdmin={this.state.isAdmin}
           logout={this.logout}
+
         />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -131,6 +134,12 @@ class App extends Component {
                 registerUser={this.registerUser}
                 loggedIn={this.state.loggedIn}
               />
+            )}
+          />
+          <Route
+            path="/user/profile/:userId"
+            render={props => (
+              <UserProfile {...props} loggedIn={this.state.loggedIn} />
             )}
           />
           <Route path="/contacts" component={Contacts} />
@@ -157,9 +166,7 @@ class App extends Component {
           />
           <Route
             path="/users"
-            render={() => (
-              <AllUsers isAdmin={this.state.isAdmin} />
-            )}
+            render={() => <AllUsers isAdmin={this.state.isAdmin} />}
           />
         </Switch>
         <Language />
