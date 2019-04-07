@@ -151,7 +151,12 @@ class App extends Component {
           />
           <Route
             path="/products"
-            render={() => <Products isAdmin={this.state.isAdmin} />}
+            render={() => (
+              <Products
+                isAdmin={this.state.isAdmin}
+                loggedIn={this.state.loggedIn}
+              />
+            )}
           />
           <Route
             path="/product/edit/:id"

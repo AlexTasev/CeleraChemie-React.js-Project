@@ -18,7 +18,8 @@ class CreatePage extends Component {
       logoUrl: "",
       language: "",
       catalogueUrl: "",
-      brandWebSite: ""
+      brandWebSite: "",
+      productCreated: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -58,10 +59,6 @@ class CreatePage extends Component {
       return;
     }
 
-    if (!this.props.isAdmin) {
-      return <Redirect to='/login'/>
-    }
-
     fetch("http://localhost:5000/product/create", {
       method: "POST",
       headers: {
@@ -84,7 +81,7 @@ class CreatePage extends Component {
           toast.error(res.error);
         } else {
           toast.success("Product creted!");
-          return <Redirect to="/" />;
+          this.setState({ productCreated: true });
         }
       });
   }
@@ -92,6 +89,10 @@ class CreatePage extends Component {
   render() {
     if (!this.props.isAdmin) {
       return <Redirect to="/login" />;
+    }
+
+    if (this.state.productCreated) {
+      return <Redirect to="/products" />;
     }
 
     let validObj = createProductValidationFunc(
@@ -170,7 +171,7 @@ class CreatePage extends Component {
             onChange={this.onChange}
             valid={validObj.validBrandUrl}
           />
-          <input type="submit" value="Crreate Product" />
+          <input type="submit" value="Create Product" />
         </form>
       </div>
     );

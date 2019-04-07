@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Product from "./Product";
+import { Redirect } from "react-router-dom";
 
+import Product from "./Product";
 import "./Products.css";
 import ProductSelector from "./ProductSelector";
 import NoProducts from "./NoProducts";
@@ -72,6 +73,9 @@ class Products extends Component {
   }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />;
+    }
     return (
       <section className="products-section">
         <ProductSelector
@@ -81,9 +85,7 @@ class Products extends Component {
           loadGlassware={this.loadGlassware.bind(this)}
           loadFilters={this.loadFilters.bind(this)}
         />
-        {!this.state.category && (
-          <NoProducts/>
-        )}
+        {!this.state.category && <NoProducts />}
         {this.state.products.map(product => (
           <Product
             key={product._id}

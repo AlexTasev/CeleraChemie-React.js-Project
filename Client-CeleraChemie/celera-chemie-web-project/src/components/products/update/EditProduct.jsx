@@ -19,7 +19,8 @@ class EditProduct extends Component {
       logoUrl: "",
       language: "",
       catalogueUrl: "",
-      brandWebSite: ""
+      brandWebSite: "",
+      productEdited: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -82,7 +83,7 @@ class EditProduct extends Component {
           toast.error(res.error);
         } else {
           toast.success("Product edited successfuly!");
-          return <Redirect to="/" />;
+          this.setState({ productEdited: true });
         }
       });
   }
@@ -108,6 +109,10 @@ class EditProduct extends Component {
   render() {
     if (!this.props.isAdmin) {
       return <Redirect to="/login" />;
+    }
+
+    if (this.state.productEdited) {
+      return <Redirect to="/products" />;
     }
 
     let validObj = createProductValidationFunc(

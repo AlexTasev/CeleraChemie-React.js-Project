@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 import Auth from "../../../utils/auth";
 import "./Products.css";
 
@@ -25,12 +26,19 @@ class Product extends Component {
           Authorization: "bearer " + Auth.getToken()
         }
       }).then(res => {
+        this.setState({
+          isProductDeleted: true
+        });
         toast.success("Product deleted successfuly");
-      })
+      });
     }
   }
 
   render() {
+    if (this.state.isProductDeleted) {
+      return <Redirect to="/products" />;
+    }
+
     return (
       <div className="products-display">
         <div className="logoUrl">
