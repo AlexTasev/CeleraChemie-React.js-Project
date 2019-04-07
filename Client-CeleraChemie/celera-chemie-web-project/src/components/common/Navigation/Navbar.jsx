@@ -15,20 +15,25 @@ const Navbar = props => {
         {loggedIn && (
           <NavLink className="nav-link-right" to="/products">
             Products
-        </NavLink>
+          </NavLink>
         )}
         <NavLink className="nav-link-right" to="/contacts">
           Contacts
         </NavLink>
         <NavLink className="nav-link-right" to="/about">
           About Us
-        </NavLink>  
+        </NavLink>
         <NavLink className="nav-link-right" to="/certificates">
           Certificates
         </NavLink>
         {isAdmin && (
           <NavLink className="nav-link-right" to="/product/create">
             New Product
+          </NavLink>
+        )}
+        {isAdmin && (
+          <NavLink className="nav-link-right" to="/users">
+            All Users
           </NavLink>
         )}
         {!loggedIn && (
@@ -42,10 +47,7 @@ const Navbar = props => {
           </NavLink>
         )}
         {loggedIn && (
-          <a href='/'
-            className="nav-link-right"
-            onClick={logout}
-          >
+          <a href="/" className="nav-link-right" onClick={logout}>
             Logout
           </a>
         )}

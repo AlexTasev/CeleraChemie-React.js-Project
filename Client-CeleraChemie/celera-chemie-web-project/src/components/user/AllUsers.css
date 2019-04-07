@@ -1,0 +1,14 @@
+.users-section{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: rgba(236, 236, 236, 0.7);
+}
+
+.single-user{
+    margin-top: 5%;
+}
+
+.single-user span {
+    color: rgb(0,101,126);
+}

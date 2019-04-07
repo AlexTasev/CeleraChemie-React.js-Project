@@ -45,6 +45,8 @@ module.exports.seedAdminUser = () => {
       email: 'admin@celera-chemie.com',
       name: 'Admin',
       organisation: 'Celera-Chemie Ltd.',
+      phoneNumber: '0896451571',
+
       salt: salt,
       password: password,
       roles: ['Admin']

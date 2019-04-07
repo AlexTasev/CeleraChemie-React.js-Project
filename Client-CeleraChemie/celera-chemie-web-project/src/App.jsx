@@ -17,6 +17,7 @@ import CreatePage from "./components/products/create/CreatePage";
 import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
 import EditProduct from "./components/products/update/EditProduct";
+import AllUsers from "./components/user/AllUsers";
 
 const host = "http://localhost:5000/";
 
@@ -44,8 +45,8 @@ class App extends Component {
     })
       .then(responce => responce.json())
       .then(body => {
-        if (body.errors) {
-          toast.error("Invalid credentials");
+        if (!body.success) {
+          toast.error(body.message);
         } else {
           this.setState({
             loggedIn: true
@@ -71,10 +72,9 @@ class App extends Component {
     })
       .then(responce => responce.json())
       .then(res => {
-        if (res.errors) {
+        if (!res.success) {
           toast.error(res.message);
         } else {
-          localStorage.setItem("username", res.username);
           localStorage.setItem("userId", res.userId);
           localStorage.setItem("authToken", res.token);
           if (res.user.roles && res.user.roles.length > 0) {
@@ -102,15 +102,6 @@ class App extends Component {
     this.setState({
       user: null
     });
-  }
-
-  componentDidMount() {
-    const localUserName = localStorage.getItem("username");
-    if (localUserName) {
-      this.setState({
-        user: localUserName
-      });
-    }
   }
 
   render() {
@@ -162,6 +153,12 @@ class App extends Component {
             path="/product/edit/:id"
             render={props => (
               <EditProduct {...props} isAdmin={this.state.isAdmin} />
+            )}
+          />
+          <Route
+            path="/users"
+            render={() => (
+              <AllUsers isAdmin={this.state.isAdmin} />
             )}
           />
         </Switch>

@@ -12,7 +12,7 @@ module.exports = new PassportLocalStrategy({
     email: email.trim(),
     nameOfUser: req.body.nameOfUser.trim(),
     organisation: req.body.organisation.trim(),
-    phone: req.body.phoneNumber.trim(),
+    phoneNumber: req.body.phoneNumber.trim(),
     password: password.trim()
   }
 
