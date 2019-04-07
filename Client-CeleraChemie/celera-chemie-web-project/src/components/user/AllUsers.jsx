@@ -16,7 +16,12 @@ class AllUsers extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/users/all")
+    fetch("http://localhost:5000/users/all", {
+      method: "GET",
+      headers: {
+        Authorization: "bearer " + Auth.getToken()
+      }
+    })
       .then(res => res.json())
       .then(users => {
         this.setState({

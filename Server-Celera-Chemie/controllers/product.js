@@ -91,7 +91,7 @@ router.post('/create', authCheck, (req, res) => {
   }
 })
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', authCheck, (req, res) => {
   const productId = req.params.id
   Product
     .findById(productId)

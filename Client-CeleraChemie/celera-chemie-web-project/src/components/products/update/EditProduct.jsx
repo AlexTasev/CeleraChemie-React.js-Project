@@ -90,7 +90,12 @@ class EditProduct extends Component {
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    fetch(`http://localhost:5000/product/edit/${productId}`)
+    fetch(`http://localhost:5000/product/edit/${productId}`, {
+      method: "GET",
+      headers: {
+        Authorization: "bearer " + Auth.getToken()
+      }
+    })
       .then(rawData => rawData.json())
       .then(product =>
         this.setState({

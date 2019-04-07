@@ -4,13 +4,88 @@ const User = require('../models/User')
 
 const router = new express.Router()
 
-router.get('/all', (req, res) => {
+router.get('/all', authCheck, (req, res) => {
   User
     .find()
     .then(users => {
         users.shift()
       res.status(200).json(users)
     })
+})
+
+router.get('/edit/:id', authCheck, (req, res) => {
+  const userId = req.params.id
+  User
+    .findById(userId)
+    .then(user => {
+      res.status(200).json(user)
+    }).catch((err) => {
+      console.log(err)
+      const message = 'Something went wrong :('
+      return res.status(200).json({
+        success: false,
+        message: message
+      })
+    })
+})
+
+router.post('/edit/:id', authCheck, (req, res) => {
+  if (req.user.roles.indexOf('Admin') > -1) {
+    const userId = req.params.id
+    const userObj = req.body
+    const validationResult = validateuserCreateForm(userObj)
+    if (!validationResult.success) {
+      return res.status(200).json({
+        success: false,
+        message: validationResult.message,
+        errors: validationResult.errors
+      })
+    }
+
+    User
+      .findById(userId)
+      .then(existingUser => {
+        existingUser.email = userObj.email
+        existingUser.organisation = userObj.organisation
+        existingUser.nameOfUser = userObj.nameOfUser
+        existingUser.phoneNumber = userObj.phoneNumber
+        existingUser.password = userObj.password
+
+        existingUser
+          .save()
+          .then(editeduser => {
+            res.status(200).json({
+              success: true,
+              message: 'User data edited successfully.',
+              data: editeduser
+            })
+          })
+          .catch((err) => {
+            console.log(err)
+            let message = 'Something went wrong :( Check the form for errors.'
+            if (err.code === 11000) {
+              message = 'user with the given name already exists.'
+            }
+            return res.status(200).json({
+              success: false,
+              message: message
+            })
+          })
+      })
+      .catch((err) => {
+        console.log(err)
+        const message = 'Something went wrong :( Check the form for errors.'
+        return res.status(200).json({
+          success: false,
+          message: message
+        })
+      })
+  } else {
+    return res.status(200).json({
+      success: false,
+      message: 'Invalid credentials!'
+    })
+  }
 })
 
 router.delete('/delete/:id', authCheck, (req, res) => {
