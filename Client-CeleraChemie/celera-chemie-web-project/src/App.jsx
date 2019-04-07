@@ -155,7 +155,9 @@ class App extends Component {
           />
           <Route
             path="/product/edit/:id"
-            render={() => <EditProduct isAdmin={this.state.isAdmin} />}
+            render={props => (
+              <EditProduct {...props} isAdmin={this.state.isAdmin} />
+            )}
           />
         </Switch>
         <Language />

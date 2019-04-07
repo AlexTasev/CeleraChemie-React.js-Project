@@ -91,6 +91,22 @@ router.post('/create', authCheck, (req, res) => {
   }
 })
 
+router.get('/edit/:id', (req, res) => {
+  const productId = req.params.id
+  Product
+    .findById(productId)
+    .then(product => {
+      res.status(200).json(product)
+    }).catch((err) => {
+      console.log(err)
+      const message = 'Something went wrong :('
+      return res.status(200).json({
+        success: false,
+        message: message
+      })
+    })
+})
+
 router.post('/edit/:id', authCheck, (req, res) => {
   if (req.user.roles.indexOf('Admin') > -1) {
     const productId = req.params.id
@@ -167,16 +183,6 @@ router.get('/chemicals', (req, res) => {
     })
     .then(products => {
       res.status(200).json(products)
-    })
-})
-
-router.get('/:id', (req, res) => {
-  Product
-    .find({
-      id: req.params._id
-    })
-    .then(product => {
-      res.status(200).json(product)
     })
 })
 

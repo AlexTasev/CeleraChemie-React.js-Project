@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import Input from "../../common/Input";
+import Auth from "../../../utils/auth";
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";
 import "../../user/Form.css";
@@ -20,13 +22,73 @@ class EditProduct extends Component {
       brandWebSite: ""
     };
 
-    // this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange(e) {
+    let targetName = e.target.name;
+    let targetValue = e.target.value;
+    this.setState({
+      [targetName]: targetValue
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    let {
+      manufacturer,
+      description,
+      category,
+      logoUrl,
+      language,
+      catalogueUrl,
+      brandWebSite
+    } = this.state;
+    if (
+      !createProductValidator(
+        manufacturer,
+        description,
+        category,
+        logoUrl,
+        language,
+        catalogueUrl,
+        brandWebSite
+      )
+    ) {
+      return;
+    }
+
+    fetch("http://localhost:5000/product/edit/:id", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "bearer " + Auth.getToken()
+      },
+      body: JSON.stringify({
+        manufacturer: this.state.manufacturer,
+        description: this.state.description,
+        category: this.state.category,
+        logoUrl: this.state.logoUrl,
+        language: this.state.language,
+        catalogueUrl: this.state.catalogueUrl,
+        brandWebSite: this.state.brandWebSite
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          toast.success("Product creted!");
+          return <Redirect to="/" />;
+        }
+      });
   }
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    fetch(`http://localhost:5000/product/${productId}`)
+    fetch(`http://localhost:5000/product/edit/${productId}`)
       .then(rawData => rawData.json())
       .then(product =>
         this.setState({
