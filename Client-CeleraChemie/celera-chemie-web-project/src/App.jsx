@@ -16,6 +16,7 @@ import Contacts from "./components/contacts/Contacts";
 import CreatePage from "./components/products/create/CreatePage";
 import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
+import LocaleContext from './locales/LocaleContext'
 import EditProduct from "./components/products/update/EditProduct";
 import AllUsers from "./components/user/AllUsers";
 import UserProfile from "./components/user/UserProfile";
@@ -28,7 +29,8 @@ class App extends Component {
 
     this.state = {
       loggedIn: false,
-      isAdmin: false
+      isAdmin: false,
+      preferredLocale: "en"
     };
 
     this.logout = this.logout.bind(this);
@@ -106,6 +108,12 @@ class App extends Component {
     });
   }
 
+  changeLanguage = ({ currentTarget: { id } }) => {
+    this.setState({
+      preferredLocale: id
+    });
+  };
+
   componentDidMount() {
     localStorage.removeItem("userId");
     localStorage.removeItem("authToken");
@@ -119,68 +127,73 @@ class App extends Component {
     return (
       <Fragment>
         <ToastContainer />
-        <Navbar
-          {...this.props}
-          loggedIn={this.state.loggedIn}
-          isAdmin={this.state.isAdmin}
-          logout={this.logout}
-
-        />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route
-            path="/login"
-            render={() => (
-              <LogInForm
-                loginUser={this.loginUser}
-                loggedIn={this.state.loggedIn}
-              />
-            )}
+        <LocaleContext.Provider value={this.state.preferredLocale}>
+          <Navbar
+            {...this.props}
+            loggedIn={this.state.loggedIn}
+            isAdmin={this.state.isAdmin}
+            logout={this.logout}
           />
-          <Route
-            path="/register"
-            render={() => (
-              <RegisterForm
-                registerUser={this.registerUser}
-                loggedIn={this.state.loggedIn}
-              />
-            )}
-          />
-          <Route
-            path="/user/profile/:userId"
-            render={props => (
-              <UserProfile {...props} loggedIn={this.state.loggedIn} logout={this.logout} />
-            )}
-          />
-          <Route path="/contacts" component={Contacts} />
-          <Route path="/about" component={About} />
-          <Route path="/certificates" component={CertificatesPage} />
-          <Route
-            path="/product/create"
-            render={() => <CreatePage isAdmin={this.state.isAdmin} />}
-          />
-          <Route
-            path="/products"
-            render={() => (
-              <Products
-                isAdmin={this.state.isAdmin}
-                loggedIn={this.state.loggedIn}
-              />
-            )}
-          />
-          <Route
-            path="/product/edit/:id"
-            render={props => (
-              <EditProduct {...props} isAdmin={this.state.isAdmin} />
-            )}
-          />
-          <Route
-            path="/users"
-            render={() => <AllUsers isAdmin={this.state.isAdmin} />}
-          />
-        </Switch>
-        <Language />
-        <Footer />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route
+              path="/login"
+              render={() => (
+                <LogInForm
+                  loginUser={this.loginUser}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
+            />
+            <Route
+              path="/register"
+              render={() => (
+                <RegisterForm
+                  registerUser={this.registerUser}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
+            />
+            <Route
+              path="/user/profile/:userId"
+              render={props => (
+                <UserProfile
+                  {...props}
+                  loggedIn={this.state.loggedIn}
+                  logout={this.logout}
+                />
+              )}
+            />
+            <Route path="/contacts" component={Contacts} />
+            <Route path="/about" component={About} />
+            <Route path="/certificates" component={CertificatesPage} />
+            <Route
+              path="/product/create"
+              render={() => <CreatePage isAdmin={this.state.isAdmin} />}
+            />
+            <Route
+              path="/products"
+              render={() => (
+                <Products
+                  isAdmin={this.state.isAdmin}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
+            />
+            <Route
+              path="/product/edit/:id"
+              render={props => (
+                <EditProduct {...props} isAdmin={this.state.isAdmin} />
+              )}
+            />
+            <Route
+              path="/users"
+              render={() => <AllUsers isAdmin={this.state.isAdmin} />}
+            />
+          </Switch>
+          <Language changeLanguage={this.changeLanguage}/>
+          <Footer />
+        </LocaleContext.Provider>
       </Fragment>
     );
   }
