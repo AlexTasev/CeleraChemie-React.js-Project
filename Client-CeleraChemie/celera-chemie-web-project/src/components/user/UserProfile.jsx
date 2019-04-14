@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import registerValidator from "../../utils/registerValidator";
 import Input from "../common/Input";
 import Auth from "../../utils/auth";
 import "./Form.css";
+import editValidator from "../../utils/editValidator";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class UserProfile extends Component {
       organisation: null,
       nameOfUser: null,
       phoneNumber: null,
-      password: null,
       isUserChanged: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -35,8 +34,7 @@ class UserProfile extends Component {
           email: user.email,
           organisation: user.organisation,
           nameOfUser: user.nameOfUser,
-          phoneNumber: user.phoneNumber,
-          password: user.password
+          phoneNumber: user.phoneNumber
         })
       );
   }
@@ -53,11 +51,9 @@ class UserProfile extends Component {
   onSubmit(event) {
     event.preventDefault();
     if (
-      !registerValidator(
+      !editValidator(
         this.state.email,
-        this.state.organisation,
-        this.state.password,
-        this.state.repeatPassword
+        this.state.organisation
       )
     ) {
       return;
@@ -127,20 +123,6 @@ class UserProfile extends Component {
             name="phoneNumber"
             value={this.state.phoneNumber}
             id="phoneNumberRegister"
-          />
-          <Input
-            type="password"
-            onChange={this.handleChange}
-            label="Change Password"
-            name="password"
-            id="passwordLogin"
-          />
-          <Input
-            type="password"
-            onChange={this.handleChange}
-            label="Repeat Password"
-            name="repeatPassword"
-            id="passwordRegister"
           />
           <input type="submit" value="Edit Profile" />
         </form>

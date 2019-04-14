@@ -21,11 +21,6 @@ function validateEditForm(payload) {
     errors.email = 'Please provide your Organisation.'
   }
 
-  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
-    isFormValid = false
-    errors.password = 'Password must be at least 8 characters long'
-  }
-
   if (!isFormValid) {
     message = 'Check the form for errors.'
   }
@@ -81,7 +76,6 @@ router.post('/edit/:id', authCheck, (req, res) => {
         existingUser.organisation = userObj.organisation
         existingUser.nameOfUser = userObj.nameOfUser
         existingUser.phoneNumber = userObj.phoneNumber
-        existingUser.password = userObj.password
 
         existingUser
           .save()
