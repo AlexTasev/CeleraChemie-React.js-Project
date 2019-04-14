@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../Resources/images/Celera-logo.png";
 import { NavLink } from "react-router-dom";
+import Translate from "../../../locales/Translate";
 import "../Navigation/Navbar.css";
 
 const Navbar = props => {
@@ -15,46 +16,46 @@ const Navbar = props => {
         </NavLink>
         {loggedIn && (
           <NavLink className="nav-link-right" to="/products">
-            Products
+            <Translate string={"nav.products"} />
           </NavLink>
         )}
         {loggedIn && !isAdmin && (
           <NavLink className="nav-link-right" to={`/user/profile/${userId}`}>
-            User Profile
+            <Translate string={"nav.profile"} />
           </NavLink>
         )}
         <NavLink className="nav-link-right" to="/contacts">
-          Contacts
+          <Translate string={"nav.contacts"} />
         </NavLink>
         <NavLink className="nav-link-right" to="/about">
-          About Us
+          <Translate string={"nav.about"} />
         </NavLink>
         <NavLink className="nav-link-right" to="/certificates">
-          Certificates
+          <Translate string={"nav.certificates"} />
         </NavLink>
         {isAdmin && (
           <NavLink className="nav-link-right" to="/product/create">
-            New Product
+            <Translate string={"nav.newProduct"} />
           </NavLink>
         )}
         {isAdmin && (
           <NavLink className="nav-link-right" to="/users">
-            All Users
+            <Translate string={"nav.allUsers"} />
           </NavLink>
         )}
         {!loggedIn && (
           <NavLink className="nav-link-right" to="/login">
-            Login
+            <Translate string={"nav.login"} />
           </NavLink>
         )}
         {!loggedIn && (
           <NavLink className="nav-link-right" to="/register">
-            Register
+            <Translate string={"nav.register"} />
           </NavLink>
         )}
         {loggedIn && (
           <a href="/" className="nav-link-right" onClick={logout}>
-            Logout
+            <Translate string={"nav.logout"} />
           </a>
         )}
       </nav>

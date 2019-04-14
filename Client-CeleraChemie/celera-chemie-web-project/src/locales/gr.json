@@ -1,4 +1,15 @@
 {
+    "nav.products": "προϊόντα",
+    "nav.profile": "προφίλ",
+    "nav.contacts": "επαφές",
+    "nav.about": "σχετικά με εμάς",
+    "nav.newProduct": "καινουργιο ΠΡΟΪΟΝ",
+    "nav.allUsers": "χρήστες",
+    "nav.login": "Σύνδεση",
+    "nav.register": "Κανω ΕΓΓΡΑΦΗ",
+    "nav.logout": "Αποσυνδέση",
+    "nav.certificates": "πιστοποιητικά",
+
     "home.slogan": "Ο ΕΜΠΙΣΤΕΥΤΙΚΟΣ ΕΤΑΙΡΟΣ ΓΙΑ ΕΡΓΑΣΤΗΡΙΑΚΑ ΧΗΜΙΚΑ, ΜΕΣΑ ΚΑΙ ΑΝΑΛΩΣΙΜΑ",
 
     "about.title": "ΣΧΕΤΙΚΑ ΜΕ ΜΑΣ",

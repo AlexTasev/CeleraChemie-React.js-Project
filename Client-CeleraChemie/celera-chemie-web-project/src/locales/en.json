@@ -1,4 +1,15 @@
 {
+    "nav.products": "products",
+    "nav.profile": "user profile",
+    "nav.contacts": "contacts",
+    "nav.about": "about us",
+    "nav.newProduct": "new Product",
+    "nav.allUsers": "All Users",
+    "nav.login": "Login",
+    "nav.register":"Register",
+    "nav.logout":"Logout",
+    "nav.certificates": "certificates",
+
     "home.slogan": "Your trusted parthner for laboratory chemicals, consumables, instruments, glassware and filters",
 
     "about.title": "About us",

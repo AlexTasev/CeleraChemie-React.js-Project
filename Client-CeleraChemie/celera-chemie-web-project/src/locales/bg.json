@@ -1,4 +1,15 @@
 {
+    "nav.products": "продукти",
+    "nav.profile": "профил",
+    "nav.contacts": "контакти",
+    "nav.about": "за нас",
+    "nav.newProduct": "нов продукт",
+    "nav.allUsers": "потребители",
+    "nav.login": "Вход",
+    "nav.register": "Регистрация",
+    "nav.logout": "изход",
+    "nav.certificates": "сертификати",
+
     "home.slogan": "Вашият доверен партньор за лабораторни химикали, инструменти и консумативи",
 
     "about.title": "За нас",

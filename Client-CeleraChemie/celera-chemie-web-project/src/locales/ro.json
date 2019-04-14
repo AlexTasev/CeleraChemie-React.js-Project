@@ -1,4 +1,15 @@
 {
+    "nav.products": "produse",
+    "nav.profile": "profil",
+     "nav.contacts": "contacte",
+     "nav.about": "despre noi",
+     "nav.newProduct": "produs nou",
+     "nav.allUsers": "consumatori",
+     "nav.login": "Logare",
+     "nav.register": "Inregistreaza-te",
+     "nav.logout": "Deconectare",
+     "nav.certificates": "certificate",
+
     "home.slogan": "PARTENERUL CONFIDENTIAL PENTRU PRODUSELE CHIMICE, INSTRUMENTE SI CONSUMABILE DE LABORATOR",
 
     "about.title": "Despre noi",
