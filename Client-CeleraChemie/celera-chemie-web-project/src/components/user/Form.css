@@ -60,13 +60,27 @@
 }
 
 .Form form input[type="submit"]:hover {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 10px;
     border: 1px solid #455859;
     background: rgb(0, 101, 0);
+    color: white;
+    text-transform: uppercase;
+}
+
+.deleteBtn {
+    display: grid;
+    width: 480px;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background: rgb(0, 101, 126);
+    color: white;
+    font-size: 18px;
+}
+
+.deleteBtn:hover {
+    border: 1px solid #455859;
+    background: rgb(212, 0, 0);
     color: white;
     text-transform: uppercase;
 }

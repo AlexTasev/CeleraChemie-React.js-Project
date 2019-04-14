@@ -111,7 +111,6 @@ router.post('/edit/:id', authCheck, (req, res) => {
 
 router.delete('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id
-  if (req.user.roles.indexOf('Admin') > -1) {
     User
       .findById(id)
       .then((user) => {
@@ -130,12 +129,6 @@ router.delete('/delete/:id', authCheck, (req, res) => {
           message: 'Entry does not exist!'
         })
       })
-  } else {
-    return res.status(200).json({
-      success: false,
-      message: 'Invalid credentials!'
-    })
-  }
 })
 
 module.exports = router

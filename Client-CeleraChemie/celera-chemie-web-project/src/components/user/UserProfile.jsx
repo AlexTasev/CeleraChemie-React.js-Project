@@ -14,10 +14,12 @@ class UserProfile extends Component {
       organisation: null,
       nameOfUser: null,
       phoneNumber: null,
-      isUserChanged: false
+      isUserChanged: false,
+      isUserDeleted: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.deleteUser= this.deleteUser.bind(this);
   }
 
   componentDidMount() {
@@ -83,8 +85,29 @@ class UserProfile extends Component {
       });
   }
 
+  deleteUser() {
+    let userId = localStorage.getItem("userId");
+    fetch(`http://localhost:5000/users/delete/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: "bearer " + Auth.getToken()
+      }
+    }).then(res => {
+      this.props.logout()
+      this.setState({
+        isUserDeleted: true
+      });
+      toast.success("User deleted successfuly");
+      this.props.logout();
+    });
+  }
+
   render() {
     if(this.state.isUserChanged) {
+      return <Redirect to="/" />;
+    }
+
+    if (this.state.isUserDeleted) {
       return <Redirect to="/" />;
     }
 
@@ -125,6 +148,9 @@ class UserProfile extends Component {
             id="phoneNumberRegister"
           />
           <input type="submit" value="Edit Profile" />
+          <button className="deleteBtn" onClick={this.deleteUser}>
+            Delete User
+          </button>
         </form>
       </div>
     );

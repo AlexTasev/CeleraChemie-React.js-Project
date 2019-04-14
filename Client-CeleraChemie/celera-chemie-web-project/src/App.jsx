@@ -101,6 +101,7 @@ class App extends Component {
     localStorage.removeItem("authToken");
     localStorage.removeItem("roles");
     this.setState({
+      loggedIn: false,
       user: null
     });
   }
@@ -148,7 +149,7 @@ class App extends Component {
           <Route
             path="/user/profile/:userId"
             render={props => (
-              <UserProfile {...props} loggedIn={this.state.loggedIn} />
+              <UserProfile {...props} loggedIn={this.state.loggedIn} logout={this.logout} />
             )}
           />
           <Route path="/contacts" component={Contacts} />
