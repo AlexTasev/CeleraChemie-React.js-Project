@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SwiftSlider from "react-swift-slider";
+import Translate from "../../locales/Translate";
 
 import "../homePage/Home.css";
 import logo from "../../Resources/images/Celera-logo.png";
@@ -73,9 +74,7 @@ class HomePage extends Component {
           <br />
           <img src={logo} alt="Celera-Chemie" />
           <h6>
-            Your trusted parthner for laboratory chemicals, consumables,
-            instruments, glassware and filters
-            <br />
+            <Translate string={"home.slogan"}/>
           </h6>
         </div>
       </section>

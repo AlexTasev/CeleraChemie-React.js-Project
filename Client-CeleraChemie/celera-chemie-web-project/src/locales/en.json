@@ -1,4 +1,6 @@
 {
+    "home.slogan": "Your trusted parthner for laboratory chemicals, consumables, instruments, glassware and filters",
+
     "about.title": "About us",
     "about.content.p1": "Our customer’s “best interest” is the key focus of all our activities. As such Celera-Chemie strives to provide high quality products with a superior service at attractive prices. To reach this goal Celera-Chemie is set up as a regional supplier for the entire South-East European countries. We either run our own offices or work with local distribution partners.",
     "about.content.p2": "Celera-Chemie offers a carefully selected range of suppliers. Each of them outstanding in their field of work, together they cover the complete range of products required by our customers.",
@@ -16,5 +18,4 @@
     "contacts.personTwo.phone": " +359 888 55 91 68",
     "contacts.personTwo.email": " Aleksandar.Tasev@celera-chemie.com",
     "contacts.personTwo.picture": "http://celera-chemie.com/test/wp-content/uploads/2019/02/Alexandar-Tasev.jpg"
-
 }
