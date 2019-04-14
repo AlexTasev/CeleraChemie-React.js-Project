@@ -17,7 +17,7 @@ const About = props => {
       <p>
         <Translate string={"about.content.p3"} />
       </p>
-      <img
+      <img id="portrait"
         src="https://celera-chemie.com/ro/wp-content/uploads/2019/02/KarlToellner_neu-216x300.png"
         alt="Dr. Karl Töllner"
       />

@@ -1,0 +1,19 @@
+.contact {
+    background-color: black;
+    padding-top:2%;
+    
+}
+
+.contacts-general{
+    display: block;
+    padding-bottom:2%;
+}
+
+contacts-persons {
+    display: block;
+    margin-top:5%;
+}
+
+.contacts-persons p{
+    color: rgb(0, 101, 126);
+}
