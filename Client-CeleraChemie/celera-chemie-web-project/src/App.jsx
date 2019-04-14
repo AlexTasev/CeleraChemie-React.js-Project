@@ -49,13 +49,12 @@ class App extends Component {
         if (!body.success) {
           toast.error(body.message);
         } else {
-          this.setState({
-            loggedIn: true
-          });
-          localStorage.setItem("username", body.username);
           localStorage.setItem("userId", body.userId);
           localStorage.setItem("authToken", body.token);
           toast.success("User successfuly registered!");
+          this.setState({
+            loggedIn: true
+          });
         }
       })
       .catch(err => {
@@ -98,8 +97,18 @@ class App extends Component {
   }
 
   logout(event) {
-    localStorage.removeItem("username");
-    localStorage.removeItem("userID");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("roles");
+    this.setState({
+      user: null
+    });
+  }
+
+  componentDidMount() {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("roles");
     this.setState({
       user: null
     });

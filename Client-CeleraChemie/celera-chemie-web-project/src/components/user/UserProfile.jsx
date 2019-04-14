@@ -14,7 +14,8 @@ class UserProfile extends Component {
       organisation: null,
       nameOfUser: null,
       phoneNumber: null,
-      password: null
+      password: null,
+      isUserChanged: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -76,6 +77,9 @@ class UserProfile extends Component {
           toast.error(body.message);
         } else {
           toast.success("User info successfuly updated!");
+          this.setState({
+            isUserChanged: true
+          });
         }
       })
       .catch(err => {
@@ -84,6 +88,10 @@ class UserProfile extends Component {
   }
 
   render() {
+    if(this.state.isUserChanged) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="Form">
         <h1>Edit Profile Info</h1>

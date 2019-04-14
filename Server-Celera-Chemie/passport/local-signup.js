@@ -31,7 +31,7 @@ module.exports = new PassportLocalStrategy({
 
       User
         .create(user)
-        .then(() => {
+        .then((user) => {
           return done(null)
         })
         .catch(() => {
