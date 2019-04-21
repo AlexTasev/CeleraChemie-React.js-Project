@@ -168,14 +168,6 @@ router.post('/edit/:id', authCheck, (req, res) => {
   }
 })
 
-// router.get('/all', (req, res) => {
-//   Product
-//     .find()
-//     .then(products => {
-//       res.status(200).json(products)
-//     })
-// })
-
 router.get('/chemicals', (req, res) => {
   Product
     .find({

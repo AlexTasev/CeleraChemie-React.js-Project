@@ -1,0 +1,28 @@
+.certificates-page {
+    background-color: black;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(230, 230, 230);
+    font-size: 150%;
+    text-transform: uppercase;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+p {
+    width: 60%;
+    margin-left: 20%;
+    color: rgb(230, 230, 230);
+    font-size: 90%;
+}
+
+.imgCertificate {
+    margin-top: 2%;
+    width: 33%;
+    height: auto;
+    margin-left:33%;
+}
+

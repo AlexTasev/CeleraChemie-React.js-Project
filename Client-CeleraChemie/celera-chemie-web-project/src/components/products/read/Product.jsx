@@ -41,7 +41,7 @@ class Product extends Component {
 
     return (
       <div className="products-display">
-        <div className="logoUrl">
+        <div className="brand-logo-url">
           <img src={this.props.logoUrl} alt="logo" />
         </div>
         <div className="manufacturer">{this.props.manufacturer}</div>

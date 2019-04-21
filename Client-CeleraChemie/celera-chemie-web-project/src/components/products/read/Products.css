@@ -51,6 +51,13 @@
     width: 70%;
 }
 
+.brand-logo-url {
+    background-color: black;
+    width: auto;
+    height: 150px;
+    text-align: center;
+}
+
 .description{
     margin-bottom: 20px;
 }
