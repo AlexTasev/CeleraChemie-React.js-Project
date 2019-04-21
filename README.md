@@ -11,3 +11,5 @@ After registration and subsequent successful Login to the system, a registered u
 "Products" -> "Download Catalogue" -> "Visit Official Website"; "User Profile" -> "Edit Profile" / "Delete Profile".
 
 The guest user has acces to general information about the company. The following pages are public and visible to any visitor on Celera Chemie Ltd. company web site : "Contacts", "About us", "Certificates", "Register", "Login".
+
+The application is built entirely on latest JavaScript technologies: React.js (client side) and node.js (server side). All rights of their respective owners are reserved.
