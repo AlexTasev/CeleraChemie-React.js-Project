@@ -80,7 +80,7 @@ class CreatePage extends Component {
         if (res.error) {
           toast.error(res.error);
         } else {
-          toast.success("Product creted!");
+          toast.success("Product created!");
           this.setState({ productCreated: true });
         }
       });

@@ -82,7 +82,7 @@ class EditProduct extends Component {
         if (res.error) {
           toast.error(res.error);
         } else {
-          toast.success("Product edited successfuly!");
+          toast.success("Product edited successfully!");
           this.setState({ productEdited: true });
         }
       });

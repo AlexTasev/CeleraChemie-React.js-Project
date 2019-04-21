@@ -9,13 +9,13 @@ const createProductValidator = (
   catalogueUrl,
   brandWebSite
 ) => {
-  if (manufacturer.length <= 2 && manufacturer === "") {
+  if (manufacturer.length <= 2 || manufacturer === "") {
     toast.error("Manufacturer must be at least 3 characters long");
     return false;
   }
 
-  if (description.length < 10 && description === "") {
-    toast.error("Description must be at last 10 chars long");
+  if (description.length < 10 || description === "") {
+    toast.error("Description must be at least 10 chars long");
     return false;
   }
 
@@ -24,7 +24,7 @@ const createProductValidator = (
     return false;
   }
 
-  if (!logoUrl.startsWith("http") && !logoUrl.length <= 14) {
+  if (!logoUrl.startsWith("http") || logoUrl.length <= 8) {
     toast.error("Logo URL must be a valid url");
     return false;
   }
@@ -34,8 +34,8 @@ const createProductValidator = (
     return false;
   }
 
-  if (language.length !== 2 && language === "") {
-    toast.error("Language nust be 2 chars, example: EN, BG");
+  if (language.length !== 2 || language === "") {
+    toast.error("Language must be 2 chars, example: EN, BG");
     return false;
   }
 

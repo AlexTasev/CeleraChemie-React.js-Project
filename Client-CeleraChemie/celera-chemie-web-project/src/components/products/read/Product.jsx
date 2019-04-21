@@ -29,6 +29,7 @@ class Product extends Component {
         this.setState({
           isProductDeleted: true
         });
+        toast.warn("Are you sure you want to Delete");
         toast.success("Product deleted successfuly");
       });
     }
@@ -45,7 +46,11 @@ class Product extends Component {
           <img src={this.props.logoUrl} alt="logo" />
         </div>
         <div className="manufacturer">{this.props.manufacturer}</div>
-        <div className="description">{this.props.description}</div>
+        <div className="description">
+          {this.props.description.split("\n").map(paragraph => (
+            <p className="description">{paragraph}</p>
+          ))}
+        </div>
         <div className="btn-div">
           <a
             target="_blank"

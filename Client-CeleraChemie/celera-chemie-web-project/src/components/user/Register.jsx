@@ -9,8 +9,9 @@ class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      password: null
+      email: '',
+      organisation: '',
+      password: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);

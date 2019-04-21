@@ -11,7 +11,7 @@
     background: black;
     margin-top: 3%;
     width: 20%;
-    position: ;
+    flex: 0 0 30;
 }
 
 .product-selector li button{
@@ -45,12 +45,10 @@
 /* --------DISPLAY PRODUCTS----------- */
 
 .products-display {
-    display: inline-block;
+    flex: 0 0 60;
     background: black;
     margin-top: 3%;
-    width: 70%;
     overflow: hidden;
-    /* height: 120vh; */
 }
 
 .brand-logo-url {
@@ -114,4 +112,8 @@
     overflow: hidden;
     height: 7em;
     padding: 1em;
+}
+
+.manufacturer {
+    text-align: center;
 }
