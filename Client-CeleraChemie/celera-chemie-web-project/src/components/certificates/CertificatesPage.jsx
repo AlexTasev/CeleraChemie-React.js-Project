@@ -16,6 +16,16 @@ const Certificates = props => {
       "http://celera-chemie.com/test/wp-content/uploads/2019/02/ISO9001-BG.jpg";
     pdfLocation =
       "http://celera-chemie.com/bg/wp-content/uploads/2019/02/ISO9001-BG.pdf";
+  } else if (props.preferredLocale === "gr") {
+    imgSrc =
+      "http://celera-chemie.com/test/wp-content/uploads/2019/02/CERTIFICATE-ISO-9001-CELERA-CY-GR.jpg";
+    pdfLocation =
+      "https://celera-chemie.com/cy/wp-content/uploads/2019/02/CERTIFICATE-ISO-9001-CELERA-CY-GR.pdf";
+  } else if (props.preferredLocale === "ro") {
+    imgSrc =
+      "http://celera-chemie.com/test/wp-content/uploads/2019/02/iso-celera-chemie-RO.jpg";
+    pdfLocation =
+      "https://celera-chemie.com/cy/wp-content/uploads/2019/02/iso-celera-chemie-RO.pdf";
   }
 
   return (

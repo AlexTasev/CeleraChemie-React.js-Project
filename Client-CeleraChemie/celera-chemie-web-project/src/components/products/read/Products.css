@@ -9,8 +9,7 @@
 .product-selector {
     display: inline-block;
     background: black;
-    margin-top: 3%;
-    width: 20%;
+    margin-top: 2%;
     flex: 0 0 30;
 }
 
@@ -45,7 +44,7 @@
 /* --------DISPLAY PRODUCTS----------- */
 
 .products-display {
-    flex: 0 0 60;
+    flex: 0 0 70;
     background: black;
     margin-top: 3%;
     overflow: hidden;
@@ -53,18 +52,24 @@
 
 .brand-logo-url {
     background-color: black;
-    width: auto;
-    height: 150px;
     text-align: center;
     overflow: hidden;
+    margin-left:2%;
+}
+
+.brand-logo-url img {
+    margin-top: 2%;
+    flex-direction: column;
 }
 
 .description{
-    margin-bottom: 20px;
+    margin-bottom: 2%;
     overflow: hidden;
+    flex-flow: column
 }
 
 .button-user {
+    flex-direction: row;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.623);
     background-color: rgba(0, 101, 126, 0.6);
@@ -116,4 +121,5 @@
 
 .manufacturer {
     text-align: center;
+    margin-top: 2%;
 }

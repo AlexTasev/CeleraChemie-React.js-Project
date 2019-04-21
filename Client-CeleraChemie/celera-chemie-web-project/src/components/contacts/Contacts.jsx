@@ -11,6 +11,9 @@ const Contacts = props => {
   } else if (props.preferredLocale === "ro") {
     locationImg =
       "https://am3pap003files.storage.live.com/y4pHNRinzQVauqsXt50dAGzR-qAl3079pIa3UuJgjsz8u9dEoyBtv7QTBmOL_ujf566YSxBWDoFXbSx9X6oTej6F4NnBbq2rEpcyTWVXaaT-HE1n3-6uclk1oRC1sHHXGnp5MA-BHE1vLdW_ngLoid5kO0eTy5BVd_lNghtJJZqOPIPmi0mE_RTnN2oAudByPKt/location_RO.png?psid=1&width=450&height=449";
+  } else if (props.preferredLocale === "gr") {
+    locationImg =
+      "https://am3pap003files.storage.live.com/y4pPP5Tp42VF_RkFiX9ebAWoURuqUA5Mivrkqgp46-kJHUGbpJH6qEaLtA7QqR6YCmML_3CSEijQKPUHacIQN6pxyXOKq91otbfKaR-MHz9O57OR9yokI-T7tPy-6fj1148VrlYVnSwKuILRBWV0FcnTQW75CrT9_4QZazvx61YcyOUjIJcUpi28kMVDf81o9WW/Location_CY.png?psid=1&width=450&height=450&cropMode=center";
   }
 
   return (

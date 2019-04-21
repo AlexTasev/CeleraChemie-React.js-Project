@@ -171,6 +171,9 @@ router.post('/edit/:id', authCheck, (req, res) => {
 router.get('/all', (req, res) => {
   Product
     .find()
+    .sort({
+      manufacturer: 1
+    })
     .then(products => {
       res.status(200).json(products)
     })

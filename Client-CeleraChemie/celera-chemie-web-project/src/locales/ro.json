@@ -1,14 +1,14 @@
 {
     "nav.products": "produse",
     "nav.profile": "profil",
-     "nav.contacts": "contacte",
-     "nav.about": "despre noi",
-     "nav.newProduct": "produs nou",
-     "nav.allUsers": "consumatori",
-     "nav.login": "Logare",
-     "nav.register": "Inregistreaza-te",
-     "nav.logout": "Deconectare",
-     "nav.certificates": "certificate",
+    "nav.contacts": "contacte",
+    "nav.about": "despre noi",
+    "nav.newProduct": "produs nou",
+    "nav.allUsers": "consumatori",
+    "nav.login": "Logare",
+    "nav.register": "Inregistreaza-te",
+    "nav.logout": "Deconectare",
+    "nav.certificates": "certificate",
 
     "home.slogan": "PARTENERUL CONFIDENTIAL PENTRU PRODUSELE CHIMICE, INSTRUMENTE SI CONSUMABILE DE LABORATOR",
 
@@ -16,6 +16,9 @@
     "about.content.p1": "Centrul atentiei tuturor activitatilor noastre este interesul, nevoia si suportul clientului.Prin urmare, Celera-Chemie se straduieste sa furnizeze produse si service de inalta calitate la preturi atractive.Pentru a atinge acest obiectic, Celera-Chemie este distributor international ce acopera tarile din Sud Est-ul Europei avand birouri regionale sau avand parteneri locali pentru distributie.",
     "about.content.p2": "Celera-Chemie ofera o gama atent selectata de furnizori. Fiecare dintre ei se remarca in domeniul lor de activitate, iar impreuna, se acopera intreaga gama de produse ceruta de clientii nostri.",
     "about.content.p3": "Celera-Chemie este fondata de Dr. Karl Tollner, ce are o experienta de cateva decenii in departamentele de export ale marilor companii multinationale. In decursul acestor ani, Karl a acumulat o experienta vasta si detaliata in organizarea distribuitorilor de success. Experienta din domeniu ii permite sa infinteze Celera-Chemie ca partener de prima alegere pentru clientii nostri in domeniul furnizarii produselor de laborator. Sprijinim clientii nostrii pentru a fi primii in domeniul lor de activitate.",
+
+     "certificates.title": "certificate",
+     "certificates.content": "Pentru a îndeplini cerințele cele mai înalte ale clienților noștri, sistemul de management al calității implementat de Celera-Chemie, certificat pentru conformitatea cu standardul internațional ISO 9001: 2015, are următoarele atribuții: \"Livrarea consumabilelor de laborator, a reactivelor chimice, a echipamentelor și a mobilierului.\"",
 
     "contacts.companyName": "CELERA CHEMIE SRL",
     "contacts.address": "Sos. Centura 24-26, Tunari, Ilfov, Romania",

@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import Translate from "../../../locales/Translate";
+import React, { Component } from "react";
+import "./Products.css";
 
 class NoProducts extends Component {
   constructor(props) {
@@ -21,22 +21,19 @@ class NoProducts extends Component {
 
   render() {
     return (
-      <Fragment>
-        <h1>
-          <Translate string={"products.all"} />
-        </h1>
         <div>
           {this.state.products.map(product => (
             <a
+              className="brand-logo-url"
               target="_blank"
               rel="noopener noreferrer"
-              href={this.state.brandWebSite}
+              key={product.manufacturer}
+              href={product.brandWebSite}
             >
               <img src={product.logoUrl} alt="logo" />
             </a>
           ))}
         </div>
-      </Fragment>
     );
   }
 }

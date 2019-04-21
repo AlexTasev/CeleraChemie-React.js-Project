@@ -11,7 +11,6 @@ import RegisterForm from "./components/user/Register";
 import LogInForm from "./components/user/Login";
 import Footer from "./components/common/Footer/Footer";
 import About from "./components/about/About";
-import CertificatesPage from "./components/certificates/CertificatesPage";
 import Contacts from "./components/contacts/Contacts";
 import CreatePage from "./components/products/create/CreatePage";
 import Products from "./components/products/read/Products";
