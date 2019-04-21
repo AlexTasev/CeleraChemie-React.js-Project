@@ -16,7 +16,7 @@ import Contacts from "./components/contacts/Contacts";
 import CreatePage from "./components/products/create/CreatePage";
 import Products from "./components/products/read/Products";
 import Language from "./components/common/Language/Language";
-import LocaleContext from './locales/LocaleContext'
+import LocaleContext from "./locales/LocaleContext";
 import EditProduct from "./components/products/update/EditProduct";
 import AllUsers from "./components/user/AllUsers";
 import UserProfile from "./components/user/UserProfile";
@@ -165,11 +165,18 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/contacts" component={Contacts} />
+            <Route
+              path="/contacts"
+              render={props => (
+                <Contacts preferredLocale={this.state.preferredLocale} />
+              )}
+            />
             <Route path="/about" component={About} />
             <Route
               path="/certificates"
-              render={props => <Certificates preferredLocale={this.state.preferredLocale} />}
+              render={props => (
+                <Certificates preferredLocale={this.state.preferredLocale} />
+              )}
             />
             <Route
               path="/product/create"

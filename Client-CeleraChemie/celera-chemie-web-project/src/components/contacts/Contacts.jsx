@@ -3,47 +3,64 @@ import Translate from "../../locales/Translate";
 import "./Contacts.css";
 
 const Contacts = props => {
+  let locationImg;
+
+  if (props.preferredLocale === "bg") {
+    locationImg =
+      "https://am3pap003files.storage.live.com/y4pLzrEiOvVpdFlDPI0Tfs74ea6efz18IiDL03b5sqiDSaw8wqIXS9A9hOos_jIf43cyJp0hPsycE0G4eVMtZkoKh8KE229ZMqd0NdpHN08MmNZN2vBxGswlbMCRKZNqPIk17Y3ZEUImrQzt_rxpTN9zph3lnCNkll6U1WSXMRnDm4-0hZ_0zJ99-cREuexW-HP/location_BG.png?psid=1&width=450&height=440";
+  } else if (props.preferredLocale === "ro") {
+    locationImg =
+      "https://am3pap003files.storage.live.com/y4pHNRinzQVauqsXt50dAGzR-qAl3079pIa3UuJgjsz8u9dEoyBtv7QTBmOL_ujf566YSxBWDoFXbSx9X6oTej6F4NnBbq2rEpcyTWVXaaT-HE1n3-6uclk1oRC1sHHXGnp5MA-BHE1vLdW_ngLoid5kO0eTy5BVd_lNghtJJZqOPIPmi0mE_RTnN2oAudByPKt/location_RO.png?psid=1&width=450&height=449";
+  }
+
   return (
-    <div className="contact">
-      <div className="contacts-general">
-        <p>
-          <Translate string={"contacts.companyName"} />
-        </p>
-        <p>
-          <Translate string={"contacts.address"} />
-        </p>
-        <p>
-          <Translate string={"contacts.phone"} />
-        </p>
-        <p>
-          <Translate string={"contacts.email"} />
-        </p>
+    <div className="container-contacts">
+      <div className="contact">
+        <div className="contacts-general">
+          <p>
+            <Translate string={"contacts.companyName"} />
+          </p>
+          <p>
+            <Translate string={"contacts.address"} />
+          </p>
+          <p>
+            <Translate string={"contacts.phone"} />
+          </p>
+          <p>
+            <Translate string={"contacts.email"} />
+          </p>
+        </div>
+        <div className="contacts-persons">
+          <p>
+            <Translate string={"contacts.personOne.name"} />
+          </p>
+          <p>
+            Mobile:
+            <Translate string={"contacts.personOne.phone"} />
+          </p>
+          <p>
+            Email:
+            <Translate string={"contacts.personOne.email"} />
+          </p>
+          <p>
+            <br />
+            <Translate string={"contacts.personTwo.name"} />
+          </p>
+          <p>
+            Mobile:
+            <Translate string={"contacts.personTwo.phone"} />
+          </p>
+          <p>
+            Email:
+            <Translate string={"contacts.personTwo.email"} />
+          </p>
+        </div>
       </div>
-      <div className="contacts-persons">
-        <p>
-          <Translate string={"contacts.personOne.name"} />
-        </p>
-        <p>
-          Mobile: 
-          <Translate string={"contacts.personOne.phone"} />
-        </p>
-        <p>
-          Email: 
-          <Translate string={"contacts.personOne.email"} />
-        </p>
-        <p>
-          <br/>
-          <Translate string={"contacts.personTwo.name"} />
-        </p>
-        <p>
-          Mobile: 
-          <Translate string={"contacts.personTwo.phone"} />
-        </p>
-        <p>
-          Email: 
-          <Translate string={"contacts.personTwo.email"} />
-        </p>
-      </div>
+      {locationImg && (
+        <div className="location-image">
+          <img src={locationImg} alt="Show on the map" />
+        </div>
+      )}
     </div>
   );
 };
