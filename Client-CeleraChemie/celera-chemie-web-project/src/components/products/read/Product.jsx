@@ -46,40 +46,42 @@ class Product extends Component {
         </div>
         <div className="manufacturer">{this.props.manufacturer}</div>
         <div className="description">{this.props.description}</div>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={this.props.catalogueUrl}
-          className="button-user"
-        >
-          Download Catalogue
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={this.props.brandWebSite}
-          className="button-user"
-        >
-          Visit Official Website
-        </a>
-        {this.props.isAdmin && (
-          <Fragment>
-            <Link
-              className="button-user"
-              id="edit-btn"
-              to={`/product/edit/${this.props.id}`}
-            >
-              Edit Product
-            </Link>
-            <button
-              onClick={this.deleteProduct}
-              className="button-user"
-              id="delete-btn"
-            >
-              Delete Product
-            </button>
-          </Fragment>
-        )}
+        <div className="btn-div">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={this.props.catalogueUrl}
+            className="button-user"
+          >
+            Download Catalogue
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={this.props.brandWebSite}
+            className="button-user"
+          >
+            Visit Official Website
+          </a>
+          {this.props.isAdmin && (
+            <Fragment>
+              <Link
+                className="button-user"
+                id="edit-btn"
+                to={`/product/edit/${this.props.id}`}
+              >
+                Edit Product
+              </Link>
+              <button
+                onClick={this.deleteProduct}
+                className="button-user"
+                id="delete-btn"
+              >
+                Delete Product
+              </button>
+            </Fragment>
+          )}
+        </div>
       </div>
     );
   }

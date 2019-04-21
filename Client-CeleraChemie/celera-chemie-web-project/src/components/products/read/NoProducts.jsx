@@ -1,24 +1,29 @@
-import React from 'react';
+import React from "react";
+import Translate from "../../../locales/Translate";
 
-const NoProducts = (props) => {
-    let img =
-      "https://celera-chemie.com/test/wp-content/uploads/2019/02/brands4.jpg";
+class NoProducts extends React.Component {
+  constructor(props) {
+    super(props);
+    
+
+  }
+  componentDidMount() {
+    fetch("http://localhost:5000/product")
+      .then(rawData => rawData.json())
+      .then(products =>
+        this.setState({
+          products
+        })
+      );
+  }
+
+  render() {
     return (
-      <div
-        className="brands-logos"
-        style={{ backgroundImage: `url(${img})` }}
-      >
-        <h1>Products & Suppliers</h1>
-        <h6>
-          Chemicals & Standards
-          <br />
-          Life Science <br />
-          Filtration & Consumables <br />
-          Vials & Glasware <br />
-          Equipment & Instruments
-        </h6>
-      </div>
+      <h1>
+        <Translate string={"products.all"} />
+      </h1>
     );
+  }
 }
- 
+
 export default NoProducts;
