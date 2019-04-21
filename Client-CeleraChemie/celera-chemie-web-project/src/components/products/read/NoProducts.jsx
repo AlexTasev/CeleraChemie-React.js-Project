@@ -1,14 +1,16 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import Translate from "../../../locales/Translate";
 
-class NoProducts extends React.Component {
+class NoProducts extends Component {
   constructor(props) {
     super(props);
-    
-
+    this.state = {
+      products: []
+    };
   }
+
   componentDidMount() {
-    fetch("http://localhost:5000/product")
+    fetch("http://localhost:5000/product/all")
       .then(rawData => rawData.json())
       .then(products =>
         this.setState({
@@ -19,9 +21,22 @@ class NoProducts extends React.Component {
 
   render() {
     return (
-      <h1>
-        <Translate string={"products.all"} />
-      </h1>
+      <Fragment>
+        <h1>
+          <Translate string={"products.all"} />
+        </h1>
+        <div>
+          {this.state.products.map(product => (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={this.state.brandWebSite}
+            >
+              <img src={product.logoUrl} alt="logo" />
+            </a>
+          ))}
+        </div>
+      </Fragment>
     );
   }
 }
