@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
+import Translate from "../../../locales/Translate";
 import Product from "./Product";
 import "./Products.css";
 import NoProducts from "./NoProducts";
@@ -28,17 +29,11 @@ class Products extends Component {
     if (prevProps.preferredLocale !== this.props.preferredLocale) {
       this.setState({ language: this.props.preferredLocale });
     }
-    this.handleClick(this.state.category);
   }
 
   handleClick(e) {
-    let chosenCategory;
+    let chosenCategory = e.target.name;
 
-    if (this.state.category === "") {
-      chosenCategory = e.target.name;
-    } else {
-      chosenCategory = this.state.category;
-    }
 
     fetch(
       `http://localhost:5000/product/${chosenCategory}/${this.state.language}`
@@ -62,27 +57,27 @@ class Products extends Component {
           <ul>
             <li>
               <button name="chemicals" onClick={this.handleClick}>
-                Chemicals
+                <Translate string={"products.chemicals"} />
               </button>
             </li>
             <li>
               <button name="consumables" onClick={this.handleClick}>
-                Consumables
+                <Translate string={"products.consumables"} />
               </button>
             </li>
             <li>
               <button name="instruments" onClick={this.handleClick}>
-                Instruments
+                <Translate string={"products.instruments"} />
               </button>
             </li>
             <li>
               <button name="glassware" onClick={this.handleClick}>
-                Glassware
+                <Translate string={"products.glassware"} />
               </button>
             </li>
             <li>
               <button name="filters" onClick={this.handleClick}>
-                Filters
+                <Translate string={"products.filters"} />
               </button>
             </li>
           </ul>

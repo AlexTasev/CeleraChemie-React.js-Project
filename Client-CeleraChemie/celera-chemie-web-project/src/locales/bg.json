@@ -10,7 +10,12 @@
     "nav.logout": "изход",
     "nav.certificates": "сертификати",
 
-    "products.all": "Продукти и Производители",
+    "products.chemicals": "реактиви",
+    "products.consumables": "консумативи",
+    "products.instruments": "оборудване",
+    "products.glassware": "стъклария",
+    "products.filters": "филтри",
+    
 
     "home.slogan": "Вашият доверен партньор за лабораторни химикали, инструменти и консумативи",
 

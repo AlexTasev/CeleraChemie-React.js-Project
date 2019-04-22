@@ -11,6 +11,12 @@
     "nav.certificates": "certificates",
 
     "products.all":"Products & Suppliers",
+    "products.chemicals": "chemicals",
+    "products.consumables": "consumables",
+    "products.instruments": "instruments",
+    "products.glassware": "glassware",
+    "products.filters": "filters",
+
 
     "home.slogan": "Your trusted parthner for laboratory chemicals, consumables, instruments, glassware and filters",
 
