@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import { Redirect } from "react-router-dom";
 import Auth from "../../../utils/auth";
 import "./Products.css";
@@ -16,6 +18,23 @@ class Product extends Component {
 
     this.deleteProduct = this.deleteProduct.bind(this);
   }
+
+  deleteConfirmation = () => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure you want to permanently delete this product?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => this.deleteProduct()
+        },
+        {
+          label: "No",
+          onClick: () => alert("Click No")
+        }
+      ]
+    });
+  };
 
   deleteProduct() {
     const productId = this.props.id;
@@ -38,7 +57,6 @@ class Product extends Component {
     if (this.state.isProductDeleted) {
       return <Redirect to="/products" />;
     }
-    let counter = 1;
 
     return (
       <div className="products-display">
@@ -47,8 +65,8 @@ class Product extends Component {
         </div>
         <div className="manufacturer">{this.props.manufacturer}</div>
         <div className="description">
-          {this.props.description.split("\n").map(paragraph => (
-            <p key={counter++}>{paragraph}</p>
+          {this.props.description.split("\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
           ))}
         </div>
         <div className="btn-div">
@@ -78,7 +96,7 @@ class Product extends Component {
                 Edit Product
               </Link>
               <button
-                onClick={this.deleteProduct}
+                onClick={this.deleteConfirmation}
                 className="button-user"
                 id="delete-btn"
               >

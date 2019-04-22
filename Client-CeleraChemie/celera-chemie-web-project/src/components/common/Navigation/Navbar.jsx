@@ -19,7 +19,7 @@ const Navbar = props => {
             <Translate string={"nav.products"} />
           </NavLink>
         )}
-        {loggedIn && !isAdmin && (
+        {loggedIn && userId && !isAdmin && (
           <NavLink className="nav-link-right" to={`/user/profile/${userId}`}>
             <Translate string={"nav.profile"} />
           </NavLink>

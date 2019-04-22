@@ -56,7 +56,7 @@ class AllUsers extends Component {
     }
 
     if (this.state.isUserDeleted) {
-        return <Redirect to="/" />;
+      return <Redirect to="/" />;
     }
 
     let allUsers = this.state.users;
@@ -64,7 +64,7 @@ class AllUsers extends Component {
     return (
       <section className="users-section">
         {allUsers.map(user => (
-          <div className="single-user" key={user._id} >
+          <div className="single-user" key={user._id}>
             <div>
               <span>Organisation: </span>
               {user.organisation}

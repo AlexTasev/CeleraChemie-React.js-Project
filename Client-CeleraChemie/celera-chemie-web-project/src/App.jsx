@@ -47,12 +47,10 @@ class App extends Component {
       body: JSON.stringify(user)
     })
       .then(responce => responce.json())
-      .then(body => {
-        if (!body.success) {
-          toast.error(body.message);
+      .then(res => {
+        if (!res.success) {
+          toast.error(res.message);
         } else {
-          localStorage.setItem("userId", body.userId);
-          localStorage.setItem("authToken", body.token);
           toast.success("User successfuly registered!");
           this.setState({
             loggedIn: true

@@ -11,6 +11,8 @@ class RegisterForm extends React.Component {
     this.state = {
       email: '',
       organisation: '',
+      nameOfUser: '',
+      phoneNumber: '',
       password: ''
     };
     this.handleChange = this.handleChange.bind(this);

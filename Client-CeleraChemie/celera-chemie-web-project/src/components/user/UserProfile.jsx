@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import Input from "../common/Input";
 import Auth from "../../utils/auth";
 import "./Form.css";
@@ -10,16 +12,16 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      organisation: null,
-      nameOfUser: null,
-      phoneNumber: null,
+      email: "",
+      organisation: "",
+      nameOfUser: "",
+      phoneNumber: "",
       isUserChanged: false,
-      isUserDeleted: false,
+      isUserDeleted: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.deleteUser= this.deleteUser.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
   }
 
   componentDidMount() {
@@ -52,12 +54,7 @@ class UserProfile extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    if (
-      !editValidator(
-        this.state.email,
-        this.state.organisation
-      )
-    ) {
+    if (!editValidator(this.state.email, this.state.organisation)) {
       return;
     }
     let userId = localStorage.getItem("userId");
@@ -85,6 +82,23 @@ class UserProfile extends Component {
       });
   }
 
+  deleteConfirmation = () => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure you want to permanently delete your profile?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => this.deleteUser()
+        },
+        {
+          label: "No",
+          onClick: () => alert("Click No")
+        }
+      ]
+    });
+  };
+
   deleteUser() {
     let userId = localStorage.getItem("userId");
     fetch(`http://localhost:5000/users/delete/${userId}`, {
@@ -93,7 +107,7 @@ class UserProfile extends Component {
         Authorization: "bearer " + Auth.getToken()
       }
     }).then(res => {
-      this.props.logout()
+      this.props.logout();
       this.setState({
         isUserDeleted: true
       });
@@ -103,7 +117,7 @@ class UserProfile extends Component {
   }
 
   render() {
-    if(this.state.isUserChanged) {
+    if (this.state.isUserChanged) {
       return <Redirect to="/" />;
     }
 
@@ -148,7 +162,7 @@ class UserProfile extends Component {
             id="phoneNumberRegister"
           />
           <input type="submit" value="Edit Profile" />
-          <button className="deleteBtn" onClick={this.deleteUser}>
+          <button className="deleteBtn" onClick={this.deleteConfirmation}>
             Delete User
           </button>
         </form>
