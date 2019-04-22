@@ -63,7 +63,7 @@ class Product extends Component {
         <div className="brand-logo-url">
           <img src={this.props.logoUrl} alt="logo" />
         </div>
-        <div className="manufacturer">{this.props.manufacturer}</div>
+        {/* <div className="manufacturer">{this.props.manufacturer}</div> */}
         <div className="description">
           {this.props.description.split("\n").map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
