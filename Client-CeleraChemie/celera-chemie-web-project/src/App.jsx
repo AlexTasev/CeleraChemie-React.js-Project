@@ -172,12 +172,19 @@ class App extends Component {
             <Route
               path="/certificates"
               render={props => (
-                <Certificates preferredLocale={this.state.preferredLocale} />
+                <Certificates
+                  preferredLocale={this.state.preferredLocale}
+                />
               )}
             />
             <Route
               path="/product/create"
-              render={() => <CreatePage isAdmin={this.state.isAdmin} />}
+              render={() => (
+                <CreatePage
+                  isAdmin={this.state.isAdmin}
+                  preferredLocale={this.state.preferredLocale}
+                />
+              )}
             />
             <Route
               path="/products"
@@ -185,6 +192,7 @@ class App extends Component {
                 <Products
                   isAdmin={this.state.isAdmin}
                   loggedIn={this.state.loggedIn}
+                  preferredLocale={this.state.preferredLocale}
                 />
               )}
             />

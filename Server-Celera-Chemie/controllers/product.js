@@ -179,53 +179,63 @@ router.get('/all', (req, res) => {
     })
 })
 
-router.get('/chemicals', (req, res) => {
+router.get('/chemicals/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find({
-      category: 'chemicals'
+      category: "chemicals"
     })
     .then(products => {
-      res.status(200).json(products)
+      let sorted = products.filter((p) => p.language === lang)
+      res.status(200).json(sorted)
     })
 })
 
-router.get('/consumables', (req, res) => {
+router.get('/consumables/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find({
       category: 'consumables'
     })
     .then(products => {
-      res.status(200).json(products)
+      let sorted = products.filter((p) => p.language === lang)
+      res.status(200).json(sorted)
     })
 })
 
-router.get('/instruments', (req, res) => {
+router.get('/instruments/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find({
       category: 'instruments'
     })
     .then(products => {
-      res.status(200).json(products)
+      let sorted = products.filter((p) => p.language === lang)
+      res.status(200).json(sorted)
     })
 })
 
-router.get('/glassware', (req, res) => {
+router.get('/glassware/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find({
       category: 'glassware'
     })
     .then(products => {
-      res.status(200).json(products)
+      let sorted = products.filter((p) => p.language === lang)
+      res.status(200).json(sorted)
     })
 })
 
-router.get('/filters', (req, res) => {
+router.get('/filters/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find({
       category: 'filters'
     })
     .then(products => {
-      res.status(200).json(products)
+      let sorted = products.filter((p) => p.language === lang)
+      res.status(200).json(sorted)
     })
 })
 

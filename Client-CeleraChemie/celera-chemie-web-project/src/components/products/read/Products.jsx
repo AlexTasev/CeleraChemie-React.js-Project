@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 
 import Product from "./Product";
 import "./Products.css";
-import ProductSelector from "./ProductSelector";
 import NoProducts from "./NoProducts";
 
 class Products extends Component {
@@ -11,63 +10,44 @@ class Products extends Component {
     super(props);
 
     this.state = {
-      category: null,
-      language: "en",
+      category: "",
+      language: "",
       products: []
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  loadChemicals() {
-    fetch("http://localhost:5000/product/chemicals")
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.preferredLocale !== prevState.language) {
+      return { language: nextProps.preferredLocale };
+    } else return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.preferredLocale !== this.props.preferredLocale) {
+      this.setState({ language: this.props.preferredLocale });
+    }
+    this.handleClick(this.state.category);
+  }
+
+  handleClick(e) {
+    let chosenCategory;
+
+    if (this.state.category === "") {
+      chosenCategory = e.target.name;
+    } else {
+      chosenCategory = this.state.category;
+    }
+
+    fetch(
+      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`
+    )
       .then(rawData => rawData.json())
       .then(products =>
         this.setState({
           products: products,
-          category: "chemicals"
-        })
-      );
-  }
-
-  loadConsumables() {
-    fetch("http://localhost:5000/product/consumables")
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products,
-          category: "consumables"
-        })
-      );
-  }
-
-  loadInstruments() {
-    fetch("http://localhost:5000/product/instruments")
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products,
-          category: "instruments"
-        })
-      );
-  }
-
-  loadGlassware() {
-    fetch("http://localhost:5000/product/glassware")
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products,
-          category: "glassware"
-        })
-      );
-  }
-
-  loadFilters() {
-    fetch("http://localhost:5000/product/filters")
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products,
-          category: "filters"
+          category: chosenCategory
         })
       );
   }
@@ -78,13 +58,35 @@ class Products extends Component {
     }
     return (
       <section className="products-section">
-        <ProductSelector
-          loadChemicals={this.loadChemicals.bind(this)}
-          loadConsumables={this.loadConsumables.bind(this)}
-          loadInstruments={this.loadInstruments.bind(this)}
-          loadGlassware={this.loadGlassware.bind(this)}
-          loadFilters={this.loadFilters.bind(this)}
-        />
+        <div className="product-selector">
+          <ul>
+            <li>
+              <button name="chemicals" onClick={this.handleClick}>
+                Chemicals
+              </button>
+            </li>
+            <li>
+              <button name="consumables" onClick={this.handleClick}>
+                Consumables
+              </button>
+            </li>
+            <li>
+              <button name="instruments" onClick={this.handleClick}>
+                Instruments
+              </button>
+            </li>
+            <li>
+              <button name="glassware" onClick={this.handleClick}>
+                Glassware
+              </button>
+            </li>
+            <li>
+              <button name="filters" onClick={this.handleClick}>
+                Filters
+              </button>
+            </li>
+          </ul>
+        </div>
         {!this.state.category && <NoProducts />}
         {this.state.products.map(product => (
           <Product
