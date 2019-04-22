@@ -34,9 +34,9 @@ function validateEditForm(payload) {
 
 router.get('/all', authCheck, (req, res) => {
   User
-    .find()
+    .find().sort({organisation: 1})
     .then(users => {
-        users.shift()
+        users = users.filter((user) => user.roles.length !== 1)
       res.status(200).json(users)
     })
 })

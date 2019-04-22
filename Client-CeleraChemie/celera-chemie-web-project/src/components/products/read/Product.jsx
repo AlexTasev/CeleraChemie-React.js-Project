@@ -30,7 +30,7 @@ class Product extends Component {
         },
         {
           label: "No",
-          onClick: () => alert("Click No")
+          onClick: () => {}
         }
       ]
     });

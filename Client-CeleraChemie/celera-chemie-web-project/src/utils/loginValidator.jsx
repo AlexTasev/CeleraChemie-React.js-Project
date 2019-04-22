@@ -5,11 +5,11 @@ const emailRegex = new RegExp(
 )
 
 function loginValidator (email, password) {
-  if (!emailRegex.test(email) || email === '') {
+  if (email === '' || !emailRegex.test(email)) {
     toast.error('Please provide a correct email address')
     return false
   }
-  if (password.length < 8 || password === '') {
+  if (password === '' || password.length < 8) {
     toast.error('Password must be at least 8 characters long')
     return false
   }

@@ -93,7 +93,7 @@ class UserProfile extends Component {
         },
         {
           label: "No",
-          onClick: () => alert("Click No")
+          onClick: () => {}
         }
       ]
     });

@@ -9,8 +9,8 @@ class LogInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      password: null
+      email: "",
+      password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
