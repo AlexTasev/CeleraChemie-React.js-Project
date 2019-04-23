@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 
+import Auth from "../../../utils/auth";
 import Translate from "../../../locales/Translate";
 import Product from "./Product";
 import "./Products.css";
@@ -34,7 +35,13 @@ class Products extends Component {
   handleClick(e) {
     let chosenCategory = e.target.name;
     fetch(
-      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`
+      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + Auth.getToken()
+        }
+      }
     )
       .then(rawData => rawData.json())
       .then(products =>
@@ -59,7 +66,6 @@ class Products extends Component {
     } else {
       return "https://am3pap003files.storage.live.com/y4p4LnPussbqWK1voC8nwOcAQAyBGWToFrM4-HJd87FiHIZ9zhuUwumBYK_vGuzOeWJXcxyHq29niMbdT3kzkIz8A91p2zMg6j-Lf2MxEWgh648DoZZN9i3QsExTmThRMx1FkVgThjQfBrG-K8CSBn69LCxUFCrz6HsFWXu18A122IVKsr0W_QuUznoeXugb7fn/Products.png?psid=1&width=374&height=249";
     }
-    
   }
 
   render() {

@@ -6,7 +6,7 @@ import Input from "../../common/Input";
 import Auth from "../../../utils/auth";
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";
-import "../../user/Form.css";
+import "../../common/Form.css";
 
 class EditProduct extends Component {
   constructor(props) {

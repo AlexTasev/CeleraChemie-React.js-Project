@@ -84,6 +84,7 @@
     background: rgb(0, 101, 126);
     color: white;
     font-size: 18px;
+    margin-top: 10%;
 }
 
 .deleteBtn:hover {
@@ -91,4 +92,5 @@
     background: rgb(212, 0, 0);
     color: white;
     text-transform: uppercase;
+    
 }

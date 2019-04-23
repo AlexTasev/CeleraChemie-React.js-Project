@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import loginValidator from "../../utils/loginValidator";
-import "./Form.css";
+import "../common/Form.css";
 import Input from "../common/Input";
 
 class LogInForm extends React.Component {

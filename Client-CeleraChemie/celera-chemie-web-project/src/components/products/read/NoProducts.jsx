@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import Auth from "../../../utils/auth";
 import "./Products.css";
 
 class NoProducts extends Component {
@@ -10,7 +12,13 @@ class NoProducts extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/product/all")
+    fetch("http://localhost:5000/product/all", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "bearer " + Auth.getToken()
+      }
+    })
       .then(rawData => rawData.json())
       .then(products =>
         this.setState({
@@ -21,19 +29,19 @@ class NoProducts extends Component {
 
   render() {
     return (
-        <div className="all-products-display">
-          {this.state.products.map(product => (
-            <a
-              className="brand-logo-url"
-              target="_blank"
-              rel="noopener noreferrer"
-              key={product.manufacturer}
-              href={product.brandWebSite}
-            >
-              <img src={product.logoUrl} alt="logo" />
-            </a>
-          ))}
-        </div>
+      <div className="all-products-display">
+        {this.state.products.map(product => (
+          <a
+            className="brand-logo-url"
+            target="_blank"
+            rel="noopener noreferrer"
+            key={product.manufacturer}
+            href={product.brandWebSite}
+          >
+            <img src={product.logoUrl} alt="logo" />
+          </a>
+        ))}
+      </div>
     );
   }
 }

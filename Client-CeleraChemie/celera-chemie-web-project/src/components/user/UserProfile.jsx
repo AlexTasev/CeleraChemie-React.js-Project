@@ -5,7 +5,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Input from "../common/Input";
 import Auth from "../../utils/auth";
-import "./Form.css";
+import "../common/Form.css";
 import editValidator from "../../utils/editValidator";
 
 class UserProfile extends Component {

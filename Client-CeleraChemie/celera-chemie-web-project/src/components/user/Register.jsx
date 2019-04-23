@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import registerValidator from "../../utils/registerValidator";
-import "./Form.css";
+import "../common/Form.css";
 import Input from "../common/Input";
 
 class RegisterForm extends React.Component {
