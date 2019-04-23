@@ -62,16 +62,16 @@ class Products extends Component {
     } else if (this.state.category === "glassware") {
       return "https://am3pap003files.storage.live.com/y4pSmhmlu0RO3P_3IW1IE8OBkRbSIorKAM2CFTq9UAWfBFAvlDYgfv9-SYj4nAi5vsKW7xWJOByJs2d-o3mZg65QwWpiM2Cj2yvXe76s7e3y8eLsYbnhY6OVRzipbF2z7kB1btkikRoi51Z_LeNj1gNArD3chypSI_7X46TZpENnmdG0wK7qMLm1kWvXVzwe7_v/Glass.png?psid=1&width=1170&height=710";
     } else if (this.state.category === "consumables") {
-      return "https://am3pap003files.storage.live.com/y4pbFhfWS7yz8eOS6CsMlSZpwrgwihLvXCgoGKE7rwUDjy1fTRTlsz8mGm3MbfnaxmGc8bPkQwgxRYR2rPpMbyjsv7nSFYQYS-w510PFkBAL0Cvb6azup9eahQ1CzPz2klAa8vH29EmRGYfASZizk964UqeAf60BdVTGZs955xsLzj20bdbkaOiUvSzYEmCJne5/Consumables.png?psid=1&width=374&height=237";
+      return "https://am3pap003files.storage.live.com/y4pbFhfWS7yz8eOS6CsMlSZpwrgwihLvXCgoGKE7rwUDjy1fTRTlsz8mGm3MbfnaxmGc8bPkQwgxRYR2rPpMbyjsv7nSFYQYS-w510PFkBAL0Cvb6azup9eahQ1CzPz2klAa8vH29EmRGYfASZizk964UqeAf60BdVTGZs955xsLzj20bdbkaOiUvSzYEmCJne5/Consumables.png?psid=1&width=1280&height=812";
     } else {
-      return "https://am3pap003files.storage.live.com/y4p4LnPussbqWK1voC8nwOcAQAyBGWToFrM4-HJd87FiHIZ9zhuUwumBYK_vGuzOeWJXcxyHq29niMbdT3kzkIz8A91p2zMg6j-Lf2MxEWgh648DoZZN9i3QsExTmThRMx1FkVgThjQfBrG-K8CSBn69LCxUFCrz6HsFWXu18A122IVKsr0W_QuUznoeXugb7fn/Products.png?psid=1&width=374&height=249";
+      return "https://am3pap003files.storage.live.com/y4p4LnPussbqWK1voC8nwOcAQAyBGWToFrM4-HJd87FiHIZ9zhuUwumBYK_vGuzOeWJXcxyHq29niMbdT3kzkIz8A91p2zMg6j-Lf2MxEWgh648DoZZN9i3QsExTmThRMx1FkVgThjQfBrG-K8CSBn69LCxUFCrz6HsFWXu18A122IVKsr0W_QuUznoeXugb7fn/Products.png?psid=1&width=1274&height=849";
     }
   }
 
   render() {
-    // if (!this.props.loggedIn) {
-    //   return <Redirect to="/login" />;
-    // }
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />;
+    }
 
     return (
       <section

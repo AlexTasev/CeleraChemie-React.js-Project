@@ -51,9 +51,9 @@ class EditProduct extends Component {
       !createProductValidator(
         manufacturer,
         description,
-        category,
+        category.toLowerCase(),
+        language.toLowerCase(),
         logoUrl,
-        language,
         catalogueUrl,
         brandWebSite
       )
@@ -70,9 +70,9 @@ class EditProduct extends Component {
       body: JSON.stringify({
         manufacturer: this.state.manufacturer,
         description: this.state.description,
-        category: this.state.category,
+        category: this.state.category.toLowerCase(),
+        language: this.state.language.toLowerCase(),
         logoUrl: this.state.logoUrl,
-        language: this.state.language,
         catalogueUrl: this.state.catalogueUrl,
         brandWebSite: this.state.brandWebSite
       })
