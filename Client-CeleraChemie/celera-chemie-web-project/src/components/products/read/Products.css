@@ -14,7 +14,7 @@
     /* background-color: rgba(0, 0, 0, 0.7); */
     margin-top: 2%;
     flex: 0 0 30;
-    height: 85em;
+    /* height: 85em; */
 }
 
 .product-selector li button{
@@ -91,6 +91,7 @@
 
 .btn-div {
     flex-flow: column;
+    margin-left: 18%; 
 }
 
 .button-user:hover {

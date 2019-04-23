@@ -254,33 +254,26 @@ router.get('/filters/:language', (req, res) => {
     })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id
-  if (req.user.roles.indexOf('Admin') > -1) {
-    Product
-      .findById(id)
-      .then((product) => {
-        product
-          .remove()
-          .then(() => {
-            return res.status(200).json({
-              success: true,
-              message: 'Product deleted successfully!'
-            })
+  Product
+    .findById(id)
+    .then((product) => {
+      product
+        .remove()
+        .then(() => {
+          return res.status(200).json({
+            success: true,
+            message: 'Product deleted successfully!'
           })
-      })
-      .catch(() => {
-        return res.status(200).json({
-          success: false,
-          message: 'Entry does not exist!'
         })
-      })
-  } else {
-    return res.status(200).json({
-      success: false,
-      message: 'Invalid credentials!'
     })
-  }
+    .catch(() => {
+      return res.status(200).json({
+        success: false,
+        message: 'Entry does not exist!'
+      })
+    })
 })
 
 module.exports = router
