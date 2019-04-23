@@ -175,7 +175,7 @@ router.post('/edit/:id', authCheck, (req, res) => {
   }
 })
 
-router.get('/all', authCheck, (req, res) => {
+router.get('/all', (req, res) => {
   Product
     .find()
     .sort({
@@ -186,7 +186,7 @@ router.get('/all', authCheck, (req, res) => {
     })
 })
 
-router.get('/chemicals/:language', authCheck, (req, res) => {
+router.get('/chemicals/:language', (req, res) => {
   const lang = req.params.language;
   Product
     .find({
@@ -198,7 +198,7 @@ router.get('/chemicals/:language', authCheck, (req, res) => {
     })
 })
 
-router.get('/consumables/:language', authCheck, (req, res) => {
+router.get('/consumables/:language', (req, res) => {
   const lang = req.params.language;
   Product
     .find({
@@ -210,7 +210,7 @@ router.get('/consumables/:language', authCheck, (req, res) => {
     })
 })
 
-router.get('/instruments/:language', authCheck, (req, res) => {
+router.get('/instruments/:language', (req, res) => {
   const lang = req.params.language;
   Product
     .find({
@@ -222,7 +222,7 @@ router.get('/instruments/:language', authCheck, (req, res) => {
     })
 })
 
-router.get('/glassware/:language', authCheck, (req, res) => {
+router.get('/glassware/:language', (req, res) => {
   const lang = req.params.language;
   Product
     .find({
@@ -234,7 +234,7 @@ router.get('/glassware/:language', authCheck, (req, res) => {
     })
 })
 
-router.get('/filters/:language', authCheck, (req, res) => {
+router.get('/filters/:language', (req, res) => {
   const lang = req.params.language;
   Product
     .find({
@@ -246,7 +246,7 @@ router.get('/filters/:language', authCheck, (req, res) => {
     })
 })
 
-router.delete('/delete/:id', authCheck, (req, res) => {
+router.delete('/delete/:id', (req, res) => {
   const id = req.params.id
   if (req.user.roles.indexOf('Admin') > -1) {
     Product
