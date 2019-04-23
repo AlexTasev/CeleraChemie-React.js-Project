@@ -35,7 +35,7 @@ class NoProducts extends Component {
             className="brand-logo-url"
             target="_blank"
             rel="noopener noreferrer"
-            key={product.manufacturer}
+            key={product.id}
             href={product.brandWebSite}
           >
             <img src={product.logoUrl} alt="logo" />

@@ -182,7 +182,15 @@ router.get('/all', (req, res) => {
       manufacturer: 1
     })
     .then(products => {
-      res.status(200).json(products)
+      let data = [];
+      products.map((p) => {
+        data.push({
+          "id": p._id,
+          "brandWebSite": p.brandWebSite,
+          "logoUrl": p.logoUrl
+        })
+      })
+      res.status(200).json(data)
     })
 })
 
