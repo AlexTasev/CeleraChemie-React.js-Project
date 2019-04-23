@@ -48,16 +48,19 @@
 
 .products-display {
     flex: 0 0 70;
-    /* background: rgba(0, 0, 0, 0.7); */
     margin-top: 2%;
     overflow: hidden;
 }
 
+.all-products-display{
+    margin-top:2%;
+    flex-grow: inherit;
+}
+
 .brand-logo-url {
-    /* background-color: rgba(0, 0, 0, 0.7); */
     text-align: center;
     overflow: hidden;
-    margin-left:2%;
+    padding-left: 3.5%;
 }
 
 .brand-logo-url img {

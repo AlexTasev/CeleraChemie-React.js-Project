@@ -106,7 +106,12 @@ class CreatePage extends Component {
     );
 
     return (
-      <div className="Form">
+      <div
+        className="Form"
+        style={{
+          backgroundImage: `url("https://am3pap003files.storage.live.com/y4pEGvAr2dl_1V7s4OWdBCtWCTkW7fHBg4HkLf1Klm_o8AJFqRflYkoomqEmwhGLPuRHpDNtRQ8B8k58DRAa3avlTjH6PhW22xmAYLKqvY__kCcHdGadI4zAsiv6crc25tD8RJC2iL48C9rHGExK5hUmvmppGtr176yFZ6BlN_-Tyh490zfb5aWCCt6hnz1OHLd/Products-all.jpg?psid=1&width=1000&height=535")`
+        }}
+      >
         <h1>Create Product</h1>
         <form onSubmit={this.onSubmit}>
           <Input

@@ -53,9 +53,11 @@ class Products extends Component {
     } else if (this.state.category === "chemicals") {
       return "https://am3pap003files.storage.live.com/y4pMcaZxZJM81kBw8qBLvGN3XvDydbvnKWdo79dcAd3RKyWAYRBIZBU83NmwhdpBu3tHT51CvcMC3GMHTUgy7Bl7QkvhNFRc3vkxtsW9BLdR22tTrLsirNu5PwBLPdWiC-xjcrEM5EEqmRIThYtuiRci0zmR57irF2SjXI9DEWAFi16r2Bav-vIuYFA-Oa9-hfX/Chemicals.png?psid=1&width=1533&height=765";
     } else if (this.state.category === "glassware") {
-      return "https://am3pap003files.storage.live.com/y4pn-ONZayfKdNmHLYhGuu7ng6jJpNmjq1PHcIUMiSqRDBblHaw4Ryn_JAN7WccZG3aLZd37vp26fdPLyH65vTjSesuMt_gIaw5CVA6xELwQSfn5h6bCSV7s2O5sXsxyL_9XG_hfm1rwoeHrIYYulS0jewjoF1PyQbUaxtWbKTos2A-eIJMjwlVV7RqPyi14MBN/Glass.png?psid=1&width=788&height=788&cropMode=center";
+      return "https://am3pap003files.storage.live.com/y4pSmhmlu0RO3P_3IW1IE8OBkRbSIorKAM2CFTq9UAWfBFAvlDYgfv9-SYj4nAi5vsKW7xWJOByJs2d-o3mZg65QwWpiM2Cj2yvXe76s7e3y8eLsYbnhY6OVRzipbF2z7kB1btkikRoi51Z_LeNj1gNArD3chypSI_7X46TZpENnmdG0wK7qMLm1kWvXVzwe7_v/Glass.png?psid=1&width=1170&height=710";
     } else if (this.state.category === "consumables") {
       return "https://am3pap003files.storage.live.com/y4pbFhfWS7yz8eOS6CsMlSZpwrgwihLvXCgoGKE7rwUDjy1fTRTlsz8mGm3MbfnaxmGc8bPkQwgxRYR2rPpMbyjsv7nSFYQYS-w510PFkBAL0Cvb6azup9eahQ1CzPz2klAa8vH29EmRGYfASZizk964UqeAf60BdVTGZs955xsLzj20bdbkaOiUvSzYEmCJne5/Consumables.png?psid=1&width=374&height=237";
+    } else {
+      return "https://am3pap003files.storage.live.com/y4p4LnPussbqWK1voC8nwOcAQAyBGWToFrM4-HJd87FiHIZ9zhuUwumBYK_vGuzOeWJXcxyHq29niMbdT3kzkIz8A91p2zMg6j-Lf2MxEWgh648DoZZN9i3QsExTmThRMx1FkVgThjQfBrG-K8CSBn69LCxUFCrz6HsFWXu18A122IVKsr0W_QuUznoeXugb7fn/Products.png?psid=1&width=374&height=249";
     }
     
   }

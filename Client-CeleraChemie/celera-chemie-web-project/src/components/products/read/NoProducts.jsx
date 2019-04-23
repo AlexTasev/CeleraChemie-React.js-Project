@@ -21,7 +21,7 @@ class NoProducts extends Component {
 
   render() {
     return (
-        <div>
+        <div className="all-products-display">
           {this.state.products.map(product => (
             <a
               className="brand-logo-url"
