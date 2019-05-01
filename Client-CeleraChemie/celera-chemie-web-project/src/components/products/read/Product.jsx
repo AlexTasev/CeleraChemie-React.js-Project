@@ -59,11 +59,10 @@ class Product extends Component {
     }
 
     return (
-      <div className="products-display">
+      <section className="products-display">
         <div className="brand-logo-url">
           <img src={this.props.logoUrl} alt="logo" />
         </div>
-        {/* <div className="manufacturer">{this.props.manufacturer}</div> */}
         <div className="description">
           {this.props.description.split("\n").map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
@@ -105,7 +104,7 @@ class Product extends Component {
             </Fragment>
           )}
         </div>
-      </div>
+      </section>
     );
   }
 }

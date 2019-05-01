@@ -4,7 +4,7 @@ import './About.css'
 
 const About = props => {
   return (
-    <div className="about-page">
+    <article className="about-page">
       <h1>
         <Translate string={"about.title"} />
       </h1>
@@ -22,7 +22,7 @@ const About = props => {
         alt="Dr. Karl Töllner"
       />
       <div>Dr. Karl Töllner</div>
-    </div>
+    </article>
   );
 };
 

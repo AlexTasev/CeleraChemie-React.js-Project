@@ -39,8 +39,8 @@ class LogInForm extends React.Component {
     }
 
     return (
-      <div
-        className="Form"
+      <section
+        className="form"
         style={{
           backgroundImage: `url("https://am3pap003files.storage.live.com/y4pWc1itk9AtD-baxMeucFyjjsCeNSCSAu2GgMeLlNG4C3NffMR1WFF6iMpnSiYmBfEpu2FsmuUXaIqkTWUNYxcHpME1xVGOPktR0MEIUcN1IUngrn4xFfn92pBWJmRXcPLqMmNIDG2YJYC-4qAcKXr1UI6zEFXpiz9BPvRHlbO6oDnXYC2KfZMjfULnKvqzggL/welcome.png?psid=1&width=484&height=209")`
         }}
@@ -63,7 +63,7 @@ class LogInForm extends React.Component {
           />
           <input type="submit" value="Login" />
         </form>
-      </div>
+      </section>
     );
   }
 }

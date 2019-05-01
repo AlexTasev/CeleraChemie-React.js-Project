@@ -12,7 +12,7 @@ class NoProducts extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/product/all", {
+    fetch(`http://localhost:5000/product/all/${this.props.language}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ class NoProducts extends Component {
 
   render() {
     return (
-      <div className="all-products-display">
+      <section className="all-products-display">
         {this.state.products.map(product => (
           <a
             className="brand-logo-url"
@@ -41,7 +41,7 @@ class NoProducts extends Component {
             <img src={product.logoUrl} alt="logo" />
           </a>
         ))}
-      </div>
+      </section>
     );
   }
 }

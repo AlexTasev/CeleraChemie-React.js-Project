@@ -9,32 +9,49 @@
     background-attachment: fixed;
 }
 
-.contact {
+.contact-page {
     background-color: rgba(0, 0, 0, 0.5);
-    margin-top:2%;
+    margin-top: 2%;
     display: inline-block;
     width: 40%;
     margin-left:15%;
-    
+    height: 450px;
 }
 
-.contacts-general{
+.contacts-general {
     display: block;
+    padding-top: 3%;
+    padding-left: 3%;
 }
 
-contacts-persons {
+.contacts-general p {
+   font-size: 80%;
+}
+
+.contacts-persons {
     display: block;
-    margin-top:3%;
+    padding-left: 3%;
 }
 
-.contacts-persons p{
+.contacts-persons p {
+    margin-top: 3%;
+    line-height: 1;
+    text-align: left;
+    font-size: 80%;
     color: rgb(0, 101, 126);
 }
 
 .location-image {
     display: inline-block;
-    width: 200 px;
-    height: 200 px;
     margin-right: 2%;
-    /* margin-top: -1px; */
+    margin-top: 2%;
+    overflow: hidden;
+}
+
+.location-image img {
+    display: inline-block;
+    width: 450px;
+    height: 450px;
+    margin-right: 2%;
+    margin-top: 3%;
 }

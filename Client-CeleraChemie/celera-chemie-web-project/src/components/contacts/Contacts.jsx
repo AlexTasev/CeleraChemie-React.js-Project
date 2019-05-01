@@ -17,9 +17,9 @@ const Contacts = props => {
   }
 
   return (
-    <div className="container-contacts">
-      <div className="contact">
-        <div className="contacts-general">
+    <section className="container-contacts">
+      <section className="contact-page">
+        <article className="contacts-general">
           <p>
             <Translate string={"contacts.companyName"} />
           </p>
@@ -32,7 +32,7 @@ const Contacts = props => {
           <p>
             <Translate string={"contacts.email"} />
           </p>
-        </div>
+        </article>
         <div className="contacts-persons">
           <p>
             <Translate string={"contacts.personOne.name"} />
@@ -58,13 +58,13 @@ const Contacts = props => {
             <Translate string={"contacts.personTwo.email"} />
           </p>
         </div>
-      </div>
+      </section>
       {locationImg && (
         <div className="location-image">
           <img src={locationImg} alt="Show on the map" />
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

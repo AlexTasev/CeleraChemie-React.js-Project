@@ -3,14 +3,14 @@
     display: block;
 }
 
-h1 {
+.certificates-page h1 {
     text-align: center;
     color: rgb(230, 230, 230);
     font-size: 150%;
     text-transform: uppercase;
 }
 
-p {
+.certificates-page p {
     width: 60%;
     margin-left: 20%;
     color: rgb(230, 230, 230);

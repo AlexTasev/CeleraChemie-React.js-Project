@@ -175,15 +175,17 @@ router.post('/edit/:id', authCheck, (req, res) => {
   }
 })
 
-router.get('/all', (req, res) => {
+router.get('/all/:language', (req, res) => {
+  const lang = req.params.language;
   Product
     .find()
     .sort({
       manufacturer: 1
     })
     .then(products => {
+      let sorted = products.filter((p) => p.language === lang);
       let data = [];
-      products.map((p) => {
+      sorted.map((p) => {
         data.push({
           "id": p._id,
           "brandWebSite": p.brandWebSite,

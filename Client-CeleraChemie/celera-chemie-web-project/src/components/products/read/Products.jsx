@@ -35,7 +35,8 @@ class Products extends Component {
   handleClick(e) {
     let chosenCategory = e.target.name;
     fetch(
-      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`, {
+      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`,
+      {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +79,7 @@ class Products extends Component {
         className="products-section"
         style={{ backgroundImage: `url(${this.getBackground()})` }}
       >
-        <div className="product-selector">
+        <section className="product-selector">
           <ul>
             <li>
               <button name="chemicals" onClick={this.handleClick}>
@@ -106,20 +107,22 @@ class Products extends Component {
               </button>
             </li>
           </ul>
-        </div>
-        {!this.state.category && <NoProducts />}
-        {this.state.products.map(product => (
-          <Product
-            key={product._id}
-            logoUrl={product.logoUrl}
-            manufacturer={product.manufacturer}
-            description={product.description}
-            catalogueUrl={product.catalogueUrl}
-            brandWebSite={product.brandWebSite}
-            id={product._id}
-            isAdmin={this.props.isAdmin}
-          />
-        ))}
+        </section>
+        <section>
+          {!this.state.category && <NoProducts language={this.state.language} />}
+          {this.state.products.map(product => (
+            <Product
+              key={product._id}
+              logoUrl={product.logoUrl}
+              manufacturer={product.manufacturer}
+              description={product.description}
+              catalogueUrl={product.catalogueUrl}
+              brandWebSite={product.brandWebSite}
+              id={product._id}
+              isAdmin={this.props.isAdmin}
+            />
+          ))}
+        </section>
       </section>
     );
   }

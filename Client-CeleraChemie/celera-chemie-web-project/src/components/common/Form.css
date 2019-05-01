@@ -1,4 +1,4 @@
-.Form {
+.form {
     width: 100%;
     padding-bottom: 5%;
     background-color: black;
@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.Form h1 {
+.form h1 {
     text-align: center;
     color: rgb(0, 101, 126);
     text-transform: uppercase;
@@ -16,22 +16,21 @@
     padding: 2%;
 }
 
-.Form form {
+.form form {
     display: grid;
     width: 480px;
     margin: 0 auto;
-    
 }
 
-.Form form input[type="text"],
-.Form form input[type="password"] {
+.form form input[type="text"],
+.form form input[type="password"] {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid wheat;
     color:black;
 }
 
-.Form form select{
+.form form select{
     padding: 10px;
     border-radius: 10px;
     border: 1px solid wheat;
@@ -39,12 +38,11 @@
     padding-bottom: 10px;
 }
 
-.Form form select option {
+.form form select option {
     color: black;
 }
 
-
-.Form form textarea {
+.form form textarea {
     padding: 10px;
     height: 260px;
     border-radius: 10px;
@@ -54,7 +52,7 @@
     padding-bottom: 10px;
 }
 
-.Form form input[type="submit"] {
+.form form input[type="submit"] {
     width: 100%;
     margin: 0 auto;
     padding-top: 10px;
@@ -67,7 +65,7 @@
     font-size: 18px;
 }
 
-.Form form input[type="submit"]:hover {
+.form form input[type="submit"]:hover {
     border: 1px solid #455859;
     background: rgb(0, 101, 0);
     color: white;
@@ -92,5 +90,4 @@
     background: rgb(212, 0, 0);
     color: white;
     text-transform: uppercase;
-    
 }

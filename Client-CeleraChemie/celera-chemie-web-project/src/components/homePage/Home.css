@@ -1,6 +1,6 @@
 .commercial-text-box {
     text-transform: uppercase;
-    background: rgba(0, 0, 0, 0.6);
+    background: black;
     z-index: 9999;
 }
 .commercial-text-box img {

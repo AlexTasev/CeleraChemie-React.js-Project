@@ -130,7 +130,7 @@ class EditProduct extends Component {
       this.state.brandWebSite
     );
     return (
-      <div className="Form">
+      <section className="form">
         <h1>Edit Product</h1>
         <form onSubmit={this.onSubmit}>
           <Input
@@ -197,7 +197,7 @@ class EditProduct extends Component {
           />
           <input type="submit" value="Edit Product" />
         </form>
-      </div>
+      </section>
     );
   }
 }

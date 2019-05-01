@@ -126,7 +126,7 @@ class UserProfile extends Component {
     }
 
     return (
-      <div className="Form">
+      <section className="form">
         <h1>Edit Profile Info</h1>
         <form onSubmit={this.onSubmit}>
           <Input
@@ -166,7 +166,7 @@ class UserProfile extends Component {
             Delete User
           </button>
         </form>
-      </div>
+      </section>
     );
   }
 }

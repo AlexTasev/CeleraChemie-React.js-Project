@@ -29,7 +29,7 @@ const Certificates = props => {
   }
 
   return (
-    <div className="certificates-page">
+    <article className="certificates-page">
       <h1>
         <Translate string={"certificates.title"} />
       </h1>
@@ -39,7 +39,7 @@ const Certificates = props => {
       <a href={pdfLocation} target="_blank" rel="noopener noreferrer">
         <img className="imgCertificate" src={imgSrc} alt="certificate" />
       </a>
-    </div>
+    </article>
   );
 };
 

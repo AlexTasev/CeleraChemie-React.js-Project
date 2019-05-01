@@ -106,8 +106,8 @@ class CreatePage extends Component {
     );
 
     return (
-      <div
-        className="Form"
+      <section
+        className="form"
         style={{
           backgroundImage: `url("https://am3pap003files.storage.live.com/y4pEGvAr2dl_1V7s4OWdBCtWCTkW7fHBg4HkLf1Klm_o8AJFqRflYkoomqEmwhGLPuRHpDNtRQ8B8k58DRAa3avlTjH6PhW22xmAYLKqvY__kCcHdGadI4zAsiv6crc25tD8RJC2iL48C9rHGExK5hUmvmppGtr176yFZ6BlN_-Tyh490zfb5aWCCt6hnz1OHLd/Products-all.jpg?psid=1&width=1000&height=535")`
         }}
@@ -178,7 +178,7 @@ class CreatePage extends Component {
           />
           <input type="submit" value="Create Product" />
         </form>
-      </div>
+      </section>
     );
   }
 }

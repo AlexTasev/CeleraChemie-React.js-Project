@@ -5,16 +5,17 @@
    background-position: center;
    background-attachment: fixed;
    overflow: hidden;
+   background-color: black;
 }
 
 /* ---PRODUCT CATEGORIES SELECTOR---- */
 
 .product-selector {
     display: inline-block;
-    /* background-color: rgba(0, 0, 0, 0.7); */
+    background: transparent;
     margin-top: 2%;
     flex: 0 0 30;
-    /* height: 85em; */
+    height: 100vh;
 }
 
 .product-selector li button{
@@ -73,7 +74,12 @@
 .description{
     margin-bottom: 2%;
     overflow: hidden;
-    flex-flow: column
+    flex-flow: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top:3%;
+    padding-bottom:3%;
+    width: 70%;
+    margin-left:10%;
 }
 
 .button-user {
@@ -140,9 +146,9 @@
 
 
 .description p {
-    background-color: rgba(0, 0, 0, 0.75);
-    padding-left: 3%;
-    padding-right: 3%;
+    line-height: 1.5;
+    padding-left: 4%;
+    padding-right: 4%;
     margin-bottom: 0%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
