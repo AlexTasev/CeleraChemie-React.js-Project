@@ -31,6 +31,7 @@ nav {
 .nav-link-right:visited {
     padding: 1px 0;
     color: rgba(236, 236, 236, 0.7);
+    word-spacing: 0;
     text-decoration: none;
     text-transform: uppercase;
     border-bottom: 2px solid transparent;
