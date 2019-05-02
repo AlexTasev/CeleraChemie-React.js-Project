@@ -30,7 +30,7 @@ class HomePage extends Component {
         {
           id: "3",
           src:
-            "https://am3pap003files.storage.live.com/y4pyr58P_Y5BaHoJ7W0my6VjVqAkIjxyvvg5SnMhsj1_QwH5ASdFkbMSoT1ziQvQSoWSlabj9XAe9uddQahYl48Qz83EpLXH-4DIK55jt0KuwrmFXGetQVHP5iY_0lBrCni8HWNYuxI_1pGntYu3_BNsMl3ZkZ1TiT08CnKzXcbXFxZA7bQjiC2acY1r2UaEhR5/Vacuubrand.jpg?psid=1&width=958&height=366"
+            "https://am3pap003files.storage.live.com/y4pkRB0ECGiR6DhozcdK9HP9ymUR_91SoHNAvu70nQFhasY9VTa2Zj1ZmL4XOQwgjJa8uGuw35LC0pouwb02AWWWDR2_XrpDy5ySocUeZIv-EnR9OZ70hsHICSA5oWZ45N-jWhDexHFkFeulQK9Fk-su_RZXjAOYSglNirvzgJq0FTKEePUuwVH0QSlo_J0iUYM/Vaccubrand_Controller.png?psid=1&width=1048&height=450"
         },
         {
           id: "4",
@@ -45,7 +45,7 @@ class HomePage extends Component {
         {
           id: "6",
           src:
-            "https://am3pap003files.storage.live.com/y4pD_vCTRa505EGjaNCJviFLhtB2KWjp3io7MI6BH3yNXUXGnXereXDnNntqm0ooxC_3WiFy7LYgVsYundmSm_k1aAvsqOX26qoGfN3-qRgiT990vX7SL4lx836On2QxIjVKIvXGwauPYP_W6nMZBgOBauS_UxJI8dAEMcKE6nXJ_wrbDO5VXdQl4sfjvbwv6Ma?psid=2&width=1536&height=366"
+            "https://am3pap003files.storage.live.com/y4p9oLrOar_Dqlj8m8Fdw7LZjpuUBYqf7w5t-Ay-C9gRuz9mw5MQG5-0SM5UqpK3emgBc_hH82YvWfzVB8aBrqzERbRnerCWj9j3YnSL0Vl3MH1XmUcltda51lVj5QsP2p4VpTZ6ZXfhzipVkTX1txhBdFl9sN9LEwkwHShFYGRjADCqBoB6Of-cacT4Vg6ffAG/CarloErba.png?psid=1&width=1173&height=386"
         },
         {
           id: "7",
