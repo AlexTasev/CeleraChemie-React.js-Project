@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import SwiftSlider from "react-swift-slider";
+import React, { Component, Fragment } from "react";
+import Slider from "./Slider";
 import Translate from "../../locales/Translate";
 
 import "../homePage/Home.css";
@@ -30,7 +30,7 @@ class HomePage extends Component {
         {
           id: "3",
           src:
-            "https://am3pap003files.storage.live.com/y4pyr58P_Y5BaHoJ7W0my6VjVqAkIjxyvvg5SnMhsj1_QwH5ASdFkbMSoT1ziQvQSoWSlabj9XAe9uddQahYl48Qz83EpLXH-4DIK55jt0KuwrmFXGetQVHP5iY_0lBrCni8HWNYuxI_1pGntYu3_BNsMl3ZkZ1TiT08CnKzXcbXFxZA7bQjiC2acY1r2UaEhR5/Vacuubrand.jpg?psid=1&width=958&height=780"
+            "https://am3pap003files.storage.live.com/y4pyr58P_Y5BaHoJ7W0my6VjVqAkIjxyvvg5SnMhsj1_QwH5ASdFkbMSoT1ziQvQSoWSlabj9XAe9uddQahYl48Qz83EpLXH-4DIK55jt0KuwrmFXGetQVHP5iY_0lBrCni8HWNYuxI_1pGntYu3_BNsMl3ZkZ1TiT08CnKzXcbXFxZA7bQjiC2acY1r2UaEhR5/Vacuubrand.jpg?psid=1&width=958&height=366"
         },
         {
           id: "4",
@@ -45,7 +45,7 @@ class HomePage extends Component {
         {
           id: "6",
           src:
-            "https://am3pap003files.storage.live.com/y4pD_vCTRa505EGjaNCJviFLhtB2KWjp3io7MI6BH3yNXUXGnXereXDnNntqm0ooxC_3WiFy7LYgVsYundmSm_k1aAvsqOX26qoGfN3-qRgiT990vX7SL4lx836On2QxIjVKIvXGwauPYP_W6nMZBgOBauS_UxJI8dAEMcKE6nXJ_wrbDO5VXdQl4sfjvbwv6Ma?psid=2&width=1536&height=768"
+            "https://am3pap003files.storage.live.com/y4pD_vCTRa505EGjaNCJviFLhtB2KWjp3io7MI6BH3yNXUXGnXereXDnNntqm0ooxC_3WiFy7LYgVsYundmSm_k1aAvsqOX26qoGfN3-qRgiT990vX7SL4lx836On2QxIjVKIvXGwauPYP_W6nMZBgOBauS_UxJI8dAEMcKE6nXJ_wrbDO5VXdQl4sfjvbwv6Ma?psid=2&width=1536&height=366"
         },
         {
           id: "7",
@@ -66,18 +66,21 @@ class HomePage extends Component {
 
   render() {
     return (
-      <section className="banner-image">
-        {
-          this.state.mountedHome ? <SwiftSlider data={this.state.data} showDots={false} /> : null
-        }
-        <div className="commercial-text-box">
+      <Fragment>
+        <section className="banner-image">
+          {
+            this.state.mountedHome ?
+              <Slider data={this.state.data} showDots={false} /> : null
+          }
+        </section>
+        <section className="commercial-text-box">
           <br />
           <img src={logo} alt="Celera-Chemie" />
           <h6>
-            <Translate string={"home.slogan"}/>
+            <Translate string={"home.slogan"} />
           </h6>
-        </div>
-      </section>
+        </section>
+      </Fragment>
     );
   }
 };
