@@ -26,3 +26,7 @@
     max-height: 440px;
     position: center;
 }
+
+.lang {
+    overflow: hidden;
+}

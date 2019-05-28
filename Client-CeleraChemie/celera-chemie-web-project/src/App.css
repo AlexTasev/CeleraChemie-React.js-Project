@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
-
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +12,83 @@
     word-spacing: 0.12em;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 html {
     margin: 0;
     padding: 0;
 }
 
+@media (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 900px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1920px) {
+    html {
+        font-size: 21px;
+    }
+}
+
+body, input, textarea, select, option, button {
+    font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+}
+
+main {
+    font-size: 1.1em;
+}
+
+article {
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+h6 {
+    font-size: 1.0em;
+}

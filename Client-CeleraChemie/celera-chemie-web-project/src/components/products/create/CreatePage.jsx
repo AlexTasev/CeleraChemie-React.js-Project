@@ -150,7 +150,7 @@ class CreatePage extends Component {
             valid={validObj.validLanguage}
           />
           <Input
-            type="text"
+            type="url"
             name="logoUrl"
             label="Logo URL"
             placeholder="Enter manufacturer logo"
@@ -159,7 +159,7 @@ class CreatePage extends Component {
             valid={validObj.validLogoUrl}
           />
           <Input
-            type="text"
+            type="url"
             name="catalogueUrl"
             label="Catalogue URL"
             placeholder="Enter link to catalogue"
@@ -168,7 +168,7 @@ class CreatePage extends Component {
             valid={validObj.validCatalogueUrl}
           />
           <Input
-            type="text"
+            type="url"
             name="brandWebSite"
             label="Manufacturer web site"
             placeholder="Enter manufacturer web site"

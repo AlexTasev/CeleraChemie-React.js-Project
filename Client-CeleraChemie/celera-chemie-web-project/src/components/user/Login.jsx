@@ -48,7 +48,7 @@ class LogInForm extends React.Component {
         <h1>Login</h1>
         <form onSubmit={this.onSubmit}>
           <Input
-            type="text"
+            type="email"
             onChange={this.handleChange}
             label="e-mail"
             name="email"
