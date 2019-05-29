@@ -45,3 +45,9 @@ nav {
     border-bottom: 2px solid rgb(0, 101, 126);
     text-align: center;
 }
+
+@media(max-width: 480px) {
+    .nav-link-left {
+        display: block;
+    }
+}

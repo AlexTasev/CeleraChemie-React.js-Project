@@ -12,9 +12,9 @@
     word-spacing: 0.12em;
 }
 
-*, *:before, *:after {
+/* *, *:before, *:after {
     box-sizing: inherit;
-}
+} */
 
 html {
     margin: 0;
