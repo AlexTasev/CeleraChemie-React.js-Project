@@ -44,6 +44,7 @@ nav {
 .nav-link-right:active {
     border-bottom: 2px solid rgb(0, 101, 126);
     text-align: center;
+    text-decoration: none;
 }
 
 @media(max-width: 480px) {

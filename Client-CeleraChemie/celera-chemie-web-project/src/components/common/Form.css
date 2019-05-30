@@ -22,15 +22,16 @@
     margin: 0 auto;
 }
 
-.form-group label {
+.form label {
     overflow: hidden;
+    padding: 1rem 0 1rem 0;
 }
 
 .form form input[type="text"],
 .form form input[type="email"],
 .form form input[type="url"],
 .form form input[type="password"] {
-    padding: 0.5remx;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid wheat;
     color:black;
@@ -43,7 +44,7 @@
     border-radius: 10px;
     border: 1px solid wheat;
     color: black;
-    padding-bottom: 10px;
+    padding-bottom: 0.5rem;
 }
 
 .form form select option {
@@ -51,12 +52,12 @@
 }
 
 .form form textarea {
-    padding: 10px;
-    height: 260px;
-    border-radius: 10px;
+    padding: 0.5rem;
+    height: 25rem;
+    border-radius: 0.5rem;
     border: 1px solid wheat;
     color: black;
-    padding-bottom: 10px;
+    font-size: 0.9rem;
 }
 
 .form form input[type="submit"] {

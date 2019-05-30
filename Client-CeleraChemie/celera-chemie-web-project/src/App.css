@@ -10,6 +10,7 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     word-spacing: 0.12em;
+    text-decoration: none;
 }
 
 /* *, *:before, *:after {

@@ -1,15 +1,19 @@
-.users-section{
+.users-section {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
     color: rgba(236, 236, 236, 0.7);
     background: black;
 }
 
-.single-user{
-    margin-top: 5%;
+.single-user {
+    margin-top: 1rem;
+}
+
+.single-user div {
+    overflow: hidden;
 }
 
 .single-user span {
-    color: rgb(0,101,126);
+    color: rgb(0, 101, 126);
 }
