@@ -16,7 +16,7 @@ class AllUsers extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/users/all", {
+    fetch("http://localhost:5000/users", {
       method: "GET",
       headers: {
         Authorization: "bearer " + Auth.getToken()
@@ -36,7 +36,7 @@ class AllUsers extends Component {
   deleteUser(e) {
     const userId = e.target.id;
     if (this.props.isAdmin) {
-      fetch(`http://localhost:5000/users/delete/${userId}`, {
+      fetch(`http://localhost:5000/users/${userId}`, {
         method: "DELETE",
         headers: {
           Authorization: "bearer " + Auth.getToken()

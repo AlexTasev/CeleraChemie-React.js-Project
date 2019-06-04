@@ -32,7 +32,7 @@ function validateEditForm(payload) {
   }
 }
 
-router.get('/all', authCheck, (req, res) => {
+router.get('/', authCheck, (req, res) => {
   User
     .find().sort({organisation: 1})
     .then(users => {
@@ -41,7 +41,7 @@ router.get('/all', authCheck, (req, res) => {
     })
 })
 
-router.get('/edit/:id', authCheck, (req, res) => {
+router.get('/:id', authCheck, (req, res) => {
   const userId = req.params.id
   User
     .findById(userId)
@@ -57,7 +57,7 @@ router.get('/edit/:id', authCheck, (req, res) => {
     })
 })
 
-router.post('/edit/:id', authCheck, (req, res) => {
+router.put('/:id', authCheck, (req, res) => {
     const userId = req.params.id
     const userObj = req.body
     const validationResult = validateEditForm(userObj)
@@ -109,7 +109,7 @@ router.post('/edit/:id', authCheck, (req, res) => {
   } 
 )
 
-router.delete('/delete/:id', authCheck, (req, res) => {
+router.delete('/:id', authCheck, (req, res) => {
   const id = req.params.id
     User
       .findById(id)

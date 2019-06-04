@@ -59,7 +59,7 @@ class CreatePage extends Component {
       return;
     }
 
-    fetch("http://localhost:5000/product/create", {
+    fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

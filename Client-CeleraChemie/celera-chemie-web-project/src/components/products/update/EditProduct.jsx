@@ -61,8 +61,8 @@ class EditProduct extends Component {
       return;
     }
 
-    fetch(`http://localhost:5000/product/edit/${productId}`, {
-      method: "POST",
+    fetch(`http://localhost:5000/product/${productId}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: "bearer " + Auth.getToken()
@@ -90,7 +90,7 @@ class EditProduct extends Component {
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    fetch(`http://localhost:5000/product/edit/${productId}`, {
+    fetch(`http://localhost:5000/product/${productId}`, {
       method: "GET",
       headers: {
         Authorization: "bearer " + Auth.getToken()

@@ -39,7 +39,7 @@ class Product extends Component {
   deleteProduct() {
     const productId = this.props.id;
     if (this.props.isAdmin) {
-      fetch(`http://localhost:5000/product/delete/${productId}`, {
+      fetch(`http://localhost:5000/product/${productId}`, {
         method: "DELETE",
         headers: {
           Authorization: "bearer " + Auth.getToken()

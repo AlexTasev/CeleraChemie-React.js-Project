@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
   componentDidMount() {
     const userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/edit/${userId}`, {
+    fetch(`http://localhost:5000/users/${userId}`, {
       method: "GET",
       headers: {
         Authorization: "bearer " + Auth.getToken()
@@ -58,8 +58,8 @@ class UserProfile extends Component {
       return;
     }
     let userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/edit/${userId}`, {
-      method: "POST",
+    fetch(`http://localhost:5000/users/${userId}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: "bearer " + Auth.getToken()
@@ -101,7 +101,7 @@ class UserProfile extends Component {
 
   deleteUser() {
     let userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/delete/${userId}`, {
+    fetch(`http://localhost:5000/users/${userId}`, {
       method: "DELETE",
       headers: {
         Authorization: "bearer " + Auth.getToken()

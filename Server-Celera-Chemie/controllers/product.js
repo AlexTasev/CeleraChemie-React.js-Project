@@ -58,7 +58,7 @@ function validateProductCreateForm(payload) {
   }
 }
 
-router.post('/create', authCheck, (req, res) => {
+router.post('/', authCheck, (req, res) => {
   const productObj = req.body;
   if (req.user.roles.indexOf('Admin') > -1) {
     const validationResult = validateProductCreateForm(productObj)
@@ -98,7 +98,7 @@ router.post('/create', authCheck, (req, res) => {
   }
 })
 
-router.get('/edit/:id', authCheck, (req, res) => {
+router.get('/:id', authCheck, (req, res) => {
   const productId = req.params.id
   Product
     .findById(productId)
@@ -114,7 +114,7 @@ router.get('/edit/:id', authCheck, (req, res) => {
     })
 })
 
-router.post('/edit/:id', authCheck, (req, res) => {
+router.put('/:id', authCheck, (req, res) => {
   if (req.user.roles.indexOf('Admin') > -1) {
     const productId = req.params.id
     const productObj = req.body
@@ -256,7 +256,7 @@ router.get('/filters/:language', (req, res) => {
     })
 })
 
-router.delete('/delete/:id', authCheck, (req, res) => {
+router.delete('/:id', authCheck, (req, res) => {
   const id = req.params.id
   Product
     .findById(id)
