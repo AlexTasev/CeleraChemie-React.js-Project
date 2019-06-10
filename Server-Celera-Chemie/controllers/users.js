@@ -1,36 +1,9 @@
 const express = require('express')
-const passport = require('passport')
-const validator = require('validator')
 const authCheck = require('../config/auth-check')
 const User = require('../models/User')
+const validateUserForm= require('../utilities/userValidator')
 
 const router = new express.Router()
-
-function validateEditForm(payload) {
-  const errors = {}
-  let isFormValid = true
-  let message = ''
-
-  if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
-    isFormValid = false
-    errors.email = 'Please provide a correct email address'
-  }
-
-  if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
-    isFormValid = false
-    errors.email = 'Please provide your Organisation.'
-  }
-
-  if (!isFormValid) {
-    message = 'Check the form for errors.'
-  }
-
-  return {
-    success: isFormValid,
-    message,
-    errors
-  }
-}
 
 router.get('/', authCheck, (req, res) => {
   User
@@ -60,7 +33,7 @@ router.get('/:id', authCheck, (req, res) => {
 router.put('/:id', authCheck, (req, res) => {
     const userId = req.params.id
     const userObj = req.body
-    const validationResult = validateEditForm(userObj)
+    const validationResult = validateUserForm.ValidateEditForm(userObj)
     if (!validationResult.success) {
       return res.status(200).json({
         success: false,

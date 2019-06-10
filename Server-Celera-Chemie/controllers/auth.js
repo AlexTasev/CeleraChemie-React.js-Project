@@ -1,68 +1,11 @@
 const express = require('express')
 const passport = require('passport')
-const validator = require('validator')
+const userValidator = require('../utilities/userValidator')
 
 const router = new express.Router()
 
-function validateSignupForm(payload) {
-  const errors = {}
-  let isFormValid = true
-  let message = ''
-
-  if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
-    isFormValid = false
-    errors.email = 'Please provide a correct email address'
-  }
-
-  if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
-    isFormValid = false
-    errors.email = 'Please provide your Organisation.'
-  }
-
-  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
-    isFormValid = false
-    errors.password = 'Password must be at least 8 characters long'
-  }
-
-  if (!isFormValid) {
-    message = 'Check the form for errors.'
-  }
-
-  return {
-    success: isFormValid,
-    message,
-    errors
-  }
-}
-
-function validateLoginForm(payload) {
-  const errors = {}
-  let isFormValid = true
-  let message = ''
-
-  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0 || !validator.isEmail(payload.email)) {
-    isFormValid = false
-    errors.email = 'Please provide your email address.'
-  }
-
-  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
-    isFormValid = false
-    errors.password = 'Please provide your password.'
-  }
-
-  if (!isFormValid) {
-    message = 'Check the form for errors.'
-  }
-
-  return {
-    success: isFormValid,
-    message,
-    errors
-  }
-}
-
 router.post('/signup', (req, res, next) => {
-  const validationResult = validateSignupForm(req.body)
+  const validationResult = userValidator.validateSignupForm(req.body)
   if (!validationResult.success) {
     return res.status(401).json({
       success: false,
@@ -87,7 +30,7 @@ router.post('/signup', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
-  const validationResult = validateLoginForm(req.body)
+  const validationResult = userValidator.validateLoginForm(req.body)
   if (!validationResult.success) {
     return res.status(401).json({
       success: false,
