@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 
-import Auth from "../../../utils/auth";
 import { post } from "../../../data/crud"
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";

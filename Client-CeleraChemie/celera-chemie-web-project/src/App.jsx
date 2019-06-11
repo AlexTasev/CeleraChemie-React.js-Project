@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import "./App.css";
+import {post} from "./data/crud"
 
 import Navbar from "./components/common/Navigation/Navbar";
 import HomePage from "./components/homePage/Home";
@@ -38,15 +39,8 @@ class App extends Component {
     this.registerUser = this.registerUser.bind(this);
   }
 
-  registerUser(user) {
-    fetch(host + "auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(user)
-    })
-      .then(responce => responce.json())
+  async registerUser(user) {
+    await post(host + "auth/signup", user)
       .then(res => {
         if (!res.success) {
           toast.error(res.message);
@@ -62,15 +56,8 @@ class App extends Component {
       });
   }
 
-  loginUser(user) {
-    fetch(host + "auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(user)
-    })
-      .then(responce => responce.json())
+  async loginUser(user) {
+    await post(host + "auth/login", user)
       .then(res => {
         if (!res.success) {
           toast.error(res.message);

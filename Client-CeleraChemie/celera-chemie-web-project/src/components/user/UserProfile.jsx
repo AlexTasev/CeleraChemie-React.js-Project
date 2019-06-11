@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Input from "../common/Input";
-import Auth from "../../utils/auth";
+import { get, put, remove } from "../../data/crud"
 import "../common/Form.css";
 import editValidator from "../../utils/editValidator";
 
@@ -24,15 +24,9 @@ class UserProfile extends Component {
     this.deleteUser = this.deleteUser.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/${userId}`, {
-      method: "GET",
-      headers: {
-        Authorization: "bearer " + Auth.getToken()
-      }
-    })
-      .then(rawData => rawData.json())
+    await get(`http://localhost:5000/users/${userId}`)
       .then(user =>
         this.setState({
           email: user.email,
@@ -52,21 +46,13 @@ class UserProfile extends Component {
     });
   }
 
-  onSubmit(event) {
+  async onSubmit(event) {
     event.preventDefault();
     if (!editValidator(this.state.email, this.state.organisation)) {
       return;
     }
     let userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(responce => responce.json())
+    await put(`http://localhost:5000/users/${userId}`, this.state)
       .then(body => {
         if (!body.success) {
           toast.error(body.message);
@@ -93,27 +79,23 @@ class UserProfile extends Component {
         },
         {
           label: "No",
-          onClick: () => {}
+          onClick: () => { }
         }
       ]
     });
   };
 
-  deleteUser() {
+  async deleteUser() {
     let userId = localStorage.getItem("userId");
-    fetch(`http://localhost:5000/users/${userId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "bearer " + Auth.getToken()
-      }
-    }).then(res => {
-      this.props.logout();
-      this.setState({
-        isUserDeleted: true
+    await remove(`http://localhost:5000/users/${userId}`)
+      .then(res => {
+        this.props.logout();
+        this.setState({
+          isUserDeleted: true
+        });
+        toast.success("User deleted successfuly");
+        this.props.logout();
       });
-      toast.success("User deleted successfuly");
-      this.props.logout();
-    });
   }
 
   render() {
