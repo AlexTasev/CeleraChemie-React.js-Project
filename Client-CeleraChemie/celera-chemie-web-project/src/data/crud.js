@@ -2,16 +2,16 @@ import Auth from '../utils/auth'
 
 function request(method) {
     const getAuthHeader = () => {
-        return (Auth.getToken()) 
-        ? {
-            Authorization: "bearer " + Auth.getToken()
-        }
-        : {}
+        return (Auth.getToken())
+            ? {
+                Authorization: "bearer " + Auth.getToken()
+            }
+            : {}
     }
 
     return async (url, data = {}, options = {}) => {
         const authHeader = getAuthHeader();
-        
+
         const response = await fetch(url, {
             method,
             headers: {
@@ -19,7 +19,9 @@ function request(method) {
                 'Accept': 'application/json',
                 ...authHeader
             },
-            body: JSON.stringify(data),
+            body: Object.keys(data).length
+                ? JSON.stringify(data)
+                : undefined,
             ...options
         });
 

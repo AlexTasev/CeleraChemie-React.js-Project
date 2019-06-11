@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { Redirect } from "react-router-dom";
-import Auth from "../../../utils/auth";
+import { remove } from "../../../data/crud";
 import "./Products.css";
 
 class Product extends Component {
@@ -30,26 +30,20 @@ class Product extends Component {
         },
         {
           label: "No",
-          onClick: () => {}
+          onClick: () => { }
         }
       ]
     });
   };
 
-  deleteProduct() {
+  async deleteProduct() {
     const productId = this.props.id;
     if (this.props.isAdmin) {
-      fetch(`http://localhost:5000/product/${productId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: "bearer " + Auth.getToken()
-        }
-      }).then(res => {
-        this.setState({
-          isProductDeleted: true
-        });
-        toast.success("Product deleted successfuly");
+      await remove(`http://localhost:5000/product/${productId}`)
+      this.setState({
+        isProductDeleted: true
       });
+      toast.success("Product deleted successfuly");
     }
   }
 

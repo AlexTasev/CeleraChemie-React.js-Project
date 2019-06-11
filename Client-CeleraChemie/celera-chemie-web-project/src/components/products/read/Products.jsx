@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-import Auth from "../../../utils/auth";
+import { get } from "../../../data/crud";
 import Translate from "../../../locales/Translate";
 import Product from "./Product";
 import "./Products.css";
@@ -32,25 +32,14 @@ class Products extends Component {
     }
   }
 
-  handleClick(e) {
+  async handleClick(e) {
     let chosenCategory = e.target.name;
-    fetch(
-      `http://localhost:5000/product/${chosenCategory}/${this.state.language}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "bearer " + Auth.getToken()
-        }
-      }
-    )
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products: products,
-          category: chosenCategory
-        })
-      );
+    let products = await get(`http://localhost:5000/product/${chosenCategory}/${this.state.language}`);
+    this.setState({
+      products: products,
+      category: chosenCategory
+    })
+
   }
 
   getBackground() {

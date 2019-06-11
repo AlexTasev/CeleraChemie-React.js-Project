@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Auth from "../../../utils/auth";
+import { get } from "../../../data/crud"
 import "./Products.css";
 
 class NoProducts extends Component {
@@ -11,20 +11,11 @@ class NoProducts extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`http://localhost:5000/product/all/${this.props.language}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
-      }
+  async componentDidMount() {
+    let products = await get(`http://localhost:5000/product/all/${this.props.language}`)
+    this.setState({
+      products
     })
-      .then(rawData => rawData.json())
-      .then(products =>
-        this.setState({
-          products
-        })
-      );
   }
 
   render() {
