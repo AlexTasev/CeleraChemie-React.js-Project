@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 
 import Auth from "../../../utils/auth";
+import { post } from "../../../data/crud"
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";
 import Input from "../../common/Input";
@@ -59,13 +60,8 @@ class CreatePage extends Component {
       return;
     }
 
-    fetch("http://localhost:5000/product", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
-      },
-      body: JSON.stringify({
+    post("http://localhost:5000/product",
+      {
         manufacturer: this.state.manufacturer,
         description: this.state.description,
         category: this.state.category.toLowerCase(),
@@ -73,12 +69,11 @@ class CreatePage extends Component {
         logoUrl: this.state.logoUrl,
         catalogueUrl: this.state.catalogueUrl,
         brandWebSite: this.state.brandWebSite
-      })
-    })
-      .then(res => res.json())
+      }
+    )
       .then(res => {
-        if (res.error) {
-          toast.error(res.error);
+        if (res.errors) {
+          toast.error(res.errors);
         } else {
           toast.success("Product created!");
           this.setState({ productCreated: true });

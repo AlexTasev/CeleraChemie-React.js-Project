@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import Input from "../../common/Input";
+import { put } from "../../../data/crud"
 import Auth from "../../../utils/auth";
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";
@@ -35,7 +36,7 @@ class EditProduct extends Component {
     });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
     const productId = this.props.match.params.id;
     let {
@@ -61,13 +62,8 @@ class EditProduct extends Component {
       return;
     }
 
-    fetch(`http://localhost:5000/product/${productId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + Auth.getToken()
-      },
-      body: JSON.stringify({
+    await put(`http://localhost:5000/product/${productId}`,
+      {
         manufacturer: this.state.manufacturer,
         description: this.state.description,
         category: this.state.category.toLowerCase(),
@@ -75,18 +71,17 @@ class EditProduct extends Component {
         logoUrl: this.state.logoUrl,
         catalogueUrl: this.state.catalogueUrl,
         brandWebSite: this.state.brandWebSite
-      })
+      }
+    ).then(res => {
+      if (res.errors) {
+        toast.error(res.errors);
+      } else {
+        toast.success("Product edited successfully!");
+        this.setState({ productEdited: true });
+      }
     })
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          toast.error(res.error);
-        } else {
-          toast.success("Product edited successfully!");
-          this.setState({ productEdited: true });
-        }
-      });
-  }
+  };
+
 
   componentDidMount() {
     const productId = this.props.match.params.id;
