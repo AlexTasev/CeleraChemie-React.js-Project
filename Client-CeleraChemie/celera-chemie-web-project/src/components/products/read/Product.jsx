@@ -39,7 +39,7 @@ class Product extends Component {
   async deleteProduct() {
     const productId = this.props.id;
     if (this.props.isAdmin) {
-      await remove(`http://localhost:5000/product/${productId}`)
+      await remove(`product/${productId}`)
       this.setState({
         isProductDeleted: true
       });

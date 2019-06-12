@@ -59,7 +59,7 @@ class CreatePage extends Component {
       return;
     }
 
-    post("http://localhost:5000/product",
+    post("product",
       {
         manufacturer: this.state.manufacturer,
         description: this.state.description,

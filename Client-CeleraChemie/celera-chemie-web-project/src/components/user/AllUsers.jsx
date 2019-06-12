@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import Auth from "../../utils/auth";
+import { get, remove } from "../../data/crud"
 import "./AllUsers.css";
 
 class AllUsers extends Component {
@@ -16,13 +16,7 @@ class AllUsers extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/users", {
-      method: "GET",
-      headers: {
-        Authorization: "bearer " + Auth.getToken()
-      }
-    })
-      .then(res => res.json())
+    get("users")
       .then(users => {
         this.setState({
           users: users
@@ -36,17 +30,13 @@ class AllUsers extends Component {
   deleteUser(e) {
     const userId = e.target.id;
     if (this.props.isAdmin) {
-      fetch(`http://localhost:5000/users/${userId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: "bearer " + Auth.getToken()
-        }
-      }).then(res => {
-        this.setState({
-          isUserDeleted: true
+      remove(`users/${userId}`)
+        .then(res => {
+          this.setState({
+            isUserDeleted: true
+          });
+          toast.success("User deleted successfuly");
         });
-        toast.success("User deleted successfuly");
-      });
     }
   }
 

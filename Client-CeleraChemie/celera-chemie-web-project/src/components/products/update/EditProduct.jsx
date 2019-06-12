@@ -3,8 +3,7 @@ import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import Input from "../../common/Input";
-import { put } from "../../../data/crud"
-import Auth from "../../../utils/auth";
+import { get, put } from "../../../data/crud"
 import { createProductValidationFunc } from "../../../utils/formValidator";
 import createProductValidator from "../../../utils/createProductValidator";
 import "../../common/Form.css";
@@ -62,7 +61,7 @@ class EditProduct extends Component {
       return;
     }
 
-    await put(`http://localhost:5000/product/${productId}`,
+    await put(`product/${productId}`,
       {
         manufacturer: this.state.manufacturer,
         description: this.state.description,
@@ -85,13 +84,7 @@ class EditProduct extends Component {
 
   componentDidMount() {
     const productId = this.props.match.params.id;
-    fetch(`http://localhost:5000/product/${productId}`, {
-      method: "GET",
-      headers: {
-        Authorization: "bearer " + Auth.getToken()
-      }
-    })
-      .then(rawData => rawData.json())
+    get(`product/${productId}`)
       .then(product =>
         this.setState({
           _id: productId,

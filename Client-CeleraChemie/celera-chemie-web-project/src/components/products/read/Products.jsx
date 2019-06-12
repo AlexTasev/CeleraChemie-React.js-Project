@@ -34,7 +34,7 @@ class Products extends Component {
 
   async handleClick(e) {
     let chosenCategory = e.target.name;
-    let products = await get(`http://localhost:5000/product/${chosenCategory}/${this.state.language}`);
+    let products = await get(`product/${chosenCategory}/${this.state.language}`);
     this.setState({
       products: products,
       category: chosenCategory

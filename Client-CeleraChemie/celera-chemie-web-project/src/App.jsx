@@ -22,8 +22,6 @@ import AllUsers from "./components/user/AllUsers";
 import UserProfile from "./components/user/UserProfile";
 import Certificates from "./components/certificates/CertificatesPage";
 
-const host = "http://localhost:5000/";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +38,7 @@ class App extends Component {
   }
 
   async registerUser(user) {
-    await post(host + "auth/signup", user)
+    await post("auth/signup", user)
       .then(res => {
         if (!res.success) {
           toast.error(res.message);
@@ -57,7 +55,7 @@ class App extends Component {
   }
 
   async loginUser(user) {
-    await post(host + "auth/login", user)
+    await post("auth/login", user)
       .then(res => {
         if (!res.success) {
           toast.error(res.message);

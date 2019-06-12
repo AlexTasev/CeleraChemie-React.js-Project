@@ -12,7 +12,7 @@ class NoProducts extends Component {
   }
 
   async componentDidMount() {
-    let products = await get(`http://localhost:5000/product/all/${this.props.language}`)
+    let products = await get(`product/all/${this.props.language}`)
     this.setState({
       products
     })

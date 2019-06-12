@@ -9,8 +9,11 @@ function request(method) {
             : {}
     }
 
+    const baseUrl = "http://localhost:5000/";
+
     return async (url, data = {}, options = {}) => {
         const authHeader = getAuthHeader();
+        url = baseUrl + url;
 
         const response = await fetch(url, {
             method,

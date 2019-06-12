@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
   async componentDidMount() {
     const userId = localStorage.getItem("userId");
-    await get(`http://localhost:5000/users/${userId}`)
+    await get(`users/${userId}`)
       .then(user =>
         this.setState({
           email: user.email,
@@ -52,7 +52,7 @@ class UserProfile extends Component {
       return;
     }
     let userId = localStorage.getItem("userId");
-    await put(`http://localhost:5000/users/${userId}`, this.state)
+    await put(`users/${userId}`, this.state)
       .then(body => {
         if (!body.success) {
           toast.error(body.message);
@@ -87,7 +87,7 @@ class UserProfile extends Component {
 
   async deleteUser() {
     let userId = localStorage.getItem("userId");
-    await remove(`http://localhost:5000/users/${userId}`)
+    await remove(`users/${userId}`)
       .then(res => {
         this.props.logout();
         this.setState({
