@@ -77,15 +77,9 @@ router.put('/:id', authCheck, (req, res) => {
     Product
       .findById(productId)
       .then(existingProduct => {
-        existingProduct.manufacturer = productObj.manufacturer
-        existingProduct.description = productObj.description
-        existingProduct.category = productObj.category
-        existingProduct.logoUrl = productObj.logoUrl
-        existingProduct.language = productObj.language
-        existingProduct.catalogueUrl = productObj.catalogueUrl
-        existingProduct.brandWebSite = productObj.brandWebSite
+        let editedProduct = Object.assign(existingProduct, productObj);
 
-        existingProduct
+        editedProduct
           .save()
           .then(editedProduct => {
             res.status(200).json({
