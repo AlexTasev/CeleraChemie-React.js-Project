@@ -13,3 +13,23 @@ After registration and subsequent successful Login to the system, a registered u
 The guest user has acces to general information about the company. The following pages are public and visible to any visitor on Celera Chemie Ltd. company web site : "Contacts", "About us", "Certificates", "Register", "Login".
 
 The application is built entirely on latest JavaScript technologies: React.js (client side) and node.js (server side). All rights of their respective owners are reserved.
+
+## Resolve Dependencies
+When the project is cloned or downloaded, type in the terminal the following in both Server and CLient directory:
+```javascript
+npm install
+```
+## Run the web server
+The app uses nodemon. To run the web server type in terminal from Server-Celera-Chemie the following:
+```javascript
+nodemon index
+```
+## Run the React app
+The app uses React on client side. To run the React app type in terminal from celera-chemie-web-project the following:
+```javascript
+npm start
+```
+By default, the app runs on 
+```
+localhost:3000
+```
