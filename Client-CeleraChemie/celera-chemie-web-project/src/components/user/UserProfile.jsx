@@ -13,7 +13,7 @@ class UserProfile extends Component {
     super(props);
     this.state = {
       email: "",
-      organisation: "",
+      organization: "",
       nameOfUser: "",
       phoneNumber: "",
       isUserChanged: false,
@@ -30,7 +30,7 @@ class UserProfile extends Component {
       .then(user =>
         this.setState({
           email: user.email,
-          organisation: user.organisation,
+          organization: user.organization,
           nameOfUser: user.nameOfUser,
           phoneNumber: user.phoneNumber
         })
@@ -48,7 +48,7 @@ class UserProfile extends Component {
 
   async onSubmit(event) {
     event.preventDefault();
-    if (!editValidator(this.state.email, this.state.organisation)) {
+    if (!editValidator(this.state.email, this.state.organization)) {
       return;
     }
     let userId = localStorage.getItem("userId");
@@ -122,10 +122,10 @@ class UserProfile extends Component {
           <Input
             type="text"
             onChange={this.handleChange}
-            label="Organisation"
-            name="organisation"
-            value={this.state.organisation}
-            id="organisationRegister"
+            label="Organization"
+            name="organization"
+            value={this.state.organization}
+            id="organizationRegister"
           />
           <Input
             type="text"

@@ -56,8 +56,8 @@ class AllUsers extends Component {
         {allUsers.map(user => (
           <div className="single-user" key={user._id}>
             <div>
-              <span>Organisation: </span>
-              {user.organisation}
+              <span>Organization: </span>
+              {user.organization}
             </div>
             <div>
               <span>Name: </span>
