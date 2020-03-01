@@ -10,7 +10,7 @@ class RegisterForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      organisation: '',
+      organization: '',
       nameOfUser: '',
       phoneNumber: '',
       password: ''
@@ -33,7 +33,7 @@ class RegisterForm extends React.Component {
     if (
       !registerValidator(
         this.state.email,
-        this.state.organisation,
+        this.state.organization,
         this.state.password,
         this.state.repeatPassword
       )
@@ -67,9 +67,9 @@ class RegisterForm extends React.Component {
           <Input
             type="text"
             onChange={this.handleChange}
-            label="Organisation"
-            name="organisation"
-            id="organisationRegister"
+            label="Organization"
+            name="organization"
+            id="organizationRegister"
           />
           <Input
             type="text"
