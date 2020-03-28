@@ -1,5 +1,5 @@
 # CeleraChemie-React.js-Project
-Celera Chemie Ltd. company web site. Build as web project for the ReactJS fundamentals course at SoftUni.
+Celera Chemie Ltd. company web site. Built as web project for the ReactJS fundamentals course at SoftUni.
 
 Celera Chemie is an international company, dealing with laboratory supplies in the South-east Europe region. The company operates sales and logistic offices in Bucharest, Nicosia and Sofia and multi-language service in English, Bulgarian, Greek and Romanian is required.
 
